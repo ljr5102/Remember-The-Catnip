@@ -1,23 +1,27 @@
-# FresherNote
+# Remember The Milk
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+[Heroku link][heroku]
 
 [heroku]: http://www.herokuapp.com
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote built using Ruby on Rails
-and React.js. FresherNote allows users to:
+Remember The Milk is a web application inspired by the app of the same title.  
+This app was built using Ruby on Rails and React.js.
+FresherNote allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress. Put an x between the brackets for a checkmark: [x] -->
 
-- [ ] Create an account
-- [ ] Log in / Log out
-- [ ] Create, read, edit, and delete notes
-- [ ] Organize notes within Notebooks
-- [ ] Tag notes with multiple tags
-- [ ] Apply complex styling to notes while editing
+- [ ] Sign up for an account
+- [ ] Log in and log out of their accounts
+- [ ] Create, read, update, and delete tasks
+- [ ] Create, read, update, and delete lists
+- [ ] Store tasks in a list
+- [ ] Create, read, update, and delete tags
+- [ ] Add multiple tags to tasks
+- [ ] Create, read, update, and delete notes
+- [ ] Add multiple notes to tasks
 
 ## Design Docs
 * [View Wireframes][views]
