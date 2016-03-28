@@ -36,7 +36,7 @@ Remember The Milk allows users to:
 
 ## Implementation Timeline
 
-### Phase 1: User authentication (0.5 days)
+### [Phase 1][phase-one]: User authentication (0.5 days)
 
 **Objective:** Users can sign up and login
 
@@ -46,7 +46,7 @@ Remember The Milk allows users to:
 - [ ] authentication
 - [ ] users directed to blank root page upon signing in
 
-### Phase 2: Task creation and editing (1 day)
+### [Phase 2][phase-two]: Task creation and editing (1 day)
 
 **Objective:** Tasks can be created and edited
 
@@ -58,13 +58,13 @@ Remember The Milk allows users to:
 - [ ] Create React components TasksIndex, TasksIndexItem, TaskDetail
 - [ ] Set up Task seed data
 
-### Phase 3: Overall navigational setup (0.5 days)
+### [Phase 3][phase-three]: Overall navigational setup (0.5 days)
 
 **Objective:** Side navigational bar and header appear on screen
 - [ ] Create React components Header, AllIndex
 - [ ] Very light CSS styling to make Header and AllIndex navigational bars
 
-### Phase 4: Inbox and Tasks Stats (1 day)
+### [Phase 4][phase-four]: Inbox and Tasks Stats (1 day)
 
 **Objective:** Users can access tasks through their inbox.  TasksStats component displays when a task is not selected.
 
@@ -76,7 +76,7 @@ Remember The Milk allows users to:
 - [ ] Update components so TaskStats displays when TaskDetail is NOT displayed
 
 
-### Phase 5: Lists (1 day)
+### [Phase 5][phase-five]: Lists (1 day)
 
 **Objective:** Lists can be created, edited, and destroyed.  Users can add tasks to a list.
 
@@ -91,7 +91,7 @@ Remember The Milk allows users to:
 - [ ] Add additional seed data for Lists
 
 
-### Phase 6: Tags (1.5 days)
+### [Phase 6][phase-six]: Tags (1.5 days)
 
 **Objective:** Tags can be added to tasks.  Tasks show all their tags and Tags show all associated tasks.
 
@@ -109,7 +109,7 @@ Remember The Milk allows users to:
 - [ ] Add additional seed data for tags
 
 
-### Phase 7: Notes (1 day)
+### [Phase 7][phase-seven]: Notes (1 day)
 
 **Objective:** Notes can be created, updated, destroyed.  Notes can be added to tasks.  
 
@@ -121,7 +121,7 @@ Remember The Milk allows users to:
 - [ ] Add Note Store Listeners to NotesIndex
 - [ ] Add additional seed data for notes
 
-### Phase 8: Locations (1 day)
+### [Phase 8][phase-eight]: Locations (1 day)
 
 **Objective:** Locations can be created, updated, destroyed.  Tasks can be given a location.
 
@@ -135,7 +135,7 @@ Remember The Milk allows users to:
 - [ ] Add Task Store Listeners to LocationsIndexItem
 - [ ] Add additional seed data for Locations
 
-### Phase 9: Final Touches and Testing (0.5 days)
+### [Phase 9][phase-nine]: Final Touches and Testing (0.5 days)
 
 **Objective:** Application has a clean professional look and operates smoothly.
 
