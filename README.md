@@ -8,10 +8,8 @@
 
 Remember The Milk is a web application inspired by the app of the same title.  
 This app was built using Ruby on Rails and React.js.
-FresherNote allows users to:
+Remember The Milk allows users to:
 
-<!-- This is a Markdown checklist. Use it to keep track of your
-progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [ ] Sign up for an account
 - [ ] Log in and log out of their accounts
@@ -38,103 +36,126 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and User Authentication (0.5 days)
+### Phase 1: User authentication (0.5 days)
 
-**Objective:** Functioning rails project with Authentication
+**Objective:** Users can sign up and login
 
-- [ ] create new project
 - [ ] create `User` model
+- [ ] set up users and sessions controllers
+- [ ] create user and session views
 - [ ] authentication
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [ ] users directed to blank root page upon signing in
 
-### Phase 2: Notes Model, API, and basic APIUtil (1.5 days)
+### Phase 2: Task creation and editing (1 day)
 
-**Objective:** Notes can be created, read, edited and destroyed through
-the API.
+**Objective:** Tasks can be created and edited
 
-- [ ] create `Note` model
-- [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
-- [ ] setup Webpack & Flux scaffold
-- [ ] setup `APIUtil` to interact with the API
-- [ ] test out API interaction in the console.
+- [ ] Create Task model and controller
+- [ ] Create Task API for index, create, show, destroy, update
+- [ ] Create Flux Task Store
+- [ ] Create Store actions for receiveAllTasks and receiveSingleTask
+- [ ] Create the associated functions within the Task Store to handle the created actions
+- [ ] Create React components TasksIndex, TasksIndexItem, TaskDetail
+- [ ] Set up Task seed data
 
-### Phase 3: Flux Architecture and Router (1.5 days)
+### Phase 3: Overall navigational setup (0.5 days)
 
-**Objective:** Notes can be created, read, edited and destroyed with the
-user interface.
+**Objective:** Side navigational bar and header appear on screen
+- [ ] Create React components Header, AllIndex
+- [ ] Very light CSS styling to make Header and AllIndex navigational bars
 
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
-- implement each note component, building out the flux loop as needed.
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle
-  after editing.
+### Phase 4: Inbox and Tasks Stats (1 day)
 
-### Phase 4: Start Styling (0.5 days)
+**Objective:** Users can access tasks through their inbox.  TasksStats component displays when a task is not selected.
 
-**Objective:** Existing pages (including singup/signin) will look good.
+- [ ] Create React components Inbox, AllTasks, Today, Tomorrow, ThisWeek, Trash
+- [ ] Add Task Store Listeners to AllTasks, Today, Tomorrow, ThisWeek, and Trash
+- [ ] Ensure the above components do not require additional ajax requests.  All should utilize the existing receiveAllTasks action and do additional logic directly in the component
+- [ ] Test the functionality of the Listeners
+- [ ] Create React component TaskStats
+- [ ] Update components so TaskStats displays when TaskDetail is NOT displayed
 
-- [ ] create a basic style guide
-- [ ] position elements on the page
-- [ ] add basic colors & styles
 
-### Phase 5: Notebooks (1 day)
+### Phase 5: Lists (1 day)
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+**Objective:** Lists can be created, edited, and destroyed.  Users can add tasks to a list.
 
-- [ ] create `Notebook` model
-- build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
-- Use CSS to style new views
+- [ ] Create List model and controller
+- [ ] Create List API for create, update, destroy, index
+- [ ] Create Flux List Store
+- [ ] Create List Store actions for receiveAllLists
+- [ ] Create Task Store action for receiveAllTasksforList
+- [ ] Create React components ListsIndex, ListsIndexItem, ListNewForm, ListEditForm
+- [ ] Add Task Store Listeners to ListsIndexItem
+- [ ] Add List Store Listeners to ListIndex
+- [ ] Add additional seed data for Lists
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
-which has its own `Index` view.
 
 ### Phase 6: Tags (1.5 days)
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** Tags can be added to tasks.  Tasks show all their tags and Tags show all associated tasks.
 
-- [ ] create `Tag` model and join table
-- build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
-- [ ] Style new elements
+- [ ] Create Tag model and controller
+- [ ] Create Tagging model (join table of tags and tasks)
+- [ ] Create Tag API for create, update, destroy, index,
+- [ ] Create Tag API for index for given task
+- [ ] Create Task API for index for given tags
+- [ ] Create Flux Tag Store
+- [ ] Create Tag Store actions for receiveAllTags and recieveAllTagsforTask
+- [ ] Create Task Store actions for receiveAllTasksforTag
+- [ ] Create React components TagsIndex, TagsIndexItem, TagNewForm, TagEditForm
+- [ ] Add Task Store Listeners to TagsIndexItem
+- [ ] Add Tag Store Listeners to TagsIndex
+- [ ] Add additional seed data for tags
 
-### Phase 7: Allow Complex Styling in Notes (0.5 days)
 
-**objective:** Enable complex styling of notes.
+### Phase 7: Notes (1 day)
 
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
+**Objective:** Notes can be created, updated, destroyed.  Notes can be added to tasks.  
 
-### Phase 8: Styling Cleanup and Seeding (1 day)
+- [ ] Create Note model and controller
+- [ ] Create Note API for index, create, update, destroy
+- [ ] Create Flux Note Store
+- [ ] Create Note Store action for receiveAllNotesforTask
+- [ ] Create React components NotesIndex, NotesIndexItem, NoteNewForm, NoteEditForm
+- [ ] Add Note Store Listeners to NotesIndex
+- [ ] Add additional seed data for notes
 
-**objective:** Make the site feel more cohesive and awesome.
+### Phase 8: Locations (1 day)
 
-- [ ] Get feedback on my UI from others
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, and other styling flourishes.
+**Objective:** Locations can be created, updated, destroyed.  Tasks can be given a location.
+
+- [ ] Create Location model and controller
+- [ ] Create Location API for index, create, update, destroy
+- [ ] Create Flux Location Store
+- [ ] Create Task Store action for receiveAllTasksforLocation
+- [ ] Create Location Store action for receiveAllLocations
+- [ ] Create React components for LocationsIndex, LocationsIndexItem, LocationNewForm, LocationEditForm
+- [ ] Add Location Store Listeners to LocationsIndex
+- [ ] Add Task Store Listeners to LocationsIndexItem
+- [ ] Add additional seed data for Locations
+
+### Phase 9: Final Touches and Testing (0.5 days)
+
+**Objective:** Application has a clean professional look and operates smoothly.
+
+- [ ] Add CSS styling to clean up visually
+- [ ] Perform end-to-end testing to ensure usability
+- [ ] Obtain feedback from other users
 
 ### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+- [ ] Add notifications
+- [ ] Allow for adding of contacts and creating tasks for contacts
+- [ ] Set up reminders to be sent to users email address
+- [ ] Add smart lists
+- [ ] Subtasks
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
+[phase-six]: ./docs/phases/phase6.md
+[phase-seven]: ./docs/phases/phase7.md
+[phase-eight]: ./docs/phases/phase8.md
+[phase-nine]: ./docs/phases/phase9.md

@@ -1,66 +1,66 @@
 # Flux Stores
 
-### NoteStore
+### TaskStore
+
+Holds all persisted task data.
+
+##### Actions:
+- `receiveAllTasks`
+- `receiveSingleTask`
+- `receiveAllTasksforList`
+- `receiveAllTasksforTag`
+- `receiveAllTasksforLocation`
+
+##### Listeners:
+- `AllTasks`
+- `Today`
+- `Tomorrow`
+- `ThisWeek`
+- `Trash`
+- `ListsIndexItem`
+- `LocationIndexItem`
+
+
+### ListStore
+
+Holds all persisted list data.
+
+##### Actions:
+- `receiveAllLists`
+
+##### Listeners:
+- `ListsIndex`
+
+
+### TagStore
+
+Holds all persisted tag data.
+
+##### Actions:
+- `receiveAllTags`
+- `receiveAllTagsforTask`
+
+##### Listeners:
+- `TagsIndex`
+
+
+### Note Store
 
 Holds all persisted note data.
 
 ##### Actions:
-- `receiveAllNotes`
-- `receiveSingleNote`
-- `removeNote`
+- `receiveAllNotesforTask`
 
 ##### Listeners:
-- `NotesIndex` (passes to `NoteIndexItem` via props)
-- `NoteDetail`
+- `Notes`
 
-### NoteFormStore
 
-Holds un-persisted note data to send to the API.
+### LocationStore
+
+Holds all persisted location data.
 
 ##### Actions:
-- `receiveNoteFormParams`
+- `receiveAllLocations`
 
 ##### Listeners:
-- `NoteForm`
-
-### NotebookStore
-
-Holds all persisted notebook data.
-
-##### Actions:
-- `receiveAllNotebooks`
-- `receiveSingleNotebook`
-- `removeNotebook`
-
-##### Listeners:
-- `NotebookIndex`
-
-### NotebookFormStore
-
-Holds un-persisted notebook data to send to the API.
-
-##### Actions:
-- `receiveNotebookFormParams`
-
-##### Listeners:
-- `NotebookForm`
-
-### SearchStore
-
-Holds search parameters to send to the API.
-
-##### Actions:
-- `receiveSearchParams`
-
-##### Listeners:
-- `SearchIndex`
-
-### SearchSuggestionStore
-
-Holds typeahead suggestions for search.
-
-##### Actions:
-- `receiveSearchSuggestions`
-
-##### Listeners:
-- `SearchSuggestions`
+- `Locations`

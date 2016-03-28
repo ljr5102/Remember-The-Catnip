@@ -1,37 +1,32 @@
 # Schema Information
 
-## notes
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-title       | string    | not null
-body        | text      | not null
-author_id   | integer   | not null, foreign key (references users), indexed
-notebook_id | integer   | not null, foreign key (references notebooks), indexed
-archived    | boolean   | not null, default: false
+## tasks
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+creator_id    | integer   | not null, foreign key (references users), indexed
+due_date      | date      |
+start_date    | date      |
+priority      | string    |
+list_id       | integer   | foreign key (references lists), indexed
+repeat        | string    |
+location_id   | integer   | foreign key (references locations), indexed
+estimate      | string    |
+owner_id      | integer   | not null, foreign key (references users), indexed
+completed     | boolean   | not null, default: false
 
-## notebooks
+## lists
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users), indexed
-title       | string    | not null
-description | string    | 
-
-## reminders
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references users), indexed
-note_id     | string    | not null, foreign key (references notes), indexed
-date        | datetime  | not null
-type        | string    | not null
-prev_id     | integer   | foreign key (references reminders), indexed
+creator_id  | integer   | not null, foreign key (references users), indexed
+name        | string    | not null
 
 ## tags
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+creator_id  | integer   | not null, foreign key (references users), indexed
 name        | string    | not null
 
 ## taggings
@@ -39,13 +34,30 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 name        | string    | not null
-note_id     | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
+task_id     | integer   | not null, foreign key (references tasks), indexed, unique [tag_id]
 tag_id      | integer   | not null, foreign key (references tags), indexed
+
+## locations
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+creator_id  | integer   | not null, foreign key (references users), indexed
+name        | string    | not null
+address     | string    | not null
+
+## notes
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+task_id     | integer   | not null, foreign key (references tasks), indexed
+body        | text      | not null
+
 
 ## users
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
+email_address   | string    | not null, indexed, unique
 username        | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique

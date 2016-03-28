@@ -1,38 +1,34 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days)
+# Phase 2: Tasks (1 day)
 
 ## Rails
 ### Models
+* Task
 
 ### Controllers
+* TasksController (index, create, new, show, edit, update, destroy)
 
 ### Views
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
+* TasksIndex
+  - TasksIndexItem
+   - TaskDetail
+    - TaskEditForm
+  - TaskNewForm
 
 ### Stores
-* Note
+* Task
 
 ### Actions
-* ApiActions.receiveAllNotes -> triggered by ApiUtil
-* ApiActions.receiveSingleNote
-* ApiActions.deleteNote
-* NoteActions.fetchAllNotes -> triggers ApiUtil
-* NoteActions.fetchSingleNote 
-* NoteActions.createNote
-* NoteActions.editNote 
-* NoteActions.destroyNote
+* TaskActions.receiveAllTasks
+* TaskActions.receiveSingleTask
 
 ### ApiUtil
-* ApiUtil.fetchAllNotes
-* ApiUtil.fetchSingleNote
-* ApiUtil.createNote
-* ApiUtil.editNote
-* ApiUtil.destroyNote
+* ApiUtil.fetchAllTasks
+* ApiUtil.fetchSingleTask
+* ApiUtil.createTask
+* ApiUtil.editTask
+* ApiUtil.destroyTask
 
 ## Gems/Libraries
-* Flux Dispatcher (npm)
-* Twitter Bootstrap

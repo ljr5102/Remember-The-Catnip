@@ -1,4 +1,4 @@
-# Phase 4: Inbox and Tasks Stats (1 day)
+# Phase 9: Final Touches and Testing (0.5 days)
 
 ## Rails
 ### Models
@@ -9,13 +9,6 @@
 
 ## Flux
 ### Views (React Components)
-* Inbox
- - AllTasks
- - Today
- - Tomorrow
- - ThisWeek
- - Trash
-* TasksStats
 
 ### Stores
 
