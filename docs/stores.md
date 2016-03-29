@@ -7,19 +7,15 @@ Holds all persisted task data.
 ##### Actions:
 - `receiveAllTasks`
 - `receiveSingleTask`
+- `addTask`
+- `updateTask`
+- `removeTask`
 - `receiveAllTasksforList`
 - `receiveAllTasksforTag`
 - `receiveAllTasksforLocation`
 
 ##### Listeners:
-- `AllTasks`
-- `Today`
-- `Tomorrow`
-- `ThisWeek`
-- `Trash`
-- `ListsIndexItem`
-- `LocationIndexItem`
-
+- `TasksIndex`
 
 ### ListStore
 

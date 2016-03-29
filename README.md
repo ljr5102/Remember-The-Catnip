@@ -1,4 +1,4 @@
-# Remember The Milk
+# Remember The Catnip
 
 [Heroku link][heroku]
 
@@ -6,9 +6,9 @@
 
 ## Minimum Viable Product
 
-Remember The Milk is a web application inspired by the app of the same title.  
+Remember The Catnip is a web application inspired by Remember The Milk.  
 This app was built using Ruby on Rails and React.js.
-Remember The Milk allows users to:
+Remember The Catnip allows users to:
 
 
 - [ ] Sign up for an account
@@ -40,11 +40,12 @@ Remember The Milk allows users to:
 
 **Objective:** Users can sign up and login
 
-- [ ] create `User` model
-- [ ] set up users and sessions controllers
-- [ ] create user and session views
-- [ ] authentication
-- [ ] users directed to blank root page upon signing in
+- [ ] Create `User` model
+- [ ] Set up users and sessions controllers
+- [ ] Create user and session views
+- [ ] Set up authentication
+- [ ] Direct users to blank root page upon signing in
+- [ ] Light CSS styling of login/sign up page
 
 ### [Phase 2][phase-two]: Task creation and editing (1 day)
 
@@ -53,7 +54,7 @@ Remember The Milk allows users to:
 - [ ] Create Task model and controller
 - [ ] Create Task API for index, create, show, destroy, update
 - [ ] Create Flux Task Store
-- [ ] Create Store actions for receiveAllTasks and receiveSingleTask
+- [ ] Create all Task Store actions
 - [ ] Create the associated functions within the Task Store to handle the created actions
 - [ ] Create React components TasksIndex, TasksIndexItem, TaskDetail
 - [ ] Set up Task seed data
@@ -70,10 +71,10 @@ Remember The Milk allows users to:
 
 - [ ] Create React components Inbox, AllTasks, Today, Tomorrow, ThisWeek, Trash
 - [ ] Add Task Store Listeners to AllTasks, Today, Tomorrow, ThisWeek, and Trash
-- [ ] Ensure the above components do not require additional ajax requests.  All should utilize the existing receiveAllTasks action and do additional logic directly in the component
 - [ ] Test the functionality of the Listeners
 - [ ] Create React component TaskStats
 - [ ] Update components so TaskStats displays when TaskDetail is NOT displayed
+- [ ] Touch up CSS where needed to give page nice flow
 
 
 ### [Phase 5][phase-five]: Lists (1 day)
@@ -89,6 +90,7 @@ Remember The Milk allows users to:
 - [ ] Add Task Store Listeners to ListsIndexItem
 - [ ] Add List Store Listeners to ListIndex
 - [ ] Add additional seed data for Lists
+- [ ] Touch up CSS to accommodate Lists
 
 
 ### [Phase 6][phase-six]: Tags (1.5 days)
@@ -107,6 +109,7 @@ Remember The Milk allows users to:
 - [ ] Add Task Store Listeners to TagsIndexItem
 - [ ] Add Tag Store Listeners to TagsIndex
 - [ ] Add additional seed data for tags
+- [ ] Touch up CSS to accommodate Tags
 
 
 ### [Phase 7][phase-seven]: Notes (1 day)
@@ -120,6 +123,7 @@ Remember The Milk allows users to:
 - [ ] Create React components NotesIndex, NotesIndexItem, NoteNewForm, NoteEditForm
 - [ ] Add Note Store Listeners to NotesIndex
 - [ ] Add additional seed data for notes
+- [ ] Touch up CSS to accommodate Notes
 
 ### [Phase 8][phase-eight]: Locations (1 day)
 
@@ -127,6 +131,7 @@ Remember The Milk allows users to:
 
 - [ ] Create Location model and controller
 - [ ] Create Location API for index, create, update, destroy
+- [ ] Incorporate Google Maps API to allow for address validation
 - [ ] Create Flux Location Store
 - [ ] Create Task Store action for receiveAllTasksforLocation
 - [ ] Create Location Store action for receiveAllLocations
@@ -134,6 +139,7 @@ Remember The Milk allows users to:
 - [ ] Add Location Store Listeners to LocationsIndex
 - [ ] Add Task Store Listeners to LocationsIndexItem
 - [ ] Add additional seed data for Locations
+- [ ] Touch up CSS to accommodate Locations
 
 ### [Phase 9][phase-nine]: Final Touches and Testing (0.5 days)
 
@@ -149,6 +155,7 @@ Remember The Milk allows users to:
 - [ ] Set up reminders to be sent to users email address
 - [ ] Add smart lists
 - [ ] Subtasks
+- [ ] Recurring Tasks
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

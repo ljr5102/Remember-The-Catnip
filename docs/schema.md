@@ -4,16 +4,15 @@
 column name   | data type | details
 --------------|-----------|-----------------------
 id            | integer   | not null, primary key
-creator_id    | integer   | not null, foreign key (references users), indexed
-due_date      | date      |
-start_date    | date      |
-priority      | string    |
-list_id       | integer   | foreign key (references lists), indexed
-repeat        | string    |
-location_id   | integer   | foreign key (references locations), indexed
-estimate      | string    |
 owner_id      | integer   | not null, foreign key (references users), indexed
+name          | string    | not null
 completed     | boolean   | not null, default: false
+start_date    | date      |
+due_date      | date      |
+priority      | integer   |
+estimate      | string    |
+list_id       | integer   | foreign key (references lists), indexed
+location_id   | integer   | foreign key (references locations), indexed
 
 ## lists
 column name | data type | details
@@ -33,9 +32,8 @@ name        | string    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-name        | string    | not null
+tag_id      | integer   | not null, foreign key (references tags), indexed, unique [task_id]
 task_id     | integer   | not null, foreign key (references tasks), indexed, unique [tag_id]
-tag_id      | integer   | not null, foreign key (references tags), indexed
 
 ## locations
 column name | data type | details

@@ -23,6 +23,9 @@
 ### Actions
 * TaskActions.receiveAllTasks
 * TaskActions.receiveSingleTask
+* TaskActions.addTask
+* TaskActions.removeTask
+* TaskActions.updateTask
 
 ### ApiUtil
 * ApiUtil.fetchAllTasks
