@@ -1,8 +1,6 @@
 # Remember The Catnip
 
-[Live Application Here][heroku]
-
-[heroku]: <a href="remember-the-catnip.herokuapp.com"></a>
+<a href="remember-the-catnip.herokuapp.com">Live App Here</a>
 
 ## Minimum Viable Product
 
