@@ -11,16 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329152837) do
+ActiveRecord::Schema.define(version: 20160329184706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "owner_id",                    null: false
+    t.string   "name",                        null: false
+    t.boolean  "completed",   default: false, null: false
+    t.date     "start_date"
+    t.date     "due_date"
+    t.integer  "priority"
+    t.string   "estimate"
+    t.integer  "list_id"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["list_id"], name: "index_tasks_on_list_id", using: :btree
+  add_index "tasks", ["location_id"], name: "index_tasks_on_location_id", using: :btree
+  add_index "tasks", ["owner_id"], name: "index_tasks_on_owner_id", using: :btree
+
   create_table "users", force: :cascade do |t|
-    t.string "username",        null: false
-    t.string "email_address",   null: false
-    t.string "password_digest", null: false
-    t.string "session_token",   null: false
+    t.string   "username",        null: false
+    t.string   "email_address",   null: false
+    t.string   "password_digest", null: false
+    t.string   "session_token",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email_address"], name: "index_users_on_email_address", unique: true, using: :btree

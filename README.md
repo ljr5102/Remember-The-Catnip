@@ -45,7 +45,7 @@ Remember The Catnip allows users to:
 - [ x ] Create user and session views
 - [ x ] Set up authentication
 - [ x ] Direct users to blank root page upon signing in
-- [ ] Light CSS styling of login/sign up page
+- [ x ] Light CSS styling of login/sign up page
 
 ### [Phase 2][phase-two]: Task creation and editing (1 day)
 
