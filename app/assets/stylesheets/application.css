@@ -13,3 +13,163 @@
  *= require_tree .
  *= require_self
  */
+
+ html, body, h1, h2, p, form, a, div,
+ input, label, main, section {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   outline: 0;
+   box-sizing: inherit;
+   background: transparent;
+   text-align: inherit;
+   text-decoration: inherit;
+   color: inherit;
+   font: inherit;
+ }
+
+ input {
+   border: 1px solid black;
+ }
+
+ body {
+   font-family: sans-serif;
+   font-size: 16px;
+ }
+
+ img {
+   display: block;
+   width: 100%;
+   height: auto;
+ }
+
+ .group:after {
+   display: block;
+   content: "";
+   clear: both;
+ }
+
+/*new user page*/
+
+ .new-user {
+
+ }
+
+.promo {
+  height: 100vh;
+  width: 50%;
+  float: left;
+}
+
+.logo {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.emojis {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.emojis img {
+  margin-top: 300px;
+  width: 100px;
+  float: left;
+}
+
+.promo-quote {
+  padding: 30px;
+  text-align: center;
+}
+
+.sign-up {
+  height: 100vh;
+  float: right;
+  width: 50%;
+}
+
+.sign-up-form {
+  display: block;
+  padding-top: 300px;
+}
+
+.sign-up-form h1 {
+  display: block;
+  width: 400px;
+  margin: auto;
+}
+
+.sign-up-form label {
+  width: 400px;
+  margin: auto;
+  display: block;
+}
+
+.sign-up-form input {
+  margin: auto;
+  width: 400px;
+  display: block;
+}
+
+/*new session page*/
+
+.new-session {
+
+}
+
+.sign-in-promo {
+ height: 100vh;
+ width: 50%;
+ float: left;
+}
+
+.sign-in-logo {
+ width: 100px;
+ margin: 0 auto;
+}
+
+.sign-in-emojis {
+ margin: 0 auto;
+ width: 50%;
+}
+
+.sign-in-emojis img {
+ margin-top: 100px;
+ margin-left: 100px;
+ width: 100px;
+ float: left;
+}
+
+.sign-in-promo-quote {
+ padding-top: 200px;
+ text-align: center;
+}
+
+.sign-in {
+ height: 100vh;
+ float: right;
+ width: 50%;
+}
+
+.sign-in-form {
+ display: block;
+ padding-top: 300px;
+}
+
+.sign-in-form h1 {
+ display: block;
+ width: 400px;
+ margin: auto;
+}
+
+.sign-in-form label {
+ width: 400px;
+ margin: auto;
+ display: block;
+}
+
+.sign-in-form input {
+ margin: auto;
+ width: 400px;
+ display: block;
+}

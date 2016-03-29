@@ -1,19 +1,36 @@
-<h1>Sign Up!</h1>
+<main class="new-user group">
 
-<form action="<%= users_url %>" method="POST">
-  <%= authenticity_token %>
-  <label>Username
-    <input type="text" name="user[username]">
-  </label>
+  <section class="promo">
+    <img class="logo" src="#" alt="logo">
+    <section class="emojis group">
+      <img src="#" alt="emoji">
+      <img src="#" alt="emoji">
+      <img src="#" alt="emoji">
+    </section>
+    <p class="promo-quote">Join millions of people getting more organized and productive!</p>
+  </section>
 
-  <label>Email Address
-    <input type="text" name="user[email_address]">
-  </label>
+  <section class="sign-up group">
+    <section class="sign-up-form">
+      <h1>Sign up for free.</h1>
 
-  <label>Password
-    <input type="password" name="user[password]">
-  </label>
+      <form action="<%= users_url %>" method="POST">
+        <%= authenticity_token %>
+        <label>Username
+          <input type="text" name="user[username]">
+        </label>
 
-  <input type="submit" value="Sign Up!">
+        <label>Email Address
+          <input type="text" name="user[email_address]">
+        </label>
 
-</form>
+        <label>Password
+          <input type="password" name="user[password]">
+        </label>
+
+        <input type="submit" value="Sign Up!">
+
+      </form>
+    </section>
+  </section>
+</main>

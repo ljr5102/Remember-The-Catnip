@@ -40,11 +40,11 @@ Remember The Catnip allows users to:
 
 **Objective:** Users can sign up and login
 
-- [ ] Create `User` model
-- [ ] Set up users and sessions controllers
-- [ ] Create user and session views
-- [ ] Set up authentication
-- [ ] Direct users to blank root page upon signing in
+- [ x ] Create `User` model
+- [ x ] Set up users and sessions controllers
+- [ x ] Create user and session views
+- [ x ] Set up authentication
+- [ x ] Direct users to blank root page upon signing in
 - [ ] Light CSS styling of login/sign up page
 
 ### [Phase 2][phase-two]: Task creation and editing (1 day)

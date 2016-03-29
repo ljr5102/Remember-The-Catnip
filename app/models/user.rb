@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   validates :username, :email_address, :session_token, uniqueness: true
-  validates :username, :email_address, :session_token, presence: true
+  validates :username, :email_address, :session_token, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   after_initialize :ensure_session_token
 

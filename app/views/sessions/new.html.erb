@@ -1,15 +1,30 @@
-<h1>Log In!</h1>
+<main class="new-session group">
 
-<form action="<%= session_url %>" method="POST">
-  <%= authenticity_token %>
+  <section class="sign-in-promo">
+    <img class="sign-in-logo" src="#" alt="logo">
+    <p class="sign-in-promo-quote">Place inspiring quote here.</p>
+    <section class="sign-in-emojis group">
+      <img src="#" alt="emoji">
+    </section>
+  </section>
 
-  <label>Username
-    <input type="text" name="user[username]">
-  </label>
+  <section class="sign-in group">
+    <section class="sign-in-form">
+      <h1>Log In!</h1>
 
-  <label>Password
-    <input type="password" name="user[password]">
-  </label>
+      <form action="<%= session_url %>" method="POST">
+        <%= authenticity_token %>
 
-  <input type="submit" value="Log In!">
-</form>
+        <label>Username
+          <input type="text" name="user[username]">
+        </label>
+
+        <label>Password
+          <input type="password" name="user[password]">
+        </label>
+
+        <input type="submit" value="Log In!">
+      </form>
+    </section>
+  </section>
+</main>
