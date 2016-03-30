@@ -11,10 +11,12 @@ class Api::TasksController < ApplicationController
   end
 
   def create
+    # Date.parse!!!!
+    debugger
     newTask = Task.new(task_params)
-    newTask.owner_id = current_user.id
-    newTask.save!
-    render :index
+    # newTask.owner_id = current_user.id
+    # newTask.save!
+    # render :index
   end
 
   private
