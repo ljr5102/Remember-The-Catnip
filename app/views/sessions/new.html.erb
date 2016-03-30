@@ -1,8 +1,10 @@
 <main class="new-session group">
 
   <section class="sign-in-promo">
-    <img class="sign-in-logo" src="#" alt="logo">
-    <p class="sign-in-promo-quote">Place inspiring quote here.</p>
+    <div class="sign-in-logo"></div>
+    <p class="sign-in-promo-quote"><q>In ancient times cats were worshipped as gods;
+      they have not forgotten this.</q><br>
+    -Terry Pratchet</p>
     <section class="sign-in-emojis group">
       <img src="#" alt="emoji">
     </section>
@@ -15,15 +17,11 @@
       <form action="<%= session_url %>" method="POST">
         <%= authenticity_token %>
 
-        <label>Username
-          <input type="text" name="user[username]">
-        </label>
+          <input type="text" name="user[username]" placeholder="Username">
 
-        <label>Password
-          <input type="password" name="user[password]">
-        </label>
+          <input type="password" name="user[password]" placeholder="Password">
 
-        <input type="submit" value="Log In!">
+          <input type="submit" class="sign-in-button" value="Log In!">
       </form>
     </section>
   </section>

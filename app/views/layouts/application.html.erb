@@ -7,13 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if signed_in? %>
-    <div>Welcome <%= current_user.username %></div>
-  <% end %>
+  <%# if signed_in? %>
+    <!-- <div>Welcome <%#= current_user.username %></div> -->
+  <% #end %>
 
-  <% if !signed_in? %>
-    <div>New User?  <a href="<%= new_user_url %>">Sign up here!</a></div>
-  <% end %>
+  <%# if !signed_in? %>
+    <!-- <div>New User?  <a href="<%#= new_user_url %>">Sign up here!</a></div> -->
+  <%# end %>
 
 
 

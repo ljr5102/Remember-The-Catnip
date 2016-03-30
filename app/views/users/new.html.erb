@@ -16,19 +16,13 @@
 
       <form action="<%= users_url %>" method="POST">
         <%= authenticity_token %>
-        <label>Username
-          <input type="text" name="user[username]">
-        </label>
+          <input type="text" name="user[username]" placeholder="Username">
 
-        <label>Email Address
-          <input type="text" name="user[email_address]">
-        </label>
+          <input type="text" name="user[email_address]" placeholder="Email">
 
-        <label>Password
-          <input type="password" name="user[password]">
-        </label>
+          <input type="password" name="user[password]" placeholder="Password">
 
-        <input type="submit" value="Sign Up!">
+          <input class="sign-up-button" type="submit" value="Sign Up!">
 
       </form>
     </section>
