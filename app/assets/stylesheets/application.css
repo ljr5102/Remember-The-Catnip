@@ -56,17 +56,17 @@
  }
 
 .promo {
-  background: #4D9DE0;
+  background: #0060bf;
   height: 100vh;
   width: 50%;
   float: left;
 }
 
 .logo {
-  border: 1px solid black;
   display: block;
   width: 325px;
-  height: 150px;
+  height: 152px;
+  background-image: url(cat-logo);
   margin: 0 auto;
 }
 
