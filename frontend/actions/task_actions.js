@@ -8,6 +8,14 @@ var TaskActions = {
       tasks: tasks
     };
     AppDispatcher.dispatch(action);
+  },
+
+  addTask: function(task) {
+    var action = {
+      actionType: TaskConstants.ADD_TASK,
+      task: task
+    };
+    AppDispatcher.dispatch(action);
   }
 };
 

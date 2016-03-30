@@ -11,6 +11,10 @@ var resetTasks = function(tasks) {
   });
 };
 
+var addTask = function(task) {
+  _tasks.push(task);
+};
+
 TaskStore.all = function() {
   return _tasks.slice();
 };
@@ -19,6 +23,10 @@ TaskStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case "GET_ALL_TASKS":
       resetTasks(payload.tasks);
+      TaskStore.__emitChange();
+      break;
+    case "ADD_TASK":
+      addTask(payload.task);
       TaskStore.__emitChange();
       break;
   }

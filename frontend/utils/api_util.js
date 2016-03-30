@@ -10,10 +10,25 @@ var APIUtil = {
           TaskActions.receiveAllTasks(tasks);
         },
         error: function() {
-          console.log("Something went wrong");
+          console.log("Something went wrong in fetchAllTasks");
         }
       }
     );
+  },
+
+  createTask: function(task) {
+    $.ajax({
+      url: "api/tasks",
+      dataType: "json",
+      method: "POST",
+      data: { task: task },
+      success: function() {
+        TaskActions.addTask(task);
+      },
+      error: function() {
+        console.log("Something went wrong in createTask");
+      }
+    });
   }
 };
 
