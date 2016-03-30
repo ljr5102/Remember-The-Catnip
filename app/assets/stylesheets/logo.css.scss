@@ -1,0 +1,15 @@
+.logo {
+  display: block;
+  width: 325px;
+  height: 152px;
+  background-image: asset_url("cat-logo.jpg");
+  margin: 0 auto;
+}
+
+.sign-in-logo {
+ display: block;
+ width: 325px;
+ height: 152px;
+ background-image: url(cat-logo);
+ margin: 0 auto;
+}
