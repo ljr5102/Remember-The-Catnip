@@ -2,7 +2,13 @@ var APIUtil = require('./api_util');
 
 var TaskUtil = {
   parseTaskInput: function(input) {
-    var specialChars = ["*", "^", "#"];
+    var specialChars = ["*", "^", "#", "~", "!"];
+    // ^ due_date
+    // ~ start_date
+    // ! priority
+    // # list/tag
+    // @ location_id
+    // = estimate
     var inputArray = input.split(" ");
     var task = {};
     var taskName = "";
