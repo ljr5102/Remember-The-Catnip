@@ -17,10 +17,6 @@ var TaskNewForm = React.createClass({
     return this.blankAttrs;
   },
 
-  componentDidMount: function() {
-    // this.newTaskElement = $("#task");
-  },
-
   createTask: function(e) {
     e.preventDefault();
     var task = {};
@@ -31,9 +27,6 @@ var TaskNewForm = React.createClass({
     }.bind(this));
     APIUtil.createTask(task);
     this.setState(this.blankAttrs);
-    // var input = this.newTaskElement.val();
-    // $("#task").val("");
-    // TaskUtil.parseTaskInput(input);
   },
 
   render: function() {

@@ -10,6 +10,14 @@ var TaskActions = {
     AppDispatcher.dispatch(action);
   },
 
+  receiveSingleTask: function(task) {
+    var action = {
+      actionType: TaskConstants.GET_ONE_TASK,
+      task: task
+    };
+    AppDispatcher.dispatch(action);
+  },
+
   addTask: function(task) {
     var action = {
       actionType: TaskConstants.ADD_TASK,

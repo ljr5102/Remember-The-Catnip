@@ -3,6 +3,7 @@ var Store = require('flux/utils').Store;
 var TaskStore = new Store(AppDispatcher);
 
 var _tasks = [];
+var _task = {};
 
 var resetTasks = function(tasks) {
   _tasks = [];
@@ -15,8 +16,22 @@ var addTask = function(task) {
   _tasks.push(task);
 };
 
+var getTask = function(task) {
+  _task = task;
+};
+
 TaskStore.all = function() {
   return _tasks.slice();
+};
+
+TaskStore.get = function() {
+  var taskToReturn = {};
+  for (var key in _task) {
+    if (_task.hasOwnProperty(key)) {
+      taskToReturn[key] = _task[key];
+    }
+  }
+  return taskToReturn;
 };
 
 TaskStore.__onDispatch = function(payload) {
@@ -27,6 +42,10 @@ TaskStore.__onDispatch = function(payload) {
       break;
     case "ADD_TASK":
       addTask(payload.task);
+      TaskStore.__emitChange();
+      break;
+    case "GET_ONE_TASK":
+      getTask(payload.task);
       TaskStore.__emitChange();
       break;
   }

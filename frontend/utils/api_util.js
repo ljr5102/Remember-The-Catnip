@@ -16,14 +16,28 @@ var APIUtil = {
     );
   },
 
+  fetchSingleTask: function(id) {
+    $.ajax({
+      url: "api/tasks/" + id,
+      dataType: "json",
+      method: "GET",
+      success: function(task) {
+        TaskActions.receiveSingleTask(task.task);
+      },
+      error: function() {
+        console.log("Something went wrong in fetchSingleTask");
+      }
+    });
+  },
+
   createTask: function(task) {
     $.ajax({
       url: "api/tasks",
       dataType: "json",
       method: "POST",
       data: { task: task },
-      success: function() {
-        TaskActions.addTask(task);
+      success: function(persistedTask) {
+        TaskActions.addTask(persistedTask.task);
       },
       error: function() {
         console.log("Something went wrong in createTask");
