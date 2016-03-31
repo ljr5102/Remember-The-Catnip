@@ -20,6 +20,19 @@ var getTask = function(task) {
   _task = task;
 };
 
+var updateTask = function(task) {
+  _task = task;
+};
+
+var removeTask = function(deleteTask) {
+  _task = {};
+  _tasks.forEach(function(task, index) {
+    if (task.task_id === deleteTask.task_id) {
+      _tasks.splice(index, 1);
+    }
+  });
+};
+
 TaskStore.all = function() {
   return _tasks.slice();
 };
@@ -46,6 +59,14 @@ TaskStore.__onDispatch = function(payload) {
       break;
     case "GET_ONE_TASK":
       getTask(payload.task);
+      TaskStore.__emitChange();
+      break;
+    case "UPDATE_TASK":
+      updateTask(payload.task);
+      TaskStore.__emitChange();
+      break;
+    case "REMOVE_TASK":
+      removeTask(payload.task);
       TaskStore.__emitChange();
       break;
   }

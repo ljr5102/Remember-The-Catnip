@@ -24,6 +24,22 @@ var TaskActions = {
       task: task
     };
     AppDispatcher.dispatch(action);
+  },
+
+  updateTask: function(task) {
+    var action = {
+      actionType: TaskConstants.UPDATE_TASK,
+      task: task
+    };
+    AppDispatcher.dispatch(action);
+  },
+
+  removeTask: function(task) {
+    var action = {
+      actionType: TaskConstants.REMOVE_TASK,
+      task: task
+    };
+    AppDispatcher.dispatch(action);
   }
 };
 

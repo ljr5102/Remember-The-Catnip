@@ -43,7 +43,39 @@ var APIUtil = {
         console.log("Something went wrong in createTask");
       }
     });
+  },
+
+  updateTask: function(currentTask, task) {
+    $.ajax({
+      url: "api/tasks/" + currentTask.task_id,
+      dataType: "json",
+      method: "PATCH",
+      data: {task: task},
+      success: function(updatedTask) {
+        TaskActions.updateTask(updatedTask.task);
+      },
+      error: function() {
+        console.log("Something went wrong in updateTask");
+      }
+    });
+  },
+
+  destroyTask: function(currentTask) {
+    $.ajax({
+      url: "api/tasks/" + currentTask.task_id,
+      dataType: "json",
+      method: "DELETE",
+      success: function() {
+        TaskActions.removeTask(currentTask);
+      },
+      error: function() {
+        console.log("Something went wrong in destroyTask");
+      }
+    });
   }
+
+
+
 };
 
 module.exports = APIUtil;
