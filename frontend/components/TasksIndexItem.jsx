@@ -13,7 +13,7 @@ var TasksIndexItem = React.createClass({
   render: function() {
     return (
       <div>
-        <li onClick={this.showDetail}>{this.props.task.name}</li>
+        <li className="task-index-item" onClick={this.showDetail}>{this.props.task.name}</li>
       </div>
     );
   }

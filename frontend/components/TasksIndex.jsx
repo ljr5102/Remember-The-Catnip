@@ -30,11 +30,11 @@ var TasksIndex = React.createClass({
       return <TasksIndexItem key={index} task={task} /> ;
     });
     return (
-      <div>
+      <div className="task-index">
+        <TaskNewForm />
         <ul>
           {taskArray}
         </ul>
-        <TaskNewForm />
         {this.props.children}
       </div>
     );

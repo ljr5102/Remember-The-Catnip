@@ -1,0 +1,43 @@
+.task-index {
+  margin-left: 210px;
+  width: 530px;
+}
+
+.task-index-item {
+  font-size: 13px;
+  border-top: 1px solid black;
+  padding: 10px;
+}
+
+.task-index-item:hover {
+  cursor: pointer;
+  background: #FFFFCC
+}
+
+.task-new {
+  font-size: 14px;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+.task-new input {
+  display: block;
+}
+
+.task-new button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid;
+  border-color: #80bdfc;
+  background: #0060bf;
+  cursor: pointer;
+  float: right;
+}
+
+.task-new-name {
+  padding: 5px;
+  width: 100%;
+}

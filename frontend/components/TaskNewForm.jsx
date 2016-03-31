@@ -31,12 +31,12 @@ var TaskNewForm = React.createClass({
 
   render: function() {
     return (
-      <form onSubmit={this.createTask}>
-        <input type="text" valueLink={this.linkState("name")} />
-        <input type="date" valueLink={this.linkState("start_date")} />
-        <input type="date" valueLink={this.linkState("due_date")} />
-        <input type="number" valueLink={this.linkState("priority")} min="1" max="3" />
-        <input type="text" valueLink={this.linkState("estimate")} />
+      <form className="task-new group" onSubmit={this.createTask}>
+        <input className="task-new-name" placeholder="Add a task..." type="text" valueLink={this.linkState("name")} />
+        <input className="task-new-start-date" type="date" valueLink={this.linkState("start_date")} />
+        <input className="task-new-due-date" type="date" valueLink={this.linkState("due_date")} />
+        <input className="task-new-priority" type="number" valueLink={this.linkState("priority")} min="1" max="3" />
+        <input className="task-new-estimate" type="text" valueLink={this.linkState("estimate")} />
         <button>Add Task</button>
       </form>
     );
