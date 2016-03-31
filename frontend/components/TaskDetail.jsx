@@ -26,7 +26,7 @@ var TaskDetail = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className="task-detail">
         {this.state.task.task_id}
         {this.state.task.name}
         {this.state.task.completed}

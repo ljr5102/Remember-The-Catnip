@@ -1,9 +1,15 @@
 .task-index {
   margin-left: 210px;
-  width: 530px;
+  width: 1050px;
+  position: relative;
+}
+
+.task-index > ul {
+  float: left;
 }
 
 .task-index-item {
+  width: 530px;
   font-size: 13px;
   border-top: 1px solid black;
   padding: 10px;
@@ -15,6 +21,8 @@
 }
 
 .task-new {
+  display: block;
+  width: 530px;
   font-size: 14px;
   border: 1px solid black;
   margin-bottom: 5px;
@@ -38,6 +46,14 @@
 }
 
 .task-new-name {
+  width: 518px;
   padding: 5px;
-  width: 100%;
+}
+
+.task-detail {
+  top: 0px;
+  right: 0px;
+  width: 480px;
+  border: 1px solid black;
+  position: absolute;
 }

@@ -14,7 +14,6 @@ var TasksIndex = React.createClass({
   componentDidMount: function() {
     this.listenerToken = TaskStore.addListener(this.handleChange)
     APIUtil.fetchAllTasks();
-    console.log(this.props.children)
   },
 
   componentWillUnmount: function() {
@@ -30,7 +29,7 @@ var TasksIndex = React.createClass({
       return <TasksIndexItem key={index} task={task} /> ;
     });
     return (
-      <div className="task-index">
+      <div className="task-index group">
         <TaskNewForm />
         <ul>
           {taskArray}

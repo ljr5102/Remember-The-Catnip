@@ -33,7 +33,7 @@ var App = React.createClass({
 var routes = (
   <Route path="/" component={App}>
     <Route path="tasks" component={TasksIndex}>
-      <Router path=":task_id" component={TaskDetail} />
+      <Route path=":task_id" component={TaskDetail} />
     </Route>
   </Route>
 );
