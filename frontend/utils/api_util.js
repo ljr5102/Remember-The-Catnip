@@ -1,6 +1,45 @@
 var TaskActions = require('../actions/task_actions');
+var SessionActions = require('../actions/session_actions');
 
 var APIUtil = {
+  login: function(credentials) {
+    $.ajax({
+      type: "POST",
+      url: "/api/session",
+      dataType: "json",
+      data: {user: credentials},
+      success: function(currentUser) {
+        SessionActions.currentUserReceived(currentUser);
+      }
+    });
+  },
+
+  logout: function() {
+    $.ajax({
+      type: "DELETE",
+      url: "/api/session",
+      dataType: "json",
+      success: function() {
+        SessionActions.logout();
+      }
+    });
+  },
+
+  fetchCurrentUser: function(completion) {
+    $.ajax({
+      type: "GET",
+      url: "/api/session",
+      dataType: "json",
+      success: function(currentUser) {
+        SessionActions.currentUserReceived(currentUser);
+      },
+      complete: function() {
+        SessionActions.currentUserFetched();
+        completion && completion();
+      }
+    });
+  },
+
   fetchAllTasks: function() {
     $.ajax({
         url: "api/tasks",

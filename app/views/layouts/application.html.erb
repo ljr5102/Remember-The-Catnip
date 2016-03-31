@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CapstoneProjectProposal</title>
+  <title>Remember The Catnip</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -25,13 +25,13 @@
 
 <%= yield %>
 
-<% if signed_in? %>
-  <form action="<%= session_url %>" method="POST">
+<!-- <%# if signed_in? %>
+  <form action="<%#= session_url %>" method="POST">
     <input type="hidden" name="_method" value="DELETE">
-    <%= authenticity_token %>
+    <%#= authenticity_token %>
     <input type="submit" value="Log Out">
   </form>
-<% end %>
+<%# end %> -->
 
 </body>
 </html>

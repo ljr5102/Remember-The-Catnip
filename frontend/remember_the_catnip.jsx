@@ -5,36 +5,35 @@ var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
 var hashHistory = require('react-router').hashHistory;
 
-var TasksIndex = require('./components/TasksIndex');
-var TaskDetail = require('./components/TaskDetail');
+var TasksIndex = require('./components/task/TasksIndex');
+var TaskDetail = require('./components/task/TaskDetail');
+var APIUtil = require('./utils/api_util');
+var App = require('./components/App');
+var SessionStore = require('./stores/session');
+var Login = require('./components/auth/Login');
 
 
-var App = React.createClass({
-
-  contextTypes: {
-    router: React.PropTypes.object.isRequired
-  },
-
-  componentDidMount: function() {
-    this.context.router.push("tasks")
-  },
-
-  render: function() {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    );
+var requireLoggedIn = function(nextState, replace, asyncCompletionCallback) {
+  if (!SessionStore.currentUserHasBeenFetched()) {
+    APIUtil.fetchCurrentUser(_redirectIfNotLoggedIn);
+  } else {
+    _redirectIfNotLoggedIn();
   }
-});
 
-// <IndexRoute component={alltasks...}
-// <Route path=":task_id" component={} />
+  function _redirectIfNotLoggedIn() {
+    if (!SessionStore.isLoggedIn()) {
+      replace("/login");
+    }
+    asyncCompletionCallback();
+  }
+};
+
 var routes = (
-  <Route path="/" component={App}>
-    <Route path="tasks" component={TasksIndex}>
+  <Route path="/" component={App} >
+    <Route path="tasks" component={TasksIndex} onEnter={requireLoggedIn}>
       <Route path=":task_id" component={TaskDetail} />
     </Route>
+    <Route path="login" component={Login} />
   </Route>
 );
 

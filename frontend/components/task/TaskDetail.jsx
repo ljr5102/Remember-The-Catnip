@@ -1,6 +1,6 @@
 var React = require('react');
-var TaskStore = require('../stores/task');
-var APIUtil = require('../utils/api_util');
+var TaskStore = require('../../stores/task');
+var APIUtil = require('../../utils/api_util');
 var TaskEditForm = require('./TaskEditForm');
 
 var TaskDetail = React.createClass({

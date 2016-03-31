@@ -1,0 +1,20 @@
+.header-bar {
+  background: #0060bf;
+}
+
+.header-bar button {
+  background: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.header-bar ul {
+  float: right;
+}
+
+.header-bar div {
+  color: #ffffff;
+  padding: 5px;
+  font-weight: bold;
+  text-transform: capitalize;
+}

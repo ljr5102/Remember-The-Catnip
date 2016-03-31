@@ -1,6 +1,6 @@
 var React = require('react');
-var TaskUtil = require('../utils/task_util');
-var APIUtil = require('../utils/api_util');
+var TaskUtil = require('../../utils/task_util');
+var APIUtil = require('../../utils/api_util');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var TaskNewForm = React.createClass({

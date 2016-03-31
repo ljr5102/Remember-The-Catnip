@@ -51,12 +51,12 @@ Remember The Catnip allows users to:
 
 **Objective:** Tasks can be created and edited
 
-- [ ] Create Task model and controller
-- [ ] Create Task API for index, create, show, destroy, update
-- [ ] Create Flux Task Store
-- [ ] Create all Task Store actions
-- [ ] Create the associated functions within the Task Store to handle the created actions
-- [ ] Create React components TasksIndex, TasksIndexItem, TaskDetail
+- [ x ] Create Task model and controller
+- [ x ] Create Task API for index, create, show, destroy, update
+- [ x ] Create Flux Task Store
+- [ x ] Create all Task Store actions
+- [ x ] Create the associated functions within the Task Store to handle the created actions
+- [ x ] Create React components TasksIndex, TasksIndexItem, TaskDetail
 - [ ] Set up Task seed data
 
 ### [Phase 3][phase-three]: Overall navigational setup (0.5 days)

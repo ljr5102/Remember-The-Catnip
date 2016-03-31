@@ -1,7 +1,7 @@
 var React = require('react');
-var TaskStore = require('../stores/task');
-var APIUtil = require('../utils/api_util');
-var TaskUtil = require('../utils/task_util');
+var TaskStore = require('../../stores/task');
+var APIUtil = require('../../utils/api_util');
+var TaskUtil = require('../../utils/task_util');
 var TaskNewForm = require('./TaskNewForm');
 var TasksIndexItem = require('./TasksIndexItem');
 

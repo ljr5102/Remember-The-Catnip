@@ -161,7 +161,7 @@
 
 .sign-in-form {
  display: block;
- padding-top: 200px;
+ margin-top: 200px;
 }
 
 .sign-in-form h1 {
@@ -186,4 +186,16 @@
  color: #ffffff;
  background: #009dff;
  text-align: center;
+}
+
+.sign-up-link {
+  float: right;
+  display: block;
+  background: lightgray;
+  width: 110px;
+  padding: 5px 8px;
+  margin-right: 120px;
+  margin-top: 45px;
+  border-radius: 5px;
+  text-align: center;
 }
