@@ -1,3 +1,4 @@
+var InboxStore = require('./inbox');
 var AppDispatcher = require('../dispatcher/dispatcher');
 var Store = require('flux/utils').Store;
 var TaskStore = new Store(AppDispatcher);
@@ -13,7 +14,29 @@ var resetTasks = function(tasks) {
 };
 
 var addTask = function(task) {
-  _tasks.push(task);
+  switch (InboxStore.getCurrentInbox()) {
+    case "Today":
+      if (task.today) {
+        _tasks.push(task);
+      }
+      break;
+    case "Tomorrow":
+      if (task.tomorrow) {
+        _tasks.push(task);
+      }
+      break;
+    case "Week":
+      if (task.week) {
+        _tasks.push(task);
+      }
+      break;
+    case "AllTasks":
+      _tasks.push(task);
+      break;
+    case "":
+      _tasks.push(task);
+      break;
+  }
 };
 
 var getTask = function(task) {

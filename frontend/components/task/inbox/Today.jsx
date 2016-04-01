@@ -1,6 +1,8 @@
 var TaskStore = require('../../../stores/task');
+var InboxStore = require('../../../stores/inbox');
 var APIUtil = require('../../../utils/api_util');
 var TaskActions = require('../../../actions/task_actions');
+var InboxActions = require('../../../actions/inbox_actions');
 
 var React = require('react');
 
@@ -14,17 +16,25 @@ var Today = React.createClass({
   },
 
   componentDidMount: function() {
-    // this.listenerToken = TaskStore.addListener(this.getNewTodayTasks);
+    this.listenerToken = TaskStore.addListener(this.getNewTodayTasks);
+    APIUtil.getTodayTasks(this.updateState);
+  },
+
+  componentWillUnmount: function() {
+    this.listenerToken.remove();
+  },
+
+  getNewTodayTasks: function() {
     APIUtil.getTodayTasks(this.updateState);
   },
 
   updateState: function(tasks) {
-    debugger
     this.setState({todayTasks: tasks});
   },
 
   updateStore: function() {
     this.context.router.push("tasks")
+    InboxActions.receiveClickedInbox("Today");
     TaskActions.setStore(this.state.todayTasks);
   },
 
