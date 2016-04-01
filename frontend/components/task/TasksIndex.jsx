@@ -4,6 +4,10 @@ var APIUtil = require('../../utils/api_util');
 var TaskUtil = require('../../utils/task_util');
 var TaskNewForm = require('./TaskNewForm');
 var TasksIndexItem = require('./TasksIndexItem');
+var Today = require('./inbox/Today');
+var AllTasks = require('./inbox/AllTasks');
+var Tomorrow = require('./inbox/Tomorrow');
+var Week = require('./inbox/Week');
 
 var TasksIndex = React.createClass({
 
@@ -29,12 +33,21 @@ var TasksIndex = React.createClass({
       return <TasksIndexItem key={index} task={task} /> ;
     });
     return (
-      <div className="task-index group">
-        <TaskNewForm />
+      <div>
+        <h2>Inbox</h2>
         <ul>
-          {taskArray}
+          <AllTasks />
+          <Today />
+          <Tomorrow />
+          <Week />
         </ul>
-        {this.props.children}
+        <div className="task-index group">
+          <TaskNewForm />
+          <ul>
+            {taskArray}
+          </ul>
+          {this.props.children}
+        </div>
       </div>
     );
   }

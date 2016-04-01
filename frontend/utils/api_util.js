@@ -126,6 +126,62 @@ var APIUtil = {
         console.log("Something went wrong in destroyTask");
       }
     });
+  },
+
+  getAllTasks: function(callback) {
+    $.ajax({
+      method: "GET",
+      url: "api/tasks",
+      dataType: "json",
+      success: function(tasks) {
+        callback(tasks);
+      },
+      error: function() {
+        console.log("Something went wrong in getAllTasks");
+      }
+    });
+  },
+
+  getTodayTasks: function(callback) {
+    $.ajax({
+      method: "GET",
+      url: "api/tasks/today",
+      dataType: "json",
+      success: function(tasks) {
+        callback(tasks);
+      },
+      error: function() {
+        console.log("Something went wrong in getTodayTasks");
+      }
+    });
+  },
+
+  getTomorrowTasks: function(callback) {
+    $.ajax({
+      method: "GET",
+      url: "api/tasks/tomorrow",
+      dataType: "json",
+      success: function(tasks) {
+        callback(tasks);
+      },
+      error: function() {
+        console.log("Something went wrong in getTomorrowTasks");
+      }
+    });
+  },
+
+  getWeekTasks: function(callback) {
+    $.ajax({
+      method: "GET",
+      url: "api/tasks/week",
+      dataType: "json",
+      success: function(tasks) {
+        callback(tasks);
+      },
+      error: function() {
+        console.log("Something went wrong in getWeekTasks");
+      }
+    });
   }
 
 

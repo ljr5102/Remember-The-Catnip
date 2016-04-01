@@ -5,6 +5,22 @@ class Api::TasksController < ApplicationController
     render :index
   end
 
+  def today
+    @tasks = current_user.tasks.where("tasks.due_date = ?", Date.today)
+    render :index
+  end
+
+  def tomorrow
+    @tasks = current_user.tasks.where("tasks.due_date = ?", Date.tomorrow)
+    render :index
+  end
+
+  def week
+    @tasks = current_user.tasks
+      .where("tasks.due_date BETWEEN ? AND ?", Date.today, Date.today + 7)
+    render :index
+  end
+
   def show
     @task = Task.find(params[:id])
     render :show

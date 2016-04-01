@@ -69,6 +69,10 @@ TaskStore.__onDispatch = function(payload) {
       removeTask(payload.task);
       TaskStore.__emitChange();
       break;
+    case "SET_STORE":
+      resetTasks(payload.tasks);
+      TaskStore.__emitChange();
+      break;
   }
 };
 

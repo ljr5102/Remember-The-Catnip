@@ -40,6 +40,14 @@ var TaskActions = {
       task: task
     };
     AppDispatcher.dispatch(action);
+  },
+
+  setStore: function(tasks) {
+    var action = {
+      actionType: TaskConstants.SET_STORE,
+      tasks: tasks
+    };
+    AppDispatcher.dispatch(action);
   }
 };
 
