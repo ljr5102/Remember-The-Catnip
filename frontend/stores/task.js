@@ -47,6 +47,26 @@ var updateTask = function(task) {
   _task = task;
 };
 
+var checkForRemoval = function(task) {
+  switch (InboxStore.getCurrentInbox()) {
+    case "Today":
+      if (!task.today) {
+        removeTask(task);
+      }
+      break;
+    case "Tomorrow":
+      if (!task.tomorrow) {
+        removeTask(task);
+      }
+      break;
+    case "Week":
+      if (!task.week) {
+        removeTask(task);
+      }
+      break;
+    }
+};
+
 var removeTask = function(deleteTask) {
   _task = {};
   _tasks.forEach(function(task, index) {
@@ -86,6 +106,7 @@ TaskStore.__onDispatch = function(payload) {
       break;
     case "UPDATE_TASK":
       updateTask(payload.task);
+      checkForRemoval(payload.task);
       TaskStore.__emitChange();
       break;
     case "REMOVE_TASK":

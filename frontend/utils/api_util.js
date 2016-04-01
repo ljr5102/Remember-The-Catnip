@@ -92,7 +92,6 @@ var APIUtil = {
       method: "POST",
       data: { task: task },
       success: function(persistedTask) {
-        debugger
         TaskActions.addTask(persistedTask.task);
       },
       error: function() {
