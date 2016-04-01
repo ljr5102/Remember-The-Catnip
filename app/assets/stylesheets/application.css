@@ -120,6 +120,19 @@
   text-align: center;
 }
 
+.sign-in-link {
+  float: right;
+  display: block;
+  background: lightgray;
+  width: 110px;
+  padding: 5px 8px;
+  margin-right: 120px;
+  margin-top: 45px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
 /*new session page*/
 
 .new-session {

@@ -40,6 +40,21 @@ var APIUtil = {
     });
   },
 
+  createUser: function(formData) {
+    $.ajax({
+      url: "/api/users" ,
+      method: "POST",
+      dataType: "json",
+      data: formData,
+      success: function(newUser) {
+        SessionActions.currentUserReceived(newUser);
+      },
+      error: function() {
+        console.log("Something went wrong in createUser");
+      }
+    });
+  },
+
   fetchAllTasks: function() {
     $.ajax({
         url: "api/tasks",

@@ -11,6 +11,7 @@ var APIUtil = require('./utils/api_util');
 var App = require('./components/App');
 var SessionStore = require('./stores/session');
 var Login = require('./components/auth/Login');
+var UserNew = require('./components/auth/UserNew');
 
 
 var requireLoggedIn = function(nextState, replace, asyncCompletionCallback) {
@@ -34,6 +35,7 @@ var routes = (
       <Route path=":task_id" component={TaskDetail} />
     </Route>
     <Route path="login" component={Login} />
+    <Route path="users/new" component={UserNew}/>
   </Route>
 );
 
