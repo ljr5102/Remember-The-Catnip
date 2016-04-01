@@ -12,6 +12,7 @@ var App = require('./components/App');
 var SessionStore = require('./stores/session');
 var Login = require('./components/auth/Login');
 var UserNew = require('./components/auth/UserNew');
+var Inbox = require('./components/inbox/Inbox');
 
 
 var requireLoggedIn = function(nextState, replace, asyncCompletionCallback) {
@@ -31,6 +32,7 @@ var requireLoggedIn = function(nextState, replace, asyncCompletionCallback) {
 
 var routes = (
   <Route path="/" component={App} >
+    <Router path="inbox" component={Inbox} />
     <Route path="tasks" component={TasksIndex} onEnter={requireLoggedIn}>
       <Route path=":task_id" component={TaskDetail} />
     </Route>
