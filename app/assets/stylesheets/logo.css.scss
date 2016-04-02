@@ -13,3 +13,12 @@
  background-image: asset_url("cat-logo.jpg");
  margin: 0 auto;
 }
+
+.side-bar-logo {
+  margin: 0 auto;
+  display: block;
+  width: 175px;
+  height: 85px;
+  margin-bottom: 15px;
+  background-image: asset_url("side-bar-logo.jpg")
+}

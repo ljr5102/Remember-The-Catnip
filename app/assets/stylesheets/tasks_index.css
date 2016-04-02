@@ -21,18 +21,59 @@
 }
 
 .task-new {
+  float: left;
   display: block;
-  width: 530px;
+  width: 548px;
   font-size: 14px;
   border: 1px solid black;
   margin-bottom: 5px;
 }
 
-.task-new input {
+.task-new-name {
   display: block;
 }
 
-.task-new button {
+.hidden-button {
+  display: none;
+}
+
+.show-button {
+  display: block;
+}
+
+.task-new-start-date-hidden {
+  display: none;
+}
+
+.task-new-start-date {
+  display: block;
+}
+
+.task-form-hidden {
+  display: none;
+}
+
+.task-form-show {
+  display: block;
+}
+
+.task-new-due-date {
+  display: block;
+}
+
+.task-new-priority {
+  display: block;
+}
+
+.task-new-estimate {
+  display: block;
+}
+
+.task-new input {
+
+}
+
+.add-task {
   padding: 10px 15px;
   border-radius: 5px;
   color: #ffffff;

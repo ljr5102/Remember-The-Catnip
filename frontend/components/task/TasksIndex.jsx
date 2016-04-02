@@ -33,8 +33,9 @@ var TasksIndex = React.createClass({
       return <TasksIndexItem key={index} task={task} /> ;
     });
     return (
-      <div>
+      <div className="wrapper">
         <div className="sidebar group">
+          <div className="side-bar-logo"></div>
           <h2>Inbox</h2>
           <ul>
             <AllTasks />

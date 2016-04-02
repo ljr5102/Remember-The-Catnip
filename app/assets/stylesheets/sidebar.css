@@ -1,4 +1,10 @@
+.wrapper {
+  position: relative;
+}
+
 .sidebar {
+  position: fixed;
+  height: 100vh;
   background: #e4eef8;
   width: 210px;
   float: left;
@@ -6,10 +12,11 @@
 }
 
 .sidebar h2 {
-  padding: 2px 23px;
+  padding: 0px 23px;
 }
 
 .sidebar ul {
+  width: 180px;
   margin-top: 5px;
   padding: 2px 8px;
 }
@@ -20,14 +27,17 @@
 }
 
 .sidebar li:hover {
-  background: gray;
+  background: #bcd5ee;
   cursor: pointer;
 }
 
 .badge {
   float: right;
+  color: #3c4248;
   padding: 1px;
   margin-right: 2px;
-  font-size: 12px;
-  background: lightgray;
+  font-size: .6875rem;
+  font-weight: normal;
+  border-radius: 3px;
+  background: #c8dcf1;
 }
