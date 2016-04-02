@@ -40,8 +40,8 @@ var AllTasks = React.createClass({
 
   render: function() {
     return (
-      <li onClick={this.updateStore}>
-        All Tasks: {this.state.allTasks.length}
+      <li className="group" onClick={this.updateStore}>
+        All Tasks <strong className="badge">{this.state.allTasks.length}</strong>
       </li>
     );
   }

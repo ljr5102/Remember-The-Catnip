@@ -40,8 +40,8 @@ var Week = React.createClass({
 
   render: function() {
     return (
-      <li onClick={this.updateStore}>
-        Week: {this.state.weekTasks.length}
+      <li className="group" onClick={this.updateStore}>
+        Week <strong className="badge">{this.state.weekTasks.length}</strong>
       </li>
     );
   }

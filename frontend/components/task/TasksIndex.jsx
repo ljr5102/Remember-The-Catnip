@@ -34,13 +34,15 @@ var TasksIndex = React.createClass({
     });
     return (
       <div>
-        <h2>Inbox</h2>
-        <ul>
-          <AllTasks />
-          <Today />
-          <Tomorrow />
-          <Week />
-        </ul>
+        <div className="sidebar group">
+          <h2>Inbox</h2>
+          <ul>
+            <AllTasks />
+            <Today />
+            <Tomorrow />
+            <Week />
+          </ul>
+        </div>
         <div className="task-index group">
           <TaskNewForm />
           <ul>

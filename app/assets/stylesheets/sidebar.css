@@ -1,0 +1,33 @@
+.sidebar {
+  background: #e4eef8;
+  width: 210px;
+  float: left;
+  font-size: 14px;
+}
+
+.sidebar h2 {
+  padding: 2px 23px;
+}
+
+.sidebar ul {
+  margin-top: 5px;
+  padding: 2px 8px;
+}
+
+.sidebar li {
+  padding: 4px 0px;
+  padding-left: 15px;
+}
+
+.sidebar li:hover {
+  background: gray;
+  cursor: pointer;
+}
+
+.badge {
+  float: right;
+  padding: 1px;
+  margin-right: 2px;
+  font-size: 12px;
+  background: lightgray;
+}

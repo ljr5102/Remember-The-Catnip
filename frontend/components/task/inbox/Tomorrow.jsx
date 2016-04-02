@@ -40,8 +40,8 @@ var Tomorrow = React.createClass({
 
   render: function() {
     return (
-      <li onClick={this.updateStore}>
-        Tomorrow: {this.state.tomorrowTasks.length}
+      <li className="group" onClick={this.updateStore}>
+        Tomorrow <strong className="badge">{this.state.tomorrowTasks.length}</strong>
       </li>
     );
   }

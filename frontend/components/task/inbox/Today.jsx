@@ -40,8 +40,8 @@ var Today = React.createClass({
 
   render: function() {
     return (
-      <li onClick={this.updateStore}>
-        Today: {this.state.todayTasks.length}
+      <li className="group" onClick={this.updateStore}>
+        Today <strong className="badge">{this.state.todayTasks.length}</strong>
       </li>
     );
   }
