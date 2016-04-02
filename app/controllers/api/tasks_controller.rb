@@ -11,7 +11,7 @@ class Api::TasksController < ApplicationController
   end
 
   def tomorrow
-    @tasks = current_user.tasks.where("tasks.due_date = ?", Date.tomorrow)
+    @tasks = current_user.tasks.where("tasks.due_date = ?", Date.today + 1)
     render :index
   end
 
