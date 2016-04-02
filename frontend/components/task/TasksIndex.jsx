@@ -49,8 +49,8 @@ var TasksIndex = React.createClass({
           <ul>
             {taskArray}
           </ul>
-          {this.props.children}
         </div>
+        {this.props.children}
       </div>
     );
   }

@@ -3,6 +3,7 @@
 }
 
 .sidebar {
+  margin-top: 55px;
   position: fixed;
   height: 100vh;
   background: #e4eef8;

@@ -27,8 +27,7 @@ var TaskNewForm = React.createClass({
     }.bind(this));
     APIUtil.createTask(task);
     this.setState(this.blankAttrs);
-    $("#start-date").removeClass().addClass("task-form-hidden");
-    $(".show-button").removeClass().addClass("hidden-button");
+    this.clearForm();
   },
 
   toggleClass: function(e) {
@@ -38,12 +37,23 @@ var TaskNewForm = React.createClass({
   },
 
   toggleButtons: function() {
-    if ($(".task-new-name").val() === "") {
+    if ($(".task-new-name-input").val() === "") {
       $(".show-button").removeClass("show-button").addClass("hidden-button");
       $(".task-form-show").removeClass("task-form-show").addClass("task-form-hidden")
+      $(".task-new-name-input").removeClass("task-new-name-input").addClass("task-new-name-no-input")
     } else {
       $(".hidden-button").removeClass("hidden-button").addClass("show-button");
+      $(".task-new-name-no-input").removeClass("task-new-name-no-input").addClass("task-new-name-input")
     }
+  },
+
+  clearForm: function() {
+    $("#start-date").removeClass().addClass("task-form-hidden");
+    $("#due-date").removeClass().addClass("task-form-hidden");
+    $("#priority").removeClass().addClass("task-form-hidden");
+    $("#estimate").removeClass().addClass("task-form-hidden");
+    $(".show-button").removeClass().addClass("hidden-button");
+    $("#add-task-button").addClass("add-task");
   },
 
   render: function() {
@@ -53,16 +63,33 @@ var TaskNewForm = React.createClass({
     var estimate = <input id="estimate" className="task-form-hidden" type="text" valueLink={this.linkState("estimate")} />
     return (
       <form className="task-new group" onInput={this.toggleButtons} onSubmit={this.createTask}>
-        <input className="task-new-name" placeholder="Add a task..." type="text" valueLink={this.linkState("name")} />
-        <button id="start-date-button" className="hidden-button" onClick={this.toggleClass}>⏩</button>
-        {startDate}
-        <button id="due-date-button" className="hidden-button" onClick={this.toggleClass}>📅</button>
-        {dueDate}
-        <button id="priority-button" className="hidden-button" onClick={this.toggleClass}>❗</button>
-        {newPriority}
-        <button id="estimate-button" className="hidden-button" onClick={this.toggleClass}>🕐</button>
-        {estimate}
-        <button className="hidden-button add-task">Add Task</button>
+        <input className="task-new-name-no-input" placeholder="Add a task..." type="text" valueLink={this.linkState("name")} />
+
+        <div className="task-new-input-grouping group">
+          <button id="start-date-button" className="hidden-button" onClick={this.toggleClass}>Start Date ⏩</button>
+          <div id="start-date-button-text">Add a Start Date</div>
+          {startDate}
+        </div>
+
+        <div className="task-new-input-grouping group">
+          <button id="due-date-button" className="hidden-button" onClick={this.toggleClass}>Due Date 📅</button>
+          <div id="due-date-button-text">Add a Due Date</div>
+          {dueDate}
+        </div>
+
+        <div className="task-new-input-grouping group">
+          <button id="priority-button" className="hidden-button" onClick={this.toggleClass}>Priority ❗</button>
+          <div id="priority-button-text">Add a Priority</div>
+          {newPriority}
+        </div>
+
+        <div className="task-new-input-grouping group">
+          <button id="estimate-button" className="hidden-button" onClick={this.toggleClass}>Estimate 🕐</button>
+          <div id="estimate-button-text">Add an Estimate</div>
+          {estimate}
+        </div>
+
+        <button id="add-task-button" className="hidden-button add-task">Add Task</button>
       </form>
     );
   }

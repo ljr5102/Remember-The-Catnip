@@ -11,7 +11,7 @@
 .task-index-item {
   width: 530px;
   font-size: 13px;
-  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   padding: 10px;
 }
 
@@ -21,15 +21,35 @@
 }
 
 .task-new {
+  position: relative;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-top: 100px;
   float: left;
   display: block;
   width: 548px;
   font-size: 14px;
-  border: 1px solid black;
-  margin-bottom: 5px;
 }
 
-.task-new-name {
+.task-new button {
+  margin-left: 10px;
+}
+
+.task-new-name-no-input {
+  width: 518px;
+  padding: 5px;
+  color: #999;
+  margin: 10px;
+  border: 1px solid #d0d3d6;
+  display: block;
+}
+
+.task-new-name-input {
+  width: 518px;
+  padding: 5px;
+  color: black;
+  margin: 10px;
+  border: 1px solid #4c8fd2;
   display: block;
 }
 
@@ -38,39 +58,91 @@
 }
 
 .show-button {
+  float: left;
   display: block;
+  padding: 4px;
+  cursor: pointer;
+  margin-bottom: 5px;
 }
 
-.task-new-start-date-hidden {
-  display: none;
-}
-
-.task-new-start-date {
-  display: block;
-}
 
 .task-form-hidden {
   display: none;
 }
 
 .task-form-show {
+  padding: 4px;
+  float: right;
   display: block;
 }
 
-.task-new-due-date {
-  display: block;
+.task-new-input-grouping {
+  float: left;
+  width: 300px;
 }
 
-.task-new-priority {
-  display: block;
+#start-date-button-text {
+  position: absolute;
+  opacity: 0;
 }
 
-.task-new-estimate {
-  display: block;
+#start-date-button:hover~#start-date-button-text {
+  opacity: 1;
+  bottom: 0px;
+  left: 0px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px;
 }
 
-.task-new input {
+#due-date-button-text {
+  position: absolute;
+  opacity: 0;
+}
 
+#due-date-button:hover~#due-date-button-text {
+  opacity: 1;
+  bottom: 0px;
+  left: 0px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px;
+}
+
+#priority-button-text {
+  position: absolute;
+  opacity: 0;
+}
+
+#priority-button:hover~#priority-button-text {
+  opacity: 1;
+  bottom: 0px;
+  left: 0px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px;
+}
+
+#estimate-button-text {
+  position: absolute;
+  opacity: 0;
+}
+
+#estimate-button:hover~#estimate-button-text {
+  opacity: 1;
+  bottom: 0px;
+  left: 0px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px;
 }
 
 .add-task {
@@ -84,11 +156,6 @@
   background: #0060bf;
   cursor: pointer;
   float: right;
-}
-
-.task-new-name {
-  width: 518px;
-  padding: 5px;
 }
 
 .task-detail {
