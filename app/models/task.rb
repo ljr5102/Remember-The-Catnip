@@ -3,6 +3,9 @@ class Task < ActiveRecord::Base
   validates :owner_id, :name, presence: true
   validates :completed, inclusion: {in: [true, false]}
 
+  has_attached_file :image, default_url: "missing.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   belongs_to(:user,
   class_name: 'User',
   primary_key: :id,

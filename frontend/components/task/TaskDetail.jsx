@@ -72,6 +72,7 @@ var TaskDetail = React.createClass({
           <li key="10">Task List ID: {this.state.task.list_id}</li>
           <li key="11">Task Location ID: {this.state.task.location_id}</li>
         </ul>
+        <img src={this.state.task.image_url} />
         <button onClick={this.deleteTask}>Delete Task</button>
         <button onClick={this.editTask}>Edit Task...</button>
         {editForm}

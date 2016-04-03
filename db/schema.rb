@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329184706) do
+ActiveRecord::Schema.define(version: 20160403173159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "tasks", force: :cascade do |t|
-    t.integer  "owner_id",                    null: false
-    t.string   "name",                        null: false
-    t.boolean  "completed",   default: false, null: false
+    t.integer  "owner_id",                           null: false
+    t.string   "name",                               null: false
+    t.boolean  "completed",          default: false, null: false
     t.date     "start_date"
     t.date     "due_date"
     t.integer  "priority"
@@ -28,6 +28,10 @@ ActiveRecord::Schema.define(version: 20160329184706) do
     t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "tasks", ["list_id"], name: "index_tasks_on_list_id", using: :btree

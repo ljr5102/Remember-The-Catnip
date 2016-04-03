@@ -12,6 +12,7 @@ var TaskNewForm = React.createClass({
     start_date: "",
     priority: "",
     estimate: "",
+    image: ""
   },
   getInitialState: function() {
     return this.blankAttrs;
@@ -88,6 +89,10 @@ var TaskNewForm = React.createClass({
           <div id="estimate-button-text">Add an Estimate</div>
           {estimate}
         </div>
+
+        <label>Image
+          <input type="file" valueLink={this.linkState("image")} />
+        </label>
 
         <button id="add-task-button" className="hidden-button add-task">Add Task</button>
       </form>
