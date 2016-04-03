@@ -90,7 +90,9 @@ var APIUtil = {
       url: "api/tasks",
       dataType: "json",
       method: "POST",
-      data: { task: task },
+      processData: false,
+      contentType: false,
+      data: task,
       success: function(persistedTask) {
         TaskActions.addTask(persistedTask.task);
       },

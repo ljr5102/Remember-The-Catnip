@@ -78,7 +78,7 @@
 
 .task-new-input-grouping {
   float: left;
-  width: 300px;
+  width: 500px;
 }
 
 #start-date-button-text {
@@ -144,6 +144,23 @@
   font-size: 12px;
   padding: 5px;
 }
+
+#photo-button-text {
+  position: absolute;
+  opacity: 0;
+}
+
+#photo-button:hover~#photo-button-text {
+  opacity: 1;
+  bottom: 0px;
+  left: 0px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px;
+}
+
 
 .add-task {
   padding: 10px 15px;

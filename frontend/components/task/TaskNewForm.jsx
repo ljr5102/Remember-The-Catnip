@@ -12,7 +12,8 @@ var TaskNewForm = React.createClass({
     start_date: "",
     priority: "",
     estimate: "",
-    image: ""
+    imageFile: "",
+    imageUrl: ""
   },
   getInitialState: function() {
     return this.blankAttrs;
@@ -20,16 +21,33 @@ var TaskNewForm = React.createClass({
 
   createTask: function(e) {
     e.preventDefault();
-    var task = {};
+    var formData = new FormData();
     Object.keys(this.state).forEach(function(key) {
-      if (this.state[key] !== "") {
-        task[key] = this.state[key];
+      if (this.state[key] !== "" && (key !== "imageFile" || key !== "imageUrl")) {
+        var label = "task" + "[" + key + "]"
+        formData.append(label, this.state[key]);
       }
     }.bind(this));
-    APIUtil.createTask(task);
+    if (this.state.imageFile !== "") {
+      formData.append("task[image]", this.state.imageFile);
+    }
+    APIUtil.createTask(formData);
     this.setState(this.blankAttrs);
     this.clearForm();
   },
+
+  handleFileChange: function(e) {
+    var file = e.currentTarget.files[0]
+    var reader = new FileReader();
+
+    reader.onloadend = function() {
+      var result = reader.result;
+      this.setState({ imageFile: file, imageUrl: result });
+    }.bind(this);
+
+    reader.readAsDataURL(file);
+  },
+
 
   toggleClass: function(e) {
     e.preventDefault();
@@ -55,6 +73,7 @@ var TaskNewForm = React.createClass({
     $("#estimate").removeClass().addClass("task-form-hidden");
     $(".show-button").removeClass().addClass("hidden-button");
     $("#add-task-button").addClass("add-task");
+    $("#image").val("");
   },
 
   render: function() {
@@ -62,6 +81,7 @@ var TaskNewForm = React.createClass({
     var dueDate = <input id="due-date" className="task-form-hidden" type="date" valueLink={this.linkState("due_date")} />
     var newPriority = <input id="priority" className="task-form-hidden" type="number" valueLink={this.linkState("priority")} min="1" max="3" />
     var estimate = <input id="estimate" className="task-form-hidden" type="text" valueLink={this.linkState("estimate")} />
+    var picture = <input id="photo" className="task-form-hidden" type="file" onChange={this.handleFileChange} />
     return (
       <form className="task-new group" onInput={this.toggleButtons} onSubmit={this.createTask}>
         <input className="task-new-name-no-input" placeholder="Add a task..." type="text" valueLink={this.linkState("name")} />
@@ -90,9 +110,12 @@ var TaskNewForm = React.createClass({
           {estimate}
         </div>
 
-        <label>Image
-          <input type="file" valueLink={this.linkState("image")} />
-        </label>
+        <div className="task-new-input-grouping group">
+          <button id="photo-button" className="hidden-button" onClick={this.toggleClass}>Picture 📷</button>
+          <div id="photo-button-text">Add a Picture</div>
+          {picture}
+        </div>
+
 
         <button id="add-task-button" className="hidden-button add-task">Add Task</button>
       </form>

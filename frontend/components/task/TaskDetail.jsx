@@ -40,11 +40,17 @@ var TaskDetail = React.createClass({
 
   render: function() {
     var editForm;
+    var image;
     if (this.state.showEdit) {
       editForm = <TaskEditForm task={this.state.task} /> ;
     } else {
       editForm = <div></div> ;
     };
+    if (this.state.task.image_url !== "/missing.png") {
+      image = <img src={this.state.task.image_url} />
+    } else {
+      image = <div></div>
+    }
 
     // var task = this.state.task;
     // var taskArray = []
@@ -72,7 +78,7 @@ var TaskDetail = React.createClass({
           <li key="10">Task List ID: {this.state.task.list_id}</li>
           <li key="11">Task Location ID: {this.state.task.location_id}</li>
         </ul>
-        <img src={this.state.task.image_url} />
+        {image}
         <button onClick={this.deleteTask}>Delete Task</button>
         <button onClick={this.editTask}>Edit Task...</button>
         {editForm}
