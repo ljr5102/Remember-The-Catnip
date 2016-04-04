@@ -44,7 +44,6 @@ var App = React.createClass({
         <header className="header-bar group">
           {searchBar}
           <ul className="user-section group">
-            <li>{currUser}</li>
             <li>{button}</li>
           </ul>
         </header>
