@@ -8,6 +8,7 @@ var Today = require('./inbox/Today');
 var AllTasks = require('./inbox/AllTasks');
 var Tomorrow = require('./inbox/Tomorrow');
 var Week = require('./inbox/Week');
+var SearchResultsStore = require('../../stores/search_results');
 
 var TasksIndex = React.createClass({
 
@@ -17,11 +18,16 @@ var TasksIndex = React.createClass({
 
   componentDidMount: function() {
     this.listenerToken = TaskStore.addListener(this.handleChange)
+    this.searchListener = SearchResultsStore.addListener(this.showSearchResults);
     APIUtil.fetchAllTasks();
   },
 
   componentWillUnmount: function() {
     this.listenerToken.remove();
+  },
+
+  showSearchResults: function() {
+    this.setState({ tasks: SearchResultsStore.all()});
   },
 
   handleChange: function() {

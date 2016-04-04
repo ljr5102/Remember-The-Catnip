@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => [:name]
 
   validates :owner_id, :name, presence: true
   validates :completed, inclusion: {in: [true, false]}

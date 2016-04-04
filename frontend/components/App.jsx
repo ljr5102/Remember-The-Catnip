@@ -1,6 +1,7 @@
 var React = require('react');
 var SessionStore = require('../stores/session');
 var APIUtil = require('../utils/api_util');
+var Search = require('./Search');
 
 var App = React.createClass({
   contextTypes: {
@@ -39,6 +40,9 @@ var App = React.createClass({
     return (
       <div>
         <header className="header-bar group">
+          <ul>
+            <Search />
+          </ul>
           <ul>
             <li>{button}</li>
             <li>{currUser}</li>

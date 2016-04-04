@@ -1,6 +1,7 @@
 var TaskActions = require('../actions/task_actions');
 var InboxActions = require('../actions/inbox_actions');
 var SessionActions = require('../actions/session_actions');
+var SearchResultActions = require('../actions/search_result_actions');
 
 var APIUtil = {
   login: function(credentials) {
@@ -183,6 +184,21 @@ var APIUtil = {
       },
       error: function() {
         console.log("Something went wrong in getWeekTasks");
+      }
+    });
+  },
+
+  search: function(query, page) {
+    $.ajax({
+      method: "GET",
+      url: "/api/searches",
+      dataType: "json",
+      data: {query: query, page: page},
+      success: function(response) {
+        SearchResultActions.receiveResults(response);
+      },
+      error: function() {
+        console.log("Something went wrong in search");
       }
     });
   }
