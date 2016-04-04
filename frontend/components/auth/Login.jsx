@@ -23,6 +23,14 @@ var LoginForm = React.createClass({
     });
   },
 
+  guestLogin: function(e) {
+    e.preventDefault();
+    var router = this.context.router;
+    APIUtil.login({username: "mrSmalz", password: "password"}, function() {
+      router.push("/tasks");
+    })
+  },
+
   updateName: function(e) {
     this.setState({ username: e.currentTarget.value });
   },
@@ -57,6 +65,8 @@ var LoginForm = React.createClass({
                 <input onChange={this.updatePassword} type="password" placeholder="Password" value={this.state.password} />
 
                 <input type="submit" className="sign-in-button" value="Log In!" />
+
+                <input type="submit" onClick={this.guestLogin} className="sign-in-button" value="Sign in as a Guest" />
             </form>
           </section>
         </section>
