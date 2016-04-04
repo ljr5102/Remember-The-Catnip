@@ -32,20 +32,20 @@ var App = React.createClass({
   render: function() {
     var button;
     var currUser;
+    var searchBar;
     if (this.state.currentUser) {
-      button = <button onClick={APIUtil.logout}>Logout</button>
+      searchBar = <ul className="search-bar"><Search /></ul>;
+      button = <button className="logout-button" onClick={APIUtil.logout}>Logout</button>;
       currUser = <div>Welcome {this.state.currentUser.user.username}</div>;
     }
 
     return (
       <div>
         <header className="header-bar group">
-          <ul>
-            <Search />
-          </ul>
-          <ul>
-            <li>{button}</li>
+          {searchBar}
+          <ul className="user-section group">
             <li>{currUser}</li>
+            <li>{button}</li>
           </ul>
         </header>
         {this.props.children}

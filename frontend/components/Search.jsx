@@ -23,6 +23,11 @@ var Search = React.createClass({
   },
 
   handleInputChange: function (e) {
+    if ($(e.currentTarget).val() === "") {
+      $(e.currentTarget).removeClass("search-box-with-input")
+    } else {
+      $(e.currentTarget).addClass("search-box-with-input")
+    }
     var query = e.currentTarget.value;
     this.setState({ query: query })
   },
@@ -52,17 +57,14 @@ var Search = React.createClass({
     // <ul>
     //   { this.resultLis() }
     // </ul>
+    // Displaying page { meta.page } of { meta.total_pages }
+    // <button onClick={ this.nextPage }>NEXT PAGE</button>
+
     var meta = SearchResultsStore.meta();
     return (
       <article>
-        <input type="text" onChange={ this.handleInputChange } />
-        <button onClick={ this.search }>GO</button>
-
-        <nav>
-          Displaying page { meta.page } of { meta.total_pages }
-          <button onClick={ this.nextPage }>NEXT PAGE</button>
-        </nav>
-
+        <input className="search-box" type="text" placeholder="Search tasks" onChange={ this.handleInputChange } />
+        <button className="search-button" onClick={ this.search }><i id="magnifying" className="fa fa-search"></i></button>
       </article>
     );
   }
