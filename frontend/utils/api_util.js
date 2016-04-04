@@ -188,6 +188,20 @@ var APIUtil = {
     });
   },
 
+  fetchCompletedTasks: function() {
+    $.ajax({
+      method: "GET",
+      url: "/api/tasks/completed",
+      dataType: "json",
+      success: function(completedTasks) {
+        TaskActions.receiveAllCompletedTasks(completedTasks);
+      },
+      error: function() {
+        console.log("Something went wrong in fetchCompletedTasks");
+      }
+    });
+  },
+
   search: function(query, page) {
     $.ajax({
       method: "GET",

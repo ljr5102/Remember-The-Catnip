@@ -11,6 +11,9 @@ var Week = require('./inbox/Week');
 var SearchResultsStore = require('../../stores/search_results');
 
 var TasksIndex = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
 
   getInitialState: function() {
     return { tasks: TaskStore.all()}
@@ -34,6 +37,15 @@ var TasksIndex = React.createClass({
     this.setState({ tasks: TaskStore.all() });
   },
 
+  sendToCompleted: function() {
+    this.context.router.push("tasks/completed");
+  },
+
+  sendToIndex: function() {
+    this.context.router.push("tasks");
+    APIUtil.fetchAllTasks();
+  },
+
   render: function() {
     var taskArray = this.state.tasks.map(function(task, index) {
       return <TasksIndexItem key={index} task={task} /> ;
@@ -51,8 +63,12 @@ var TasksIndex = React.createClass({
           </ul>
         </div>
         <div className="task-index group">
+          <ul className="index-tabs group">
+            <li onClick={this.sendToIndex}>Incomplete</li>
+            <li onClick={this.sendToCompleted}>Completed</li>
+          </ul>
           <TaskNewForm />
-          <ul>
+          <ul className="list-of-tasks">
             {taskArray}
           </ul>
         </div>

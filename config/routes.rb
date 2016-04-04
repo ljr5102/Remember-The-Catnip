@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         get 'today'
         get 'tomorrow'
         get 'week'
+        get 'completed'
       end
     end
     resource :session, only: [:show, :create, :destroy]

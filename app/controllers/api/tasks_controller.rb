@@ -21,6 +21,11 @@ class Api::TasksController < ApplicationController
     render :index
   end
 
+  def completed
+    @tasks = current_user.tasks.where("tasks.completed = ?", true)
+    render :index
+  end
+
   def show
     @task = Task.find(params[:id])
     render :show

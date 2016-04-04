@@ -10,6 +10,14 @@ var TaskActions = {
     AppDispatcher.dispatch(action);
   },
 
+  receiveAllCompletedTasks: function(tasks) {
+    var action = {
+      actionType: TaskConstants.GET_ALL_COMPLETED_TASKS,
+      tasks: tasks
+    };
+    AppDispatcher.dispatch(action);
+  },
+
   receiveSingleTask: function(task) {
     var action = {
       actionType: TaskConstants.GET_ONE_TASK,

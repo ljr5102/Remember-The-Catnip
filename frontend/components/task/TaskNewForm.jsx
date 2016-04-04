@@ -84,7 +84,7 @@ var TaskNewForm = React.createClass({
     var picture = <input id="photo" className="task-form-hidden" type="file" onChange={this.handleFileChange} />
     return (
       <form className="task-new group" onInput={this.toggleButtons} onSubmit={this.createTask}>
-        <input className="task-new-name-no-input" placeholder="Add a task..." type="text" valueLink={this.linkState("name")} />
+        <input id="add-task" className="task-new-name-no-input" placeholder="Add a task..." type="text" valueLink={this.linkState("name")} />
 
         <div className="task-new-input-grouping group">
           <button id="start-date-button" className="hidden-button" onClick={this.toggleClass}>Start Date ⏩</button>

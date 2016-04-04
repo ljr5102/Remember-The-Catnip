@@ -1,5 +1,5 @@
 var React = require('react');
-var TaskStore = require('../../stores/task');
+var TaskDetailStore = require('../../stores/task_detail');
 var APIUtil = require('../../utils/api_util');
 var TaskEditForm = require('./TaskEditForm');
 
@@ -9,11 +9,11 @@ var TaskDetail = React.createClass({
   },
 
   getInitialState: function() {
-    return {task: TaskStore.get(), showEdit: false}
+    return {task: TaskDetailStore.getTask(), showEdit: false}
   },
 
   componentDidMount: function() {
-    this.detailListenerToken = TaskStore.addListener(this.setNewTask);
+    this.detailListenerToken = TaskDetailStore.addListener(this.setNewTask);
   },
 
   componentWillUnmount: function() {
@@ -21,7 +21,7 @@ var TaskDetail = React.createClass({
   },
 
   setNewTask: function() {
-    this.setState({task: TaskStore.get(), showEdit: false});
+    this.setState({task: TaskDetailStore.getTask(), showEdit: false});
   },
 
   componentWillReceiveProps: function(newProps) {
@@ -39,6 +39,7 @@ var TaskDetail = React.createClass({
   },
 
   render: function() {
+    debugger
     var editForm;
     var image;
     if (this.state.showEdit) {

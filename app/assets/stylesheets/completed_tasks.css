@@ -1,0 +1,14 @@
+.completed-tasks-text {
+  position: relative;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  float: left;
+  display: block;
+  width: 548px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.hide-the-new-form {
+  display: none;
+}
