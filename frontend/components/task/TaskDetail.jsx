@@ -8,6 +8,16 @@ var TaskDetail = React.createClass({
     router: React.PropTypes.object.isRequired
   },
 
+  displayableProperties: {
+    props: ["name",
+    "owner_username",
+    "completed",
+    "start_date",
+    "due_date",
+    "priority",
+    "estimate"]
+  },
+
   getInitialState: function() {
     return {task: TaskDetailStore.getTask(), showEdit: false}
   },
@@ -39,7 +49,6 @@ var TaskDetail = React.createClass({
   },
 
   render: function() {
-    debugger
     var editForm;
     var image;
     if (this.state.showEdit) {
@@ -48,41 +57,62 @@ var TaskDetail = React.createClass({
       editForm = <div></div> ;
     };
     if (this.state.task.image_url !== "/missing.png") {
-      image = <img src={this.state.task.image_url} />
+      image = <img className="task-images" src={this.state.task.image_url} />
     } else {
       image = <div></div>
     }
 
-    // var task = this.state.task;
-    // var taskArray = []
-    // var i = 0;
-    // for (var key in task) {
-    //   if (task.hasOwnProperty(key)) {
-    //     taskArray.push(<li key={i}>{task[key]}</li>);
-    //   }
-    //   i += 1;
-    // };
+    var task = this.state.task;
+    var taskArray = []
+    var i = 0;
+    for (var key in task) {
+      if (task.hasOwnProperty(key)) {
+        if (this.displayableProperties.props.indexOf(key) !== -1 && task[key] !== "") {
+          if (key === "completed") {
+            if (task[key]) {
+              taskArray.push(<li key={i}>{key}: true</li>)
+            } else {
+              taskArray.push(<li key={i}>{key}: false</li>)
+            }
+          } else {
+            taskArray.push(<li key={i}>{key}: {task[key]}</li>);
+          }
+        }
+      }
+      i += 1;
+    };
+
+    var deleteButton;
+    var updateButton;
+    if (taskArray.length === 0) {
+      deleteButton = <div></div>
+      updateButton = <div></div>
+    } else {
+      deleteButton =  <button className="delete-task-button" onClick={this.deleteTask}>Delete Task</button>;
+      updateButton = <button className="update-task-button" onClick={this.editTask}>Edit Task...</button>
+    }
+    // <li key="1">Task ID: {this.state.task.task_id}</li>
+    // <li key="2">Task Owner ID: {this.state.task.owner_id}</li>
+    // <li key="3">Owner Name: {this.state.task.username}</li>
+    // <li key="4">Task Name: {this.state.task.name}</li>
+    // <li key="5">Task Status: {this.state.task.completed}</li>
+    // <li key="6">Task Start Date: {this.state.task.start_date}</li>
+    // <li key="7">Task Due Date: {this.state.task.due_date}</li>
+    // <li key="8">Task Priority: {this.state.task.priority}</li>
+    // <li key="9">Task Estimate: {this.state.task.estimate}</li>
+    // <li key="10">Task List ID: {this.state.task.list_id}</li>
+    // <li key="11">Task Location ID: {this.state.task.location_id}</li>
     // might need above eventually.  leave out for now
     return (
-      <div className="task-detail">
+      <div className="task-detail group">
         <h2>{this.state.task.name}</h2>
         <ul>
-          <li key="1">Task ID: {this.state.task.task_id}</li>
-          <li key="2">Task Owner ID: {this.state.task.owner_id}</li>
-          <li key="3">Owner Name: {this.state.task.username}</li>
-          <li key="4">Task Name: {this.state.task.name}</li>
-          <li key="5">Task Status: {this.state.task.completed}</li>
-          <li key="6">Task Start Date: {this.state.task.start_date}</li>
-          <li key="7">Task Due Date: {this.state.task.due_date}</li>
-          <li key="8">Task Priority: {this.state.task.priority}</li>
-          <li key="9">Task Estimate: {this.state.task.estimate}</li>
-          <li key="10">Task List ID: {this.state.task.list_id}</li>
-          <li key="11">Task Location ID: {this.state.task.location_id}</li>
+          {taskArray}
         </ul>
-        {image}
-        <button onClick={this.deleteTask}>Delete Task</button>
-        <button onClick={this.editTask}>Edit Task...</button>
+        {deleteButton}
+        {updateButton}
         {editForm}
+        {image}
       </div>
     );
   }

@@ -15,6 +15,7 @@ var TaskNewForm = React.createClass({
     imageFile: "",
     imageUrl: ""
   },
+  
   getInitialState: function() {
     return this.blankAttrs;
   },
@@ -60,6 +61,7 @@ var TaskNewForm = React.createClass({
       $(".show-button").removeClass("show-button").addClass("hidden-button");
       $(".task-form-show").removeClass("task-form-show").addClass("task-form-hidden")
       $(".task-new-name-input").removeClass("task-new-name-input").addClass("task-new-name-no-input")
+      $("#start-date").val("");
     } else {
       $(".hidden-button").removeClass("hidden-button").addClass("show-button");
       $(".task-new-name-no-input").removeClass("task-new-name-no-input").addClass("task-new-name-input")
@@ -71,9 +73,10 @@ var TaskNewForm = React.createClass({
     $("#due-date").removeClass().addClass("task-form-hidden");
     $("#priority").removeClass().addClass("task-form-hidden");
     $("#estimate").removeClass().addClass("task-form-hidden");
+    $("#photo").removeClass().addClass("task-form-hidden");
     $(".show-button").removeClass().addClass("hidden-button");
     $("#add-task-button").addClass("add-task");
-    $("#image").val("");
+    $("#photo").val("");
   },
 
   render: function() {

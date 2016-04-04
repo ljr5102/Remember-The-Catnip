@@ -33,7 +33,9 @@ var requireLoggedIn = function(nextState, replace, asyncCompletionCallback) {
 var routes = (
   <Route path="/" component={App} >
     <Route path="tasks" component={TasksIndex} onEnter={requireLoggedIn}>
-      <Route path="completed" component={CompletedTasks} />
+      <Route path="completed" component={CompletedTasks} >
+        <Route path=":task_id" component={TaskDetail} />
+      </Route>
       <Route path=":task_id" component={TaskDetail} />
     </Route>
     <Route path="login" component={Login} />

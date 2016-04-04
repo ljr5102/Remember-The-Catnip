@@ -1,23 +1,28 @@
 class Api::TasksController < ApplicationController
 
   def index
-    @tasks = current_user.tasks
+    @tasks = current_user.tasks.where("tasks.completed = ?", false)
     render :index
   end
 
   def today
-    @tasks = current_user.tasks.where("tasks.due_date = ?", Date.today)
+    @tasks = current_user.tasks
+      .where("tasks.due_date = ?", Date.today)
+      .where("tasks.completed =?", false)
     render :index
   end
 
   def tomorrow
-    @tasks = current_user.tasks.where("tasks.due_date = ?", Date.today + 1)
+    @tasks = current_user.tasks
+      .where("tasks.due_date = ?", Date.today + 1)
+      .where("tasks.completed =?", false)
     render :index
   end
 
   def week
     @tasks = current_user.tasks
       .where("tasks.due_date BETWEEN ? AND ?", Date.today, Date.today + 7)
+      .where("tasks.completed =?", false)
     render :index
   end
 

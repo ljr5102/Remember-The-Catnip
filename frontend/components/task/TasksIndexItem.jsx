@@ -7,7 +7,11 @@ var TasksIndexItem = React.createClass({
 
   showDetail: function() {
     var id = this.props.task.task_id;
-    this.context.router.push("tasks/" + id)
+    if (this.props.task.completed) {
+      this.context.router.push("tasks/completed/" + id)
+    } else {
+      this.context.router.push("tasks/" + id)
+    }
   },
 
   render: function() {

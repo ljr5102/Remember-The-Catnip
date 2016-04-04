@@ -31,13 +31,38 @@ var TaskEditForm = React.createClass({
 
   render: function() {
     return(
-      <form onSubmit={this.updateTask}>
-        <input type="text" defaultValue={this.state.name} valueLink={this.linkState("name")} />
-        <input type="date" defaultValue={this.state.start_date} valueLink={this.linkState("start_date")} />
-        <input type="date" defaultValue={this.state.due_date} valueLink={this.linkState("due_date")} />
-        <input type="number" defaultValue={this.state.priority} valueLink={this.linkState("priority")} min="1" max="3" />
-        <input type="text" defaultValue={this.state.estimate} valueLink={this.linkState("estimate")} />
-        <button>Update Task</button>
+      <form className="task-edit-form group" onSubmit={this.updateTask}>
+        <div className="task-edit-input-grouping">
+          <label className="edit-label group">Name
+            <input type="text" defaultValue={this.state.name} valueLink={this.linkState("name")} />
+          </label>
+        </div>
+
+        <div className="task-edit-input-grouping">
+          <label className="edit-label group">Start Date
+            <input type="date" defaultValue={this.state.start_date} valueLink={this.linkState("start_date")} />
+          </label>
+        </div>
+
+        <div className="task-edit-input-grouping">
+          <label className="edit-label group">Due Date
+            <input type="date" defaultValue={this.state.due_date} valueLink={this.linkState("due_date")} />
+          </label>
+        </div>
+
+        <div className="task-edit-input-grouping">
+          <label className="edit-label group">Priority
+            <input type="number" defaultValue={this.state.priority} valueLink={this.linkState("priority")} min="1" max="3" />
+          </label>
+        </div>
+
+        <div className="task-edit-input-grouping">
+          <label className="edit-label group">Estimate
+            <input type="text" defaultValue={this.state.estimate} valueLink={this.linkState("estimate")} />
+          </label>
+        </div>
+
+        <button className="update-task">Update Task</button>
       </form>
     )
   }

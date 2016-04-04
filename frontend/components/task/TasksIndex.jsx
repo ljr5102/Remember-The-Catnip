@@ -30,6 +30,7 @@ var TasksIndex = React.createClass({
   },
 
   showSearchResults: function() {
+    this.context.router.push("tasks")
     this.setState({ tasks: SearchResultsStore.all()});
   },
 
@@ -37,16 +38,26 @@ var TasksIndex = React.createClass({
     this.setState({ tasks: TaskStore.all() });
   },
 
-  sendToCompleted: function() {
+  sendToCompleted: function(e) {
+    if (!$(e.currentTarget).hasClass("selected-tab")) {
+      $(".selected-tab").removeClass("selected-tab").addClass("unselected-tab");
+      $(e.currentTarget).removeClass("unselected-tab").addClass("selected-tab");
+    }
     this.context.router.push("tasks/completed");
   },
 
-  sendToIndex: function() {
+  sendToIndex: function(e) {
+    if (!$(e.currentTarget).hasClass("selected-tab")) {
+      $(".selected-tab").removeClass("selected-tab").addClass("unselected-tab")
+      $(e.currentTarget).removeClass("unselected-tab").addClass("selected-tab")
+    }
     this.context.router.push("tasks");
     APIUtil.fetchAllTasks();
   },
 
   render: function() {
+    var taskStats;
+    var pathsForDetail = ["/tasks", "tasks/completed"]
     var taskArray = this.state.tasks.map(function(task, index) {
       return <TasksIndexItem key={index} task={task} /> ;
     });
@@ -64,8 +75,8 @@ var TasksIndex = React.createClass({
         </div>
         <div className="task-index group">
           <ul className="index-tabs group">
-            <li onClick={this.sendToIndex}>Incomplete</li>
-            <li onClick={this.sendToCompleted}>Completed</li>
+            <li className="selected-tab" onClick={this.sendToIndex}>Incomplete</li>
+            <li className="unselected-tab" onClick={this.sendToCompleted}>Completed</li>
           </ul>
           <TaskNewForm />
           <ul className="list-of-tasks">

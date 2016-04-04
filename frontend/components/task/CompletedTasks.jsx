@@ -34,13 +34,13 @@ var CompletedTasks = React.createClass({
       return <TasksIndexItem key={index} task={task} /> ;
     });
 
-    console.log("I got here")
     return (
       <div className="task-index group">
         <div className="completed-tasks-text">This is a list of your completed tasks</div>
         <ul className="list-of-tasks">
           {taskArray}
         </ul>
+        {this.props.children}
       </div>
     );
   }

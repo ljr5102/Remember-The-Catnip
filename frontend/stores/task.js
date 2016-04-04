@@ -5,7 +5,6 @@ var TaskStore = new Store(AppDispatcher);
 
 var _tasks = [];
 var _completedTasks = [];
-var _task = {};
 
 var resetTasks = function(tasks) {
   _tasks = [];
@@ -47,14 +46,6 @@ var addTask = function(task) {
   }
 };
 
-var getTask = function(task) {
-  _task = task;
-};
-
-var updateTask = function(task) {
-  _task = task;
-};
-
 var checkForRemoval = function(task) {
   switch (InboxStore.getCurrentInbox()) {
     case "Today":
@@ -76,7 +67,6 @@ var checkForRemoval = function(task) {
 };
 
 var removeTask = function(deleteTask) {
-  _task = {};
   _tasks.forEach(function(task, index) {
     if (task.task_id === deleteTask.task_id) {
       _tasks.splice(index, 1);
@@ -86,16 +76,6 @@ var removeTask = function(deleteTask) {
 
 TaskStore.all = function() {
   return _tasks.slice();
-};
-
-TaskStore.get = function() {
-  var taskToReturn = {};
-  for (var key in _task) {
-    if (_task.hasOwnProperty(key)) {
-      taskToReturn[key] = _task[key];
-    }
-  }
-  return taskToReturn;
 };
 
 TaskStore.allCompleted = function() {
@@ -113,7 +93,6 @@ TaskStore.__onDispatch = function(payload) {
       TaskStore.__emitChange();
       break;
     case "UPDATE_TASK":
-      updateTask(payload.task);
       checkForRemoval(payload.task);
       TaskStore.__emitChange();
       break;
