@@ -4,6 +4,16 @@ var ListStore = require('../../../stores/list');
 var APIUtil = require('../../../utils/api_util');
 var ListsIndexItem = require('./ListsIndexItem');
 
+var customStyles = {
+  content : {
+    top : '235px',
+    left: '450px',
+    right: '450px',
+    bottom: '235px',
+    padding: '35px'
+  }
+};
+
 var ListsIndex = React.createClass({
 
   getInitialState: function() {
@@ -32,20 +42,34 @@ var ListsIndex = React.createClass({
     this.setState({modalIsOpen: false});
   },
 
+  createList: function(e) {
+    e.preventDefault();
+    var listData = $(this.refs.createNewList).serialize();
+    APIUtil.createList(listData);
+    this.setState({modalIsOpen: false});
+  },
+
   updateLists: function() {
     this.setState({lists: ListStore.all()});
   },
 
   render: function() {
     var listArray = this.state.lists.map(function(list) {
-      return <ListsIndexItem list={list} />;
+      return <ListsIndexItem key={list.list_id} list={list} />;
     })
     return (
-      <div>
+      <div className="lists-index">
         <h2>Lists</h2>
-        <button onClick={this.openModal}>Add List</button>
-        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} >
-          <h2>Welcome to your fun modal!</h2>
+        <button className="add-list-button" onClick={this.openModal}>+</button>
+        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
+          <h2 className="new-list-header">Add a list</h2>
+          <form ref="createNewList" className="new-list-form group" onSubmit={this.createList}>
+            <label>Please enter a new list name:
+              <input name="list[name]" type="text" />
+            </label>
+            <button className="new-list-add-button">Add</button>
+            <button onClick={this.closeModal} className="new-list-cancel-button">Cancel</button>
+          </form>
         </Modal>
         <ul>
           {listArray}

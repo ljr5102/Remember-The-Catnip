@@ -245,6 +245,21 @@ var APIUtil = {
         console.log("Something went wrong in fetchAllLists");
       }
     });
+  },
+
+  createList: function(listData) {
+    $.ajax({
+      method: "POST",
+      url: "/api/lists",
+      dataType: "json",
+      data: listData,
+      success: function(createdList) {
+        ListActions.receiveNewList(createdList);
+      },
+      error: function() {
+        console.log("Something went wrong in createList");
+      }
+    });
   }
 
 

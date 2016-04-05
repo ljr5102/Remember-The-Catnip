@@ -42,3 +42,12 @@
   border-radius: 3px;
   background: #c8dcf1;
 }
+
+.divider {
+  padding: 15px 0px 0px 0px;
+  border-bottom: 1px solid #BFD9F1;
+}
+
+.lists-index {
+  padding: 15px 0px 0px 0px;
+}

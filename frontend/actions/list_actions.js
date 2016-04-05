@@ -8,6 +8,14 @@ var ListActions = {
       lists: lists
     };
     AppDispatcher.dispatch(action);
+  },
+
+  receiveNewList: function(list) {
+    var action = {
+      actionType: ListConstants.RECEIVE_NEW_LIST,
+      list: list
+    };
+    AppDispatcher.dispatch(action);
   }
 };
 

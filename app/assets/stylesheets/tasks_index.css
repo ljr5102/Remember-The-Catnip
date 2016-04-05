@@ -283,11 +283,13 @@
   background: #e4eef8;
   bottom: 0px;
   padding-top: 20px;
+  height: 100vh;
+  left: 760px;
   top: 36px;
-  right: 0px;
-  width: 500px;
+  width: 514px;
   border-left: 1px solid black;
   position: fixed;
+  float: right;
 }
 
 .task-statistics > h2 {

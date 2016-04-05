@@ -76,6 +76,7 @@ var TasksIndex = React.createClass({
             <Tomorrow />
             <Week />
           </ul>
+          <div className="divider"></div>
           <ListsIndex />
         </div>
         <div className="task-index group">

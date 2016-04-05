@@ -1,0 +1,79 @@
+.add-list-button {
+  border: 2px solid black;
+  position: absolute;
+  left: 175px;
+  color: blue;
+  border-radius: 3px;
+  border-color: blue;
+  padding-bottom: 1px;
+  padding-left: 1px;
+  top: 248px;
+  width: 10px;
+  font-weight: bold;
+}
+
+.add-list-button:hover {
+  border: 2px solid black;
+  position: absolute;
+  left: 175px;
+  color: blue;
+  background: yellow;
+  border-radius: 3px;
+  border-color: blue;
+  padding-bottom: 1px;
+  padding-left: 1px;
+  top: 248px;
+  width: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+
+.new-list-header {
+  font-size: 1.125rem;
+  margin-bottom: 20px;
+}
+
+.new-list-form {
+
+}
+
+.new-list-form  input {
+  display: block;
+  width: 300px;
+  padding: 5px 6px;
+  border: 1px solid #d0d3d6;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.new-list-form > label {
+  font-size: .8125rem;
+}
+
+.new-list-form > button {
+  float: left;
+}
+
+.new-list-add-button {
+  margin-right: 10px;
+  border-radius: 3px;
+  display: block;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 13px;
+  background: #3f95ec
+}
+
+.new-list-cancel-button {
+  border-radius: 3px;
+  display: block;
+  padding: 10px 15px;
+  color: black;
+  font-weight: bold;
+  font-size: 13px;
+  background: #f4f4f4
+}
