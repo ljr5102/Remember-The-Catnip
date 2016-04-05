@@ -12,6 +12,11 @@ class Api::ListsController < ApplicationController
     render :show
   end
 
+  def show
+    @list = List.find(params[:id])
+    render :show
+  end
+
   def update
   end
 

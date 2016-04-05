@@ -2,6 +2,7 @@ var React = require('react');
 var TaskUtil = require('../../utils/task_util');
 var APIUtil = require('../../utils/api_util');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
+var ListStore = require('../../stores/list');
 
 var TaskNewForm = React.createClass({
   mixins: [LinkedStateMixin],
@@ -12,10 +13,11 @@ var TaskNewForm = React.createClass({
     start_date: "",
     priority: "",
     estimate: "",
+    list_id: "",
     imageFile: "",
     imageUrl: ""
   },
-  
+
   getInitialState: function() {
     return this.blankAttrs;
   },
@@ -74,6 +76,7 @@ var TaskNewForm = React.createClass({
     $("#priority").removeClass().addClass("task-form-hidden");
     $("#estimate").removeClass().addClass("task-form-hidden");
     $("#photo").removeClass().addClass("task-form-hidden");
+    $("#list").removeClass().addClass("task-form-hidden");
     $(".show-button").removeClass().addClass("hidden-button");
     $("#add-task-button").addClass("add-task");
     $("#photo").val("");
@@ -85,6 +88,8 @@ var TaskNewForm = React.createClass({
     var newPriority = <input id="priority" className="task-form-hidden" type="number" valueLink={this.linkState("priority")} min="1" max="3" />
     var estimate = <input id="estimate" className="task-form-hidden" type="text" valueLink={this.linkState("estimate")} />
     var picture = <input id="photo" className="task-form-hidden" type="file" onChange={this.handleFileChange} />
+    var listOptions = getListOptions();
+    var list = <select id="list" className="task-form-hidden" valueLink={this.linkState("list_id")}>{listOptions}</select>;
     return (
       <form className="task-new group" onInput={this.toggleButtons} onSubmit={this.createTask}>
         <input id="add-task" className="task-new-name-no-input" placeholder="Add a task..." type="text" valueLink={this.linkState("name")} />
@@ -119,12 +124,27 @@ var TaskNewForm = React.createClass({
           {picture}
         </div>
 
+        <div className="task-new-input-grouping group">
+          <button id="list-button" className="hidden-button" onClick={this.toggleClass}>List</button>
+          <div id="list-button-text">Add a List</div>
+          {list}
+        </div>
+
 
         <button id="add-task-button" className="hidden-button add-task">Add Task</button>
       </form>
     );
   }
 });
+
+function getListOptions() {
+  var lists = ListStore.all();
+  lists.unshift({list_id: "", name: ""})
+  var options = lists.map(function(list) {
+    return <option key={list.list_id} value={list.list_id}>{list.name}</option>
+  });
+  return options;
+};
 
 
 

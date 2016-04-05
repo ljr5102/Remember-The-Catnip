@@ -12,6 +12,15 @@ var addList = function(list) {
   _lists.push(list);
 };
 
+var checkForCountUpdate = function(task) {
+  debugger
+  _lists.forEach(function(list) {
+    if (list.list_id === task.list_id) {
+      list.task_count += 1;
+    }
+  });
+};
+
 ListStore.all = function() {
   return _lists.slice();
 };
@@ -26,7 +35,10 @@ ListStore.__onDispatch = function(payload) {
       addList(payload.list);
       ListStore.__emitChange();
       break;
-
+    case "ADD_TASK":
+      checkForCountUpdate(payload.task);
+      ListStore.__emitChange();
+      break;
   }
 };
 

@@ -196,6 +196,22 @@
   padding: 5px;
 }
 
+#list-button-text {
+  position: absolute;
+  opacity: 0;
+}
+
+#list-button:hover~#list-button-text {
+  opacity: 1;
+  bottom: 0px;
+  left: 0px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px;
+}
+
 
 .add-task {
   padding: 10px 15px;
@@ -211,15 +227,16 @@
 }
 
 .task-detail {
-  color: black;
   background: #e4eef8;
-  z-index: 1;
-  top: 36px;
   bottom: 0px;
-  right: 0px;
-  width: 500px;
-  border: 1px solid black;
+  padding-top: 20px;
+  height: 100vh;
+  left: 760px;
+  top: 36px;
+  width: 514px;
+  border-left: 1px solid black;
   position: fixed;
+  float: right;
 }
 
 .task-detail h2 {
