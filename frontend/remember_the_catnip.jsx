@@ -30,10 +30,24 @@ var requireLoggedIn = function(nextState, replace, asyncCompletionCallback) {
   }
 };
 
+var switchOffCompletedTab = function() {
+  if($("#complete").hasClass("selected-tab")) {
+    $("#complete").removeClass("selected-tab").addClass("unselected-tab");
+    $("#incomplete").removeClass("unselected-tab").addClass("selected-tab");
+  }
+};
+
+var switchOnCompletedTab = function() {
+  if($("#complete").hasClass("unselected-tab")) {
+    $("#complete").removeClass("unselected-tab").addClass("selected-tab");
+    $("#incomplete").removeClass("selected-tab").addClass("unselected-tab");
+  }
+};
+
 var routes = (
   <Route path="/" component={App} >
     <Route path="tasks" component={TasksIndex} onEnter={requireLoggedIn}>
-      <Route path="completed" component={CompletedTasks} >
+      <Route path="completed" component={CompletedTasks} onEnter={switchOnCompletedTab} onLeave={switchOffCompletedTab}>
         <Route path=":task_id" component={TaskDetail} />
       </Route>
       <Route path=":task_id" component={TaskDetail} />

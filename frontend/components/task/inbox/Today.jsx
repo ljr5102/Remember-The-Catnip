@@ -39,12 +39,33 @@ var Today = React.createClass({
   },
 
   render: function() {
+    var taskStats = gatherTaskStats(this.state.todayTasks);
     return (
-      <li className="group" onClick={this.updateStore}>
-        Today <strong className="badge">{this.state.todayTasks.length}</strong>
-      </li>
+      <div>
+        <li className="group" onClick={this.updateStore}>
+          Today <strong className="badge">{this.state.todayTasks.length}</strong>
+        </li>
+        {taskStats}
+      </div>
     );
   }
 });
+
+function gatherTaskStats(todayTasks) {
+  var allowedInboxes = ["Today"];
+  var taskStats;
+  if (allowedInboxes.indexOf(InboxStore.getCurrentInbox()) !== -1) {
+    taskStats = <div className="task-statistics">
+                  <h2>Today</h2>
+                  <ul>
+                    <li><div className="task-number">{todayTasks.length}</div> tasks</li>
+                  </ul>
+                </div>
+  } else {
+    taskStats = <div></div>
+  };
+  return taskStats;
+};
+
 
 module.exports = Today;

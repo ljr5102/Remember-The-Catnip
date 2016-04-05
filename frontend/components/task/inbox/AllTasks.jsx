@@ -39,19 +39,34 @@ var AllTasks = React.createClass({
   },
 
   render: function() {
+    var taskStats = gatherTaskStats(this.state.allTasks);
     return (
-      <li className="group" onClick={this.updateStore}>
-        All Tasks <strong className="badge">{this.state.allTasks.length}</strong>
-        <div className="task-statistics">
-          <h2>All Tasks</h2>
-          <ul>
-            <li><div className="task-number">{this.state.allTasks.length}</div> tasks</li>
-          </ul>
-        </div>
-      </li>
+      <div>
+        <li className="group" onClick={this.updateStore}>
+          All Tasks <strong className="badge">{this.state.allTasks.length}</strong>
+        </li>
+        {taskStats}
+      </div>
     );
   }
 
 });
+
+
+function gatherTaskStats(allTasks) {
+  var allowedInboxes = ["AllTasks", ""];
+  var taskStats;
+  if (allowedInboxes.indexOf(InboxStore.getCurrentInbox()) !== -1) {
+    taskStats = <div className="task-statistics">
+                  <h2>All Tasks</h2>
+                  <ul>
+                    <li><div className="task-number">{allTasks.length}</div> tasks</li>
+                  </ul>
+                </div>
+  } else {
+    taskStats = <div></div>
+  };
+  return taskStats;
+};
 
 module.exports = AllTasks;

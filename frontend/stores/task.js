@@ -5,6 +5,11 @@ var TaskStore = new Store(AppDispatcher);
 
 var _tasks = [];
 var _completedTasks = [];
+var _incompleteTasks = [];
+// can utilize the incomplete tasks and complete tasks
+// _tasks can be what's displayed on the screen
+// before moving ahead with this make sure completing/updating
+// won't be affected by this
 
 var resetTasks = function(tasks) {
   _tasks = [];

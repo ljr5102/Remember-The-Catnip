@@ -75,8 +75,8 @@ var TasksIndex = React.createClass({
         </div>
         <div className="task-index group">
           <ul className="index-tabs group">
-            <li className="selected-tab" onClick={this.sendToIndex}>Incomplete</li>
-            <li className="unselected-tab" onClick={this.sendToCompleted}>Completed</li>
+            <li id="incomplete" className="selected-tab" onClick={this.sendToIndex}>Incomplete</li>
+            <li id="complete" className="unselected-tab" onClick={this.sendToCompleted}>Completed</li>
           </ul>
           <TaskNewForm />
           <ul className="list-of-tasks">
