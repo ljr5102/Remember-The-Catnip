@@ -2,6 +2,7 @@ var TaskActions = require('../actions/task_actions');
 var InboxActions = require('../actions/inbox_actions');
 var SessionActions = require('../actions/session_actions');
 var SearchResultActions = require('../actions/search_result_actions');
+var ListActions = require('../actions/list_actions');
 
 var APIUtil = {
   login: function(credentials) {
@@ -228,6 +229,20 @@ var APIUtil = {
       },
       error: function() {
         console.log("Something went wrong in search");
+      }
+    });
+  },
+
+  fetchAllLists: function() {
+    $.ajax({
+      method: "GET",
+      url: "/api/lists",
+      dataType: "json",
+      success: function(lists) {
+        ListActions.receiveAllLists(lists);
+      },
+      error: function() {
+        console.log("Something went wrong in fetchAllLists");
       }
     });
   }

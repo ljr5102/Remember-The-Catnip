@@ -12,6 +12,11 @@ class User < ActiveRecord::Base
   primary_key: :id,
   foreign_key: :owner_id)
 
+  has_many(:lists,
+  class_name: 'List',
+  primary_key: :id,
+  foreign_key: :creator_id)
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     if user

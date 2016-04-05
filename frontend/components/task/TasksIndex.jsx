@@ -10,6 +10,7 @@ var Tomorrow = require('./inbox/Tomorrow');
 var Week = require('./inbox/Week');
 var TaskActions = require('../../actions/task_actions');
 var SearchResultsStore = require('../../stores/search_results');
+var ListsIndex = require('./list/ListsIndex');
 
 var TasksIndex = React.createClass({
   contextTypes: {
@@ -75,6 +76,7 @@ var TasksIndex = React.createClass({
             <Tomorrow />
             <Week />
           </ul>
+          <ListsIndex />
         </div>
         <div className="task-index group">
           <ul className="index-tabs group">
