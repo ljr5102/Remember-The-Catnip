@@ -42,6 +42,14 @@ var TaskActions = {
     AppDispatcher.dispatch(action);
   },
 
+  completeTask: function(task) {
+    var action = {
+      actionType: TaskConstants.COMPLETE_TASK,
+      task: task
+    };
+    AppDispatcher.dispatch(action);
+  },
+
   removeTask: function(task) {
     var action = {
       actionType: TaskConstants.REMOVE_TASK,

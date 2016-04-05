@@ -16,9 +16,9 @@ var UserNew = React.createClass({
         <section className="promo">
           <div className="logo"></div>
           <section className="emojis group">
-            <img src="#" alt="emoji" />
-            <img src="#" alt="emoji" />
-            <img src="#" alt="emoji" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Emoji_u1f408.svg/2000px-Emoji_u1f408.svg.png" alt="emoji" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Emoji_u1f408.svg/2000px-Emoji_u1f408.svg.png" alt="emoji" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Emoji_u1f408.svg/2000px-Emoji_u1f408.svg.png" alt="emoji" />
           </section>
           <p className="promo-quote">Join millions of people getting more organized and productive!</p>
         </section>

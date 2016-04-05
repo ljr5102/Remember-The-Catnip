@@ -118,6 +118,21 @@ var APIUtil = {
     });
   },
 
+  completeTask: function(currentTask, task) {
+    $.ajax({
+      url: "api/tasks/" + currentTask.task_id,
+      dataType: "json",
+      method: "PATCH",
+      data: {task: task},
+      success: function(completedTask) {
+        TaskActions.completeTask(completedTask.task);
+      },
+      error: function() {
+        console.log("Something went wrong in completeTask");
+      }
+    });
+  },
+
   destroyTask: function(currentTask) {
     $.ajax({
       url: "api/tasks/" + currentTask.task_id,

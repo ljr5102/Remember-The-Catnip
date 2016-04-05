@@ -49,7 +49,7 @@ var LoginForm = React.createClass({
             they have not forgotten this.</q><br />
           -Terry Pratchet</p>
           <section className="sign-in-emojis group">
-            <img src="#" alt="emoji" />
+            <img src="http://adesivifacebook.com/wp-content/uploads/2013/04/gatto-dolce.png" alt="emoji" />
           </section>
         </section>
 

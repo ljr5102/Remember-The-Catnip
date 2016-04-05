@@ -9,13 +9,10 @@ var TaskDetail = React.createClass({
   },
 
   displayableProperties: {
-    props: ["name",
-    "owner_username",
-    "completed",
-    "start_date",
-    "due_date",
-    "priority",
-    "estimate"]
+    "start_date": "start",
+    "due_date": "due",
+    "priority": "priority",
+    "estimate": "estimate"
   },
 
   getInitialState: function() {
@@ -44,8 +41,15 @@ var TaskDetail = React.createClass({
   },
 
   deleteTask: function(e) {
+    e.preventDefault();
     APIUtil.destroyTask(this.state.task);
     this.context.router.push("tasks");
+  },
+
+  completeTask: function(e) {
+    e.preventDefault();
+    var task = {completed: true};
+    APIUtil.completeTask(this.state.task, task)
   },
 
   render: function() {
@@ -67,16 +71,8 @@ var TaskDetail = React.createClass({
     var i = 0;
     for (var key in task) {
       if (task.hasOwnProperty(key)) {
-        if (this.displayableProperties.props.indexOf(key) !== -1 && task[key] !== "") {
-          if (key === "completed") {
-            if (task[key]) {
-              taskArray.push(<li key={i}>{key}: true</li>)
-            } else {
-              taskArray.push(<li key={i}>{key}: false</li>)
-            }
-          } else {
-            taskArray.push(<li key={i}>{key}: {task[key]}</li>);
-          }
+        if (this.displayableProperties[key] && task[key] !== null) {
+          taskArray.push(<li key={i}><p className="detail-label">{this.displayableProperties[key]}</p> {task[key]}</li>);
         }
       }
       i += 1;
@@ -84,25 +80,16 @@ var TaskDetail = React.createClass({
 
     var deleteButton;
     var updateButton;
-    if (taskArray.length === 0) {
+    var completeButton;
+    if (!task.name || task.completed) {
       deleteButton = <div></div>
       updateButton = <div></div>
+      completeButton = <div></div>
     } else {
       deleteButton =  <button className="delete-task-button" onClick={this.deleteTask}>Delete Task</button>;
-      updateButton = <button className="update-task-button" onClick={this.editTask}>Edit Task...</button>
+      updateButton = <button className="update-task-button" onClick={this.editTask}>Edit Task...</button>;
+      completeButton = <button className="mark-complete-button" onClick={this.completeTask}>Mark Complete</button>;
     }
-    // <li key="1">Task ID: {this.state.task.task_id}</li>
-    // <li key="2">Task Owner ID: {this.state.task.owner_id}</li>
-    // <li key="3">Owner Name: {this.state.task.username}</li>
-    // <li key="4">Task Name: {this.state.task.name}</li>
-    // <li key="5">Task Status: {this.state.task.completed}</li>
-    // <li key="6">Task Start Date: {this.state.task.start_date}</li>
-    // <li key="7">Task Due Date: {this.state.task.due_date}</li>
-    // <li key="8">Task Priority: {this.state.task.priority}</li>
-    // <li key="9">Task Estimate: {this.state.task.estimate}</li>
-    // <li key="10">Task List ID: {this.state.task.list_id}</li>
-    // <li key="11">Task Location ID: {this.state.task.location_id}</li>
-    // might need above eventually.  leave out for now
     return (
       <div className="task-detail group">
         <h2>{this.state.task.name}</h2>
@@ -111,6 +98,7 @@ var TaskDetail = React.createClass({
         </ul>
         {deleteButton}
         {updateButton}
+        {completeButton}
         {editForm}
         {image}
       </div>

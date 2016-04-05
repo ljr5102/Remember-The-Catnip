@@ -211,7 +211,8 @@
 }
 
 .task-detail {
-  background: white;
+  color: black;
+  background: #e4eef8;
   z-index: 1;
   top: 36px;
   bottom: 0px;
@@ -221,8 +222,33 @@
   position: fixed;
 }
 
+.task-detail h2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-left: 25px;
+}
+
+.task-detail ul {
+  font-size: 14px;
+  margin-left: 45px;
+}
+
+.task-detail > ul > li {
+  text-align: right;
+  padding: 3px 0px;
+  width: 230px;
+}
+
+.detail-label {
+  font-size: 13px;
+  color: #999;
+  float: left;
+}
+
 .task-images {
-  width: 200px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 25px;
 }
 
 .index-tabs {
@@ -287,11 +313,36 @@
 }
 
 .update-task-button {
-  float: right;
-  background: yellow;
+  right: 10px;
+  top: 20px;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 14px;
+  border: 1px solid gray;
+  cursor: pointer;
+  position: absolute;
 }
 
 .delete-task-button {
-  float: right;
-  background: red;
+  right: 10px;
+  top: 60px;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 14px;
+  border: 1px solid gray;
+  cursor: pointer;
+  position: absolute;
+}
+
+.mark-complete-button {
+  right: 10px;
+  top: 100px;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  background: lightgreen;
+  border: 1px solid gray;
+  cursor: pointer;
+  position: absolute;
 }

@@ -20,6 +20,10 @@ var resetCompletedTasks = function(tasks) {
   });
 };
 
+var addCompletedTask = function(task) {
+  _completedTasks.push(task);
+};
+
 var addTask = function(task) {
   switch (InboxStore.getCurrentInbox()) {
     case "Today":
@@ -94,6 +98,11 @@ TaskStore.__onDispatch = function(payload) {
       break;
     case "UPDATE_TASK":
       checkForRemoval(payload.task);
+      TaskStore.__emitChange();
+      break;
+    case "COMPLETE_TASK":
+      removeTask(payload.task);
+      addCompletedTask(payload.task);
       TaskStore.__emitChange();
       break;
     case "REMOVE_TASK":

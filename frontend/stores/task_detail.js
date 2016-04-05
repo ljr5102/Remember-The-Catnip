@@ -56,6 +56,10 @@ TaskDetailStore.__onDispatch = function(payload) {
       checkForRemoval(payload.task);
       TaskDetailStore.__emitChange();
       break;
+    case "COMPLETE_TASK":
+      removeTask();
+      TaskDetailStore.__emitChange();
+      break;
     case "REMOVE_TASK":
       removeTask();
       TaskDetailStore.__emitChange();
