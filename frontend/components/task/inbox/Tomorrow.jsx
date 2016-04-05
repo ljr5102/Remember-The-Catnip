@@ -39,12 +39,33 @@ var Tomorrow = React.createClass({
   },
 
   render: function() {
+    var taskStats = gatherTaskStats(this.state.tomorrowTasks);
     return (
-      <li className="group" onClick={this.updateStore}>
-        Tomorrow <strong className="badge">{this.state.tomorrowTasks.length}</strong>
-      </li>
+      <div>
+        <li className="group" onClick={this.updateStore}>
+          Tomorrow <strong className="badge">{this.state.tomorrowTasks.length}</strong>
+        </li>
+        {taskStats}
+      </div>
     );
   }
 });
+
+function gatherTaskStats(tomorrowTasks) {
+  var allowedInboxes = ["Tomorrow"];
+  var taskStats;
+  if (allowedInboxes.indexOf(InboxStore.getCurrentInbox()) !== -1) {
+    taskStats = <div className="task-statistics">
+                  <h2>Tomorrow</h2>
+                  <ul>
+                    <li><div className="task-number">{tomorrowTasks.length}</div> tasks</li>
+                  </ul>
+                </div>
+  } else {
+    taskStats = <div></div>
+  };
+  return taskStats;
+};
+
 
 module.exports = Tomorrow;

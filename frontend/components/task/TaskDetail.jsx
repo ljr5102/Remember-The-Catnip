@@ -50,6 +50,7 @@ var TaskDetail = React.createClass({
     e.preventDefault();
     var task = {completed: true};
     APIUtil.completeTask(this.state.task, task)
+    this.context.router.push("tasks");
   },
 
   render: function() {

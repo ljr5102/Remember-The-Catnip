@@ -39,12 +39,33 @@ var Week = React.createClass({
   },
 
   render: function() {
+    var taskStats = gatherTaskStats(this.state.weekTasks);
     return (
-      <li className="group" onClick={this.updateStore}>
-        Week <strong className="badge">{this.state.weekTasks.length}</strong>
-      </li>
+      <div>
+        <li className="group" onClick={this.updateStore}>
+          Week <strong className="badge">{this.state.weekTasks.length}</strong>
+        </li>
+        {taskStats}
+      </div>
     );
   }
 });
+
+function gatherTaskStats(weekTasks) {
+  var allowedInboxes = ["Week"];
+  var taskStats;
+  if (allowedInboxes.indexOf(InboxStore.getCurrentInbox()) !== -1) {
+    taskStats = <div className="task-statistics">
+                  <h2>Week</h2>
+                  <ul>
+                    <li><div className="task-number">{weekTasks.length}</div> tasks</li>
+                  </ul>
+                </div>
+  } else {
+    taskStats = <div></div>
+  };
+  return taskStats;
+};
+
 
 module.exports = Week;

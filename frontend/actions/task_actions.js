@@ -26,6 +26,14 @@ var TaskActions = {
     AppDispatcher.dispatch(action);
   },
 
+  receiveIncompleteTasks: function(tasks) {
+    var action = {
+      actionType: TaskConstants.GET_INCOMPLETE_TASKS,
+      tasks: tasks
+    };
+    AppDispatcher.dispatch(action);
+  },
+
   addTask: function(task) {
     var action = {
       actionType: TaskConstants.ADD_TASK,

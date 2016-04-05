@@ -8,6 +8,7 @@ var Today = require('./inbox/Today');
 var AllTasks = require('./inbox/AllTasks');
 var Tomorrow = require('./inbox/Tomorrow');
 var Week = require('./inbox/Week');
+var TaskActions = require('../../actions/task_actions');
 var SearchResultsStore = require('../../stores/search_results');
 
 var TasksIndex = React.createClass({
@@ -27,6 +28,7 @@ var TasksIndex = React.createClass({
 
   componentWillUnmount: function() {
     this.listenerToken.remove();
+    this.searchListener.remove();
   },
 
   showSearchResults: function() {
@@ -43,6 +45,7 @@ var TasksIndex = React.createClass({
       $(".selected-tab").removeClass("selected-tab").addClass("unselected-tab");
       $(e.currentTarget).removeClass("unselected-tab").addClass("selected-tab");
     }
+    TaskActions.receiveIncompleteTasks(this.state.tasks);
     this.context.router.push("tasks/completed");
   },
 
@@ -52,7 +55,7 @@ var TasksIndex = React.createClass({
       $(e.currentTarget).removeClass("unselected-tab").addClass("selected-tab")
     }
     this.context.router.push("tasks");
-    APIUtil.fetchAllTasks();
+    TaskActions.setStore(TaskStore.getIncompleteTasks());
   },
 
   render: function() {

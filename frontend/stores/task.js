@@ -5,11 +5,9 @@ var TaskStore = new Store(AppDispatcher);
 
 var _tasks = [];
 var _completedTasks = [];
+
+// only use for navigating from complete to incomplete
 var _incompleteTasks = [];
-// can utilize the incomplete tasks and complete tasks
-// _tasks can be what's displayed on the screen
-// before moving ahead with this make sure completing/updating
-// won't be affected by this
 
 var resetTasks = function(tasks) {
   _tasks = [];
@@ -22,6 +20,13 @@ var resetCompletedTasks = function(tasks) {
   _completedTasks = [];
   tasks.forEach(function(task) {
     _completedTasks.push(task);
+  });
+};
+
+var resetIncompleteTasks = function(tasks) {
+  _incompleteTasks = [];
+  tasks.forEach(function(task) {
+    _incompleteTasks.push(task);
   });
 };
 
@@ -91,6 +96,10 @@ TaskStore.allCompleted = function() {
   return _completedTasks.slice();
 };
 
+TaskStore.getIncompleteTasks = function() {
+  return _incompleteTasks.slice();
+};
+
 TaskStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case "GET_ALL_TASKS":
@@ -121,6 +130,9 @@ TaskStore.__onDispatch = function(payload) {
     case "GET_ALL_COMPLETED_TASKS":
       resetCompletedTasks(payload.tasks);
       TaskStore.__emitChange();
+      break;
+    case "GET_INCOMPLETE_TASKS":
+      resetIncompleteTasks(payload.tasks);
       break;
   }
 };
