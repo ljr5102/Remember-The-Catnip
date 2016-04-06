@@ -12,6 +12,23 @@
   font-weight: bold;
 }
 
+.edit-list-button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid;
+  border-color: #80bdfc;
+  background: #0060bf;
+  margin-top: 3px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  float: right;
+}
+
+
 .add-list-button:hover {
   border: 2px solid black;
   position: absolute;

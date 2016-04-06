@@ -38,7 +38,8 @@ var ListsIndex = React.createClass({
     this.setState({modalIsOpen: true});
   },
 
-  closeModal: function() {
+  closeModal: function(e) {
+    e.preventDefault();
     this.setState({modalIsOpen: false});
   },
 
@@ -71,7 +72,7 @@ var ListsIndex = React.createClass({
             <button onClick={this.closeModal} className="new-list-cancel-button">Cancel</button>
           </form>
         </Modal>
-        <ul>
+        <ul className="sidebar-list-items">
           {listArray}
         </ul>
       </div>

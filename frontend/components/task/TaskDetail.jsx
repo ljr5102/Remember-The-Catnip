@@ -102,7 +102,7 @@ var TaskDetail = React.createClass({
     var i = 0;
     for (var key in task) {
       if (task.hasOwnProperty(key)) {
-        if (this.displayableProperties[key] && task[key] !== null) {
+        if (this.displayableProperties[key] && task[key] !== null && task[key] !== "") {
           taskArray.push(<li key={i}><p className="detail-label">{this.displayableProperties[key]}</p> {task[key]}</li>);
         }
       }

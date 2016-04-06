@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :create]
     resources :searches, only: [:index]
     resources :lists, only: [:create, :destroy, :update, :index, :show]
+    get '/lists/:id/tasks', to: 'tasks#list'
   end
 end

@@ -12,11 +12,26 @@ var addList = function(list) {
   _lists.push(list);
 };
 
-var checkForCountUpdate = function(task) {
-  debugger
+var updateList = function(updatedList) {
+  _lists.forEach(function(list) {
+    if (list.list_id === updatedList.list_id) {
+      list.name = updatedList.name;
+    }
+  });
+};
+
+var checkForCountRaise = function(task) {
   _lists.forEach(function(list) {
     if (list.list_id === task.list_id) {
       list.task_count += 1;
+    }
+  });
+};
+
+var checkForCountLower = function(task) {
+  _lists.forEach(function(list) {
+    if (list.list_id === task.list_id) {
+      list.task_count -= 1;
     }
   });
 };
@@ -35,10 +50,28 @@ ListStore.__onDispatch = function(payload) {
       addList(payload.list);
       ListStore.__emitChange();
       break;
-    case "ADD_TASK":
-      checkForCountUpdate(payload.task);
+    case "RECEIVE_UPDATED_LIST":
+      updateList(payload.list);
       ListStore.__emitChange();
       break;
+    case "ADD_TASK":
+      checkForCountRaise(payload.task);
+      ListStore.__emitChange();
+      break;
+    case "REMOVE_TASK":
+      checkForCountLower(payload.task);
+      ListStore.__emitChange();
+      break;
+    case "COMPLETE_TASK":
+      checkForCountLower(payload.oldTask);
+      ListStore.__emitChange();
+      break;
+    case "UPDATE_TASK":
+      checkForCountRaise(payload.task);
+      checkForCountLower(payload.oldTask);
+      ListStore.__emitChange();
+      break;
+
   }
 };
 

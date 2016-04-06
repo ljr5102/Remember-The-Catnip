@@ -1,5 +1,11 @@
 class List < ActiveRecord::Base
 
+  before_destroy do |list|
+    Task.where(list_id: list.id).each do |task|
+      task.update_attributes(list_id: nil)
+    end
+  end
+
   validates :name, :creator_id, presence: true
   validates :name, uniqueness: { scope: :creator_id, message: "user already has list of this name"}
 
@@ -11,7 +17,8 @@ class List < ActiveRecord::Base
   has_many(:tasks,
   class_name: 'Task',
   primary_key: :id,
-  foreign_key: :list_id)
+  foreign_key: :list_id,
+  inverse_of: :list)
 
 
 end

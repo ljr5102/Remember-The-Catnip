@@ -1,6 +1,7 @@
 var React = require('react');
 var APIUtil = require('../../utils/api_util');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
+var ListStore = require('../../stores/list');
 
 
 
@@ -9,13 +10,13 @@ var TaskEditForm = React.createClass({
   mixins: [LinkedStateMixin],
 
   getInitialState: function() {
-    debugger
     return {
       name: this.props.task.name,
       due_date: this.props.task.due_date,
       start_date: this.props.task.start_date,
       priority: this.props.task.priority,
       estimate: this.props.task.estimate,
+      list_id: this.props.task.list_id,
       imageFile: "",
       imageUrl: ""
     }
@@ -25,7 +26,7 @@ var TaskEditForm = React.createClass({
     e.preventDefault();
     var formData = new FormData();
     Object.keys(this.state).forEach(function(key) {
-      if (this.state[key] !== "" && (key !== "imageFile" || key !== "imageUrl")) {
+      if (this.state[key] !== null && (key !== "imageFile" || key !== "imageUrl")) {
         var label = "task" + "[" + key + "]"
         formData.append(label, this.state[key]);
       }
@@ -50,6 +51,7 @@ var TaskEditForm = React.createClass({
 
 
   render: function() {
+    var listOptions = getListOptions(this.props.task);
     return(
       <form className="task-edit-form group" onSubmit={this.updateTask}>
         <div className="task-edit-input-grouping">
@@ -88,11 +90,26 @@ var TaskEditForm = React.createClass({
           </label>
         </div>
 
+        <div className="task-edit-input-grouping">
+          <label className="edit-label group">List
+            <select id="list" defaultValue={this.state.list_id} valueLink={this.linkState("list_id")}>{listOptions}</select>;
+          </label>
+        </div>
+
         <button className="update-task">Update Task</button>
         <button onClick={this.props.hideEdit} className="update-task">Cancel</button>
       </form>
     )
   }
 });
+
+function getListOptions(task) {
+  var lists = ListStore.all();
+  lists.unshift({list_id: "", name: ""})
+  var options = lists.map(function(list) {
+    return <option key={list.list_id} value={list.list_id}>{list.name}</option>
+  });
+  return options;
+};
 
 module.exports = TaskEditForm;

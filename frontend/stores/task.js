@@ -57,6 +57,12 @@ var addTask = function(task) {
     case "":
       _tasks.push(task);
       break;
+    case "None":
+      var currList = InboxStore.getCurrentList();
+      if(task.list_id === currList.list_id) {
+        _tasks.push(task);
+      }
+      break;
   }
 };
 
@@ -74,6 +80,12 @@ var checkForRemoval = function(task) {
       break;
     case "Week":
       if (!task.week) {
+        removeTask(task);
+      }
+      break;
+    case "None":
+      var currList = InboxStore.getCurrentList();
+      if(!task.list_id || task.list_id !== currList.list_id) {
         removeTask(task);
       }
       break;

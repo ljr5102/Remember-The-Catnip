@@ -8,6 +8,14 @@ var InboxActions = {
       inbox: inbox
     };
     AppDispatcher.dispatch(action);
+  },
+
+  receiveClickedList: function(list) {
+    var action = {
+      actionType: InboxConstants.RECEIVE_CLICKED_LIST,
+      list: list
+    };
+    AppDispatcher.dispatch(action);
   }
 };
 

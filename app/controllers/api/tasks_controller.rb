@@ -38,6 +38,12 @@ class Api::TasksController < ApplicationController
     render :index
   end
 
+  def list
+    @tasks = Task.where("tasks.list_id = ?", params[:id])
+      .where("tasks.completed = ?", false)
+    render :index
+  end
+
   def show
     @task = Task.find(params[:id])
     render :show
@@ -52,6 +58,9 @@ class Api::TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
+    if task_params.keys[0] == "completed"
+      @task.update(list_id: nil) if @task.list_id
+    end
     @task.update_attributes(task_params)
     render :show
   end

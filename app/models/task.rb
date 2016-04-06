@@ -17,6 +17,6 @@ class Task < ActiveRecord::Base
   belongs_to(:list,
   class_name: 'List',
   primary_key: :id,
-  foreign_key: :list_id)
+  foreign_key: :list_id,)
 
 end

@@ -70,7 +70,7 @@ var TasksIndex = React.createClass({
         <div className="sidebar group">
           <div className="side-bar-logo"></div>
           <h2>Inbox</h2>
-          <ul>
+          <ul className="sidebar-list-items">
             <AllTasks />
             <Today />
             <Tomorrow />

@@ -27,6 +27,12 @@ var checkForRemoval = function(task) {
         removeTask();
       }
       break;
+    case "None":
+      var currList = InboxStore.getCurrentList();
+      if(!task.list_id || task.list_id !== currList.list_id) {
+        removeTask(task);
+      }
+      break;
     }
 };
 

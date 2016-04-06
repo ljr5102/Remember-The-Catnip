@@ -16,6 +16,14 @@ var ListActions = {
       list: list
     };
     AppDispatcher.dispatch(action);
+  },
+
+  receiveUpdatedList: function(list) {
+    var action = {
+      actionType: ListConstants.RECEIVE_UPDATED_LIST,
+      list: list
+    };
+    AppDispatcher.dispatch(action);
   }
 };
 

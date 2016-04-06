@@ -113,7 +113,7 @@ var APIUtil = {
       contentType: false,
       data: task,
       success: function(updatedTask) {
-        TaskActions.updateTask(updatedTask.task);
+        TaskActions.updateTask(updatedTask.task, currentTask);
       },
       error: function() {
         console.log("Something went wrong in updateTask");
@@ -142,7 +142,7 @@ var APIUtil = {
       method: "PATCH",
       data: {task: task},
       success: function(completedTask) {
-        TaskActions.completeTask(completedTask.task);
+        TaskActions.completeTask(completedTask.task, currentTask);
       },
       error: function() {
         console.log("Something went wrong in completeTask");
@@ -234,6 +234,20 @@ var APIUtil = {
     });
   },
 
+  fetchTasksForList: function(list_id) {
+    $.ajax({
+      method: "GET",
+      url: "/api/lists/" + list_id + "/tasks",
+      dataType: "json",
+      success: function(tasks) {
+        TaskActions.receiveAllTasks(tasks);
+      },
+      error: function() {
+        console.log("Something went wrong in fetchTasksForList");
+      }
+    });
+  },
+
   search: function(query, page) {
     $.ajax({
       method: "GET",
@@ -276,7 +290,23 @@ var APIUtil = {
         console.log("Something went wrong in createList");
       }
     });
+  },
+
+  updateList: function(list_id, listData) {
+    $.ajax({
+      method: "PATCH",
+      url: "/api/lists/" +  list_id,
+      dataType: "json",
+      data: listData,
+      success: function(updatedList) {
+        ListActions.receiveUpdatedList(updatedList);
+      },
+      error: function() {
+        console.log("Something went wrong in createList");
+      }
+    });
   }
+
 
 
 

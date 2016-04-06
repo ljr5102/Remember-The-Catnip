@@ -27,9 +27,12 @@
   padding-left: 15px;
 }
 
-.sidebar li:hover {
+.sidebar-list-items > div > li:hover {  
   background: #bcd5ee;
   cursor: pointer;
+}
+
+.sidebar li:hover {
 }
 
 .badge {

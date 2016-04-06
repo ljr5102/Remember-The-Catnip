@@ -42,18 +42,20 @@ var TaskActions = {
     AppDispatcher.dispatch(action);
   },
 
-  updateTask: function(task) {
+  updateTask: function(task, oldTask) {
     var action = {
       actionType: TaskConstants.UPDATE_TASK,
-      task: task
+      task: task,
+      oldTask: oldTask
     };
     AppDispatcher.dispatch(action);
   },
 
-  completeTask: function(task) {
+  completeTask: function(task, oldTask) {
     var action = {
       actionType: TaskConstants.COMPLETE_TASK,
-      task: task
+      task: task,
+      oldTask: oldTask
     };
     AppDispatcher.dispatch(action);
   },

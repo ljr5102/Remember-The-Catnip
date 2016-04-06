@@ -41,3 +41,5 @@ task19 = Task.create!(owner_id: user_id, name: "Take a nap", start_date: Date.to
 task20 = Task.create!(owner_id: user_id, name: "Bite humans", start_date: Date.today, due_date: Date.today + 1, priority: 3, estimate: "1 minute")
 task21 = Task.create!(owner_id: user_id, name: "Sit on humans when morning alarm goes off", start_date: Date.today, due_date: Date.today, priority: 1)
 task22 = Task.create!(owner_id: user_id, name: "Snooze")
+
+List.destroy_all

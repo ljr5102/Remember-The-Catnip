@@ -53,6 +53,11 @@
   margin-right: 6px;
 }
 
+.task-edit-input-grouping select {
+  float: right;
+  margin-right: 6px;
+}
+
 .update-task {
   padding: 10px 15px;
   border-radius: 5px;
