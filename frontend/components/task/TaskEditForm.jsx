@@ -9,25 +9,45 @@ var TaskEditForm = React.createClass({
   mixins: [LinkedStateMixin],
 
   getInitialState: function() {
+    debugger
     return {
       name: this.props.task.name,
       due_date: this.props.task.due_date,
       start_date: this.props.task.start_date,
       priority: this.props.task.priority,
       estimate: this.props.task.estimate,
+      imageFile: "",
+      imageUrl: ""
     }
   },
 
   updateTask: function(e) {
     e.preventDefault();
-    var task = {};
+    var formData = new FormData();
     Object.keys(this.state).forEach(function(key) {
-      if (this.state[key] !== null) {
-        task[key] = this.state[key];
+      if (this.state[key] !== "" && (key !== "imageFile" || key !== "imageUrl")) {
+        var label = "task" + "[" + key + "]"
+        formData.append(label, this.state[key]);
       }
     }.bind(this));
-    APIUtil.updateTask(this.props.task, task);
+    if (this.state.imageFile !== "") {
+      formData.append("task[image]", this.state.imageFile);
+    }
+    APIUtil.updateTask(this.props.task, formData);
   },
+
+  handleFileChange: function(e) {
+    var file = e.currentTarget.files[0]
+    var reader = new FileReader();
+
+    reader.onloadend = function() {
+      var result = reader.result;
+      this.setState({ imageFile: file, imageUrl: result });
+    }.bind(this);
+
+    reader.readAsDataURL(file);
+  },
+
 
   render: function() {
     return(
@@ -59,6 +79,12 @@ var TaskEditForm = React.createClass({
         <div className="task-edit-input-grouping">
           <label className="edit-label group">Estimate
             <input type="text" defaultValue={this.state.estimate} valueLink={this.linkState("estimate")} />
+          </label>
+        </div>
+
+        <div className="task-edit-input-grouping">
+          <label className="edit-label group">Picture
+            <input id="file-upload" type="file" onChange={this.handleFileChange} />
           </label>
         </div>
 

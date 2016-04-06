@@ -46,6 +46,12 @@ var TaskDetail = React.createClass({
     this.context.router.push("tasks");
   },
 
+  removeImage: function(e) {
+    e.preventDefault();
+    APIUtil.removeImage(this.state.task);
+
+  },
+
   completeTask: function(e) {
     e.preventDefault();
     var task = {completed: true};
@@ -82,6 +88,7 @@ var TaskDetail = React.createClass({
     var deleteButton;
     var updateButton;
     var completeButton;
+    var removeImageButton;
     if (!task.name || task.completed) {
       deleteButton = <div></div>
       updateButton = <div></div>
@@ -90,6 +97,7 @@ var TaskDetail = React.createClass({
       deleteButton =  <button className="delete-task-button" onClick={this.deleteTask}>Delete Task</button>;
       updateButton = <button className="update-task-button" onClick={this.editTask}>Edit Task...</button>;
       completeButton = <button className="mark-complete-button" onClick={this.completeTask}>Mark Complete</button>;
+      removeImageButton = <button onClick={this.removeImage}>Remove Image</button>
     }
     return (
       <div className="task-detail group">
@@ -100,6 +108,7 @@ var TaskDetail = React.createClass({
         {deleteButton}
         {updateButton}
         {completeButton}
+        {removeImageButton}
         {editForm}
         {image}
       </div>

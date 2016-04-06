@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         get 'completed'
       end
     end
+    patch '/tasks/:id/images', to: 'tasks#remove_image'
     resource :session, only: [:show, :create, :destroy]
     resources :users, only: [:show, :create]
     resources :searches, only: [:index]

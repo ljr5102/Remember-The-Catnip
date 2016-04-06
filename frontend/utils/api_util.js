@@ -109,12 +109,28 @@ var APIUtil = {
       url: "api/tasks/" + currentTask.task_id,
       dataType: "json",
       method: "PATCH",
-      data: {task: task},
+      processData: false,
+      contentType: false,
+      data: task,
       success: function(updatedTask) {
         TaskActions.updateTask(updatedTask.task);
       },
       error: function() {
         console.log("Something went wrong in updateTask");
+      }
+    });
+  },
+
+  removeImage: function(task) {
+    $.ajax({
+      url: "/api/tasks/" + task.task_id + "/images",
+      dataType: "json",
+      method: "PATCH",
+      success: function(updatedTask) {
+        TaskActions.updateTask(updatedTask.task);
+      },
+      error: function() {
+        console.log("Something went wrong in removeImage");
       }
     });
   },

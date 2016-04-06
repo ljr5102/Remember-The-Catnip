@@ -56,6 +56,13 @@ class Api::TasksController < ApplicationController
     render :show
   end
 
+  def remove_image
+    @task = Task.find(params[:id])
+    @task.image.destroy
+    @task.save!
+    render :show
+  end
+
   def destroy
     Task.find(params[:id]).destroy
     render :index
