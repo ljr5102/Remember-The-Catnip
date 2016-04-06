@@ -27,7 +27,7 @@
   padding-left: 15px;
 }
 
-.sidebar-list-items > div > li:hover {  
+.sidebar-list-items > div > li:hover {
   background: #bcd5ee;
   cursor: pointer;
 }

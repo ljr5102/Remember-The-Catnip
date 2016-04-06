@@ -28,6 +28,7 @@ task7 = Task.create!(owner_id: user_id, name: "Hang out in humans water dispense
 task8_img = File.open('app/assets/images/seeds/image(8).jpeg')
 task8 = Task.create!(owner_id: user_id, name: "Zzzzz", start_date: Date.today, due_date: Date.today, priority: 1, estimate: "8 Hours", image: task8_img)
 task9_img = File.open('app/assets/images/seeds/image(9).jpeg')
+task9 = Task.create!(owner_id: user_id, name: "Mid-afternoon nap", image: task9_img)
 task10 = Task.create!(owner_id: user_id, name: "Call Sennacy", due_date: Date.today + 1, priority: 1, estimate: "10 minutes")
 task11 = Task.create!(owner_id: user_id, name: "Bite humans at approximately 5am")
 task12 = Task.create!(owner_id: user_id, name: "Eat breakfast with Breakfast", due_date: Date.today + 1, priority: 3)
@@ -40,6 +41,17 @@ task18 = Task.create!(owner_id: user_id, name: "Get more sleep", start_date: Dat
 task19 = Task.create!(owner_id: user_id, name: "Take a nap", start_date: Date.today, due_date: Date.today)
 task20 = Task.create!(owner_id: user_id, name: "Bite humans", start_date: Date.today, due_date: Date.today + 1, priority: 3, estimate: "1 minute")
 task21 = Task.create!(owner_id: user_id, name: "Sit on humans when morning alarm goes off", start_date: Date.today, due_date: Date.today, priority: 1)
-task22 = Task.create!(owner_id: user_id, name: "Snooze")
+task22_img = File.open('app/assets/images/seeds/image(10).jpeg')
+task22 = Task.create!(owner_id: user_id, name: "Try out new sleeping position", image: task22_img)
+task23_img = File.open('app/assets/images/seeds/image(11).png')
+task23 = Task.create!(owner_id: user_id, name: "Dress up in formal attire", image: task23_img)
+task24_img = File.open('app/assets/images/seeds/image(12).jpeg')
+task24 = Task.create!(owner_id: user_id, name: "Late evening nap", image: task24_img)
+task25_img = File.open('app/assets/images/seeds/image(13).jpeg')
+task25 = Task.create!(owner_id: user_id, name: "Bathe self", image: task25_img)
 
 List.destroy_all
+list1 = List.create!(name: "All Things Sleep Related", creator_id: user_id)
+list1.tasks = [task1, task6, task8, task9, task18, task19, task22, task24]
+list2 = List.create!(name: "Annoy The Humans", creator_id: user_id)
+list2.tasks = [task7, task15, task16, task20]
