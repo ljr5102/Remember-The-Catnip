@@ -20,6 +20,14 @@ var updateList = function(updatedList) {
   });
 };
 
+var removeList = function(removeList) {
+  _lists.forEach(function(list, index) {
+    if (list.list_id === removeList.list_id) {
+      _lists.splice(index, 1);
+    }
+  });
+};
+
 var checkForCountRaise = function(task) {
   _lists.forEach(function(list) {
     if (list.list_id === task.list_id) {
@@ -52,6 +60,10 @@ ListStore.__onDispatch = function(payload) {
       break;
     case "RECEIVE_UPDATED_LIST":
       updateList(payload.list);
+      ListStore.__emitChange();
+      break;
+    case "REMOVE_LIST":
+      removeList(payload.list);
       ListStore.__emitChange();
       break;
     case "ADD_TASK":

@@ -1,6 +1,6 @@
 .task-index {
   margin-left: 210px;
-  width: 1050px;
+  width: 548px;
   position: relative;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .task-index-item {
-  width: 530px;
+  width: 528px;
   font-size: 13px;
   border-bottom: 1px solid black;
   padding: 10px;
@@ -312,7 +312,7 @@
 .index-tabs {
   margin-top: 60px;
   float: right;
-  margin-right: 502px;
+
 }
 
 .unselected-tab {

@@ -44,6 +44,14 @@ var ListsIndexItem = React.createClass({
     this.setState({modalIsOpen: false});
   },
 
+  deleteList: function(e) {
+    e.preventDefault();
+    APIUtil.deleteList(this.props.list)
+    InboxActions.receiveClickedInbox("AllTasks");
+    this.context.router.push("tasks");
+    APIUtil.fetchAllTasks();
+  },
+
   showTasksForList: function() {
     this.context.router.push("tasks")
     InboxActions.receiveClickedList(this.props.list);
@@ -80,6 +88,7 @@ function gatherTaskStats(obj) {
     taskStats = <div className="task-statistics">
                   <h2>{obj.props.list.name}</h2>
                   <button className="edit-list-button" onClick={obj.openModal}>Rename list...</button>
+                  <button className="edit-list-button" onClick={obj.deleteList}>Delete</button>
                   <ul>
                     <li><div className="task-number">{obj.props.list.task_count}</div> tasks</li>
                   </ul>

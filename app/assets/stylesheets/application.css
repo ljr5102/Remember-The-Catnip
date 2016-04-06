@@ -118,6 +118,7 @@
   color: #ffffff;
   background: #009dff;
   text-align: center;
+  cursor: pointer;
 }
 
 .sign-in-link {
@@ -199,6 +200,7 @@
  color: #ffffff;
  background: #009dff;
  text-align: center;
+ cursor: pointer;
 }
 
 .sign-up-link {

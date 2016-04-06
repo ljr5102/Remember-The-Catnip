@@ -26,7 +26,7 @@ InboxStore.getCurrentList = function() {
 InboxStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case "RECEIVE_CLICKED_INBOX":
-    setCurrentList({});
+      setCurrentList({});
       setCurrentInbox(payload.inbox);
       break;
     case "RECEIVE_CLICKED_LIST":

@@ -24,7 +24,7 @@ class Api::ListsController < ApplicationController
   end
 
   def destroy
-    @list = List.find(params[:id]).include(:tasks)
+    @list = List.includes(:tasks).find(params[:id])
     @list.destroy
     render :index
   end

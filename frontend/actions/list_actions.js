@@ -24,6 +24,14 @@ var ListActions = {
       list: list
     };
     AppDispatcher.dispatch(action);
+  },
+
+  removeList: function(list) {
+    var action = {
+      actionType: ListConstants.REMOVE_LIST,
+      list: list
+    };
+    AppDispatcher.dispatch(action);
   }
 };
 

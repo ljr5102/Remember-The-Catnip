@@ -82,7 +82,8 @@
   padding: 10px 20px;
   font-weight: bold;
   font-size: 13px;
-  background: #3f95ec
+  background: #3f95ec;
+  cursor: pointer;
 }
 
 .new-list-cancel-button {
@@ -92,5 +93,6 @@
   color: black;
   font-weight: bold;
   font-size: 13px;
-  background: #f4f4f4
+  background: #f4f4f4;
+  cursor: pointer;
 }

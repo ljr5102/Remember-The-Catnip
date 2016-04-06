@@ -305,6 +305,20 @@ var APIUtil = {
         console.log("Something went wrong in createList");
       }
     });
+  },
+
+  deleteList: function(list) {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/lists/" + list.list_id,
+      dataType: "json",
+      success: function() {
+        ListActions.removeList(list);
+      },
+      error: function() {
+        console.log("Something went wrong in deleteList");
+      }
+    });
   }
 
 
