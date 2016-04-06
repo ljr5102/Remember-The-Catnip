@@ -59,6 +59,11 @@ var TaskDetail = React.createClass({
     this.context.router.push("tasks");
   },
 
+  showImageOptions: function(e) {
+    e.preventDefault();
+    $(".image-options-blank").removeClass("image-options-blank").addClass("image-options-selections");
+  },
+
   render: function() {
     var editForm;
     var image;
@@ -68,7 +73,10 @@ var TaskDetail = React.createClass({
       editForm = <div></div> ;
     };
     if (this.state.task.image_url !== "/missing.png") {
-      image = <img className="task-images" src={this.state.task.image_url} />
+      image = <div className="image-container">
+                <img className="task-images" src={this.state.task.image_url} />
+                <button onClick={this.showImageOptions} className="image-options">Options</button>
+              </div>
     } else {
       image = <div></div>
     }
@@ -97,7 +105,7 @@ var TaskDetail = React.createClass({
       deleteButton =  <button className="delete-task-button" onClick={this.deleteTask}>Delete Task</button>;
       updateButton = <button className="update-task-button" onClick={this.editTask}>Edit Task...</button>;
       completeButton = <button className="mark-complete-button" onClick={this.completeTask}>Mark Complete</button>;
-      removeImageButton = <button onClick={this.removeImage}>Remove Image</button>
+      removeImageButton = <button className="image-options-blank" onClick={this.removeImage}>Remove Image</button>
     }
     return (
       <div className="task-detail group">

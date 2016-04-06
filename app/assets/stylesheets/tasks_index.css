@@ -32,11 +32,12 @@
 }
 
 .task-edit-form {
-  font-size: 12px;
+  position: absolute;
+  background: #e4eef8;
+  top: 25px;
+  left: 15px;
+  font-size: 14px;
   width: 300px;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
 }
 
 
@@ -264,10 +265,33 @@
   float: left;
 }
 
-.task-images {
+.image-container {
+  display: block;
   width: 300px;
-  margin: 0 auto;
-  margin-top: 25px;
+  position: relative;
+}
+
+.image-container:hover .image-options {
+  opacity: 1;
+}
+
+.task-images {
+
+}
+
+.image-options {
+  background: lightgray;
+  position: absolute;
+  top: 0px;
+  opacity: 0;
+}
+
+.image-options-selections {
+  background: white;
+}
+
+.image-options-blank {
+  opacity: 0;
 }
 
 .index-tabs {
