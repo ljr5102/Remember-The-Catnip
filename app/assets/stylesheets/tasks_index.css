@@ -251,6 +251,7 @@
 .task-detail ul {
   font-size: 14px;
   margin-left: 45px;
+  margin-bottom: 75px;
 }
 
 .task-detail > ul > li {
@@ -266,6 +267,7 @@
 }
 
 .image-container {
+  margin: 0 auto;
   display: block;
   width: 300px;
   position: relative;
@@ -280,7 +282,7 @@
 }
 
 .image-options {
-  background: lightgray;
+  background: white;
   position: absolute;
   top: 0px;
   opacity: 0;
@@ -288,10 +290,18 @@
 
 .image-options-selections {
   background: white;
+  position: absolute;
+  top: 25px;
+}
+
+.image-options-selections:hover {
+  color: white;
+  background: black;
+  cursor: pointer;
 }
 
 .image-options-blank {
-  opacity: 0;
+  display: none;
 }
 
 .index-tabs {
@@ -390,4 +400,8 @@
   border: 1px solid gray;
   cursor: pointer;
   position: absolute;
+}
+
+.file-upload {
+  width: 180px;
 }

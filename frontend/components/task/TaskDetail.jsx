@@ -46,6 +46,11 @@ var TaskDetail = React.createClass({
     this.context.router.push("tasks");
   },
 
+  hideEditForm: function(e) {
+    e.preventDefault();
+    this.setState({showEdit: false})
+  },
+
   removeImage: function(e) {
     e.preventDefault();
     APIUtil.removeImage(this.state.task);
@@ -64,18 +69,29 @@ var TaskDetail = React.createClass({
     $(".image-options-blank").removeClass("image-options-blank").addClass("image-options-selections");
   },
 
+  unshowImageOptions: function(e) {
+    e.preventDefault();
+    $(".image-options-selections").removeClass("image-options-selections").addClass("image-options-blank");
+  },
+
   render: function() {
     var editForm;
     var image;
     if (this.state.showEdit) {
-      editForm = <TaskEditForm task={this.state.task} /> ;
+      editForm = <TaskEditForm task={this.state.task} hideEdit={this.hideEditForm}/> ;
     } else {
       editForm = <div></div> ;
     };
     if (this.state.task.image_url !== "/missing.png") {
-      image = <div className="image-container">
+      image = <div onMouseLeave={this.unshowImageOptions} className="image-container">
                 <img className="task-images" src={this.state.task.image_url} />
-                <button onClick={this.showImageOptions} className="image-options">Options</button>
+                <button onMouseEnter={this.showImageOptions} className="image-options">
+                  ⚙
+                </button>
+                <button className="image-options-blank"
+                  onClick={this.removeImage}>
+                  Remove Image
+                </button>
               </div>
     } else {
       image = <div></div>
@@ -105,7 +121,6 @@ var TaskDetail = React.createClass({
       deleteButton =  <button className="delete-task-button" onClick={this.deleteTask}>Delete Task</button>;
       updateButton = <button className="update-task-button" onClick={this.editTask}>Edit Task...</button>;
       completeButton = <button className="mark-complete-button" onClick={this.completeTask}>Mark Complete</button>;
-      removeImageButton = <button className="image-options-blank" onClick={this.removeImage}>Remove Image</button>
     }
     return (
       <div className="task-detail group">

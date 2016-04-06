@@ -84,11 +84,12 @@ var TaskEditForm = React.createClass({
 
         <div className="task-edit-input-grouping">
           <label className="edit-label group">Picture
-            <input id="file-upload" type="file" onChange={this.handleFileChange} />
+            <input className="file-upload" type="file" onChange={this.handleFileChange} />
           </label>
         </div>
 
         <button className="update-task">Update Task</button>
+        <button onClick={this.props.hideEdit} className="update-task">Cancel</button>
       </form>
     )
   }

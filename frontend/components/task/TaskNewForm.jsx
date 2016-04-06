@@ -87,7 +87,7 @@ var TaskNewForm = React.createClass({
     var dueDate = <input id="due-date" className="task-form-hidden" type="date" valueLink={this.linkState("due_date")} />
     var newPriority = <input id="priority" className="task-form-hidden" type="number" valueLink={this.linkState("priority")} min="1" max="3" />
     var estimate = <input id="estimate" className="task-form-hidden" type="text" valueLink={this.linkState("estimate")} />
-    var picture = <input id="photo" className="task-form-hidden" type="file" onChange={this.handleFileChange} />
+    var picture = <input id="photo" className="task-form-hidden file-upload" type="file" onChange={this.handleFileChange} />
     var listOptions = getListOptions();
     var list = <select id="list" className="task-form-hidden" valueLink={this.linkState("list_id")}>{listOptions}</select>;
     return (
