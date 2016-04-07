@@ -59,6 +59,20 @@ var TasksIndex = React.createClass({
     TaskActions.setStore(TaskStore.getIncompleteTasks());
   },
 
+  showHideInbox: function(e) {
+    e.preventDefault();
+    switch ($(".inbox-list-items").length) {
+      case 1:
+        $(".inbox-list-items").removeClass("inbox-list-items").addClass("inbox-list-items-hidden");
+        $(".arrow-down-inbox").removeClass("arrow-down-inbox").addClass("arrow-right-inbox")
+        break;
+      case 0:
+        $(".inbox-list-items-hidden").removeClass("inbox-list-items-hidden").addClass("inbox-list-items");
+        $(".arrow-right-inbox").removeClass("arrow-right-inbox").addClass("arrow-down-inbox")
+        break;
+    }
+  },
+
   render: function() {
     var taskStats;
     var pathsForDetail = ["/tasks", "tasks/completed"]
@@ -69,8 +83,8 @@ var TasksIndex = React.createClass({
       <div className="wrapper">
         <div className="sidebar group">
           <div className="side-bar-logo"></div>
-          <h2>Inbox</h2>
-          <ul className="sidebar-list-items">
+          <h2 onClick={this.showHideInbox}><div className="arrow-down-inbox"></div>Inbox</h2>
+          <ul className="inbox-list-items">
             <AllTasks />
             <Today />
             <Tomorrow />

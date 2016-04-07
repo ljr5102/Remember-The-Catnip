@@ -34,7 +34,8 @@ var ListsIndex = React.createClass({
     this.listenerToken.remove();
   },
 
-  openModal: function() {
+  openModal: function(e) {
+    e.stopPropagation();
     this.setState({modalIsOpen: true});
   },
 
@@ -54,14 +55,27 @@ var ListsIndex = React.createClass({
     this.setState({lists: ListStore.all()});
   },
 
+  showHideLists: function(e) {
+    e.preventDefault();
+    switch ($(".list-list-items").length) {
+      case 1:
+        $(".list-list-items").removeClass("list-list-items").addClass("list-list-items-hidden");
+        $(".arrow-down-list").removeClass("arrow-down-list").addClass("arrow-right-list")
+        break;
+      case 0:
+        $(".list-list-items-hidden").removeClass("list-list-items-hidden").addClass("list-list-items");
+        $(".arrow-right-list").removeClass("arrow-right-list").addClass("arrow-down-list")
+        break;
+    }
+  },
+
   render: function() {
     var listArray = this.state.lists.map(function(list) {
       return <ListsIndexItem key={list.list_id} list={list} />;
     })
     return (
       <div className="lists-index">
-        <h2>Lists</h2>
-        <button className="add-list-button" onClick={this.openModal}>+</button>
+        <h2 onClick={this.showHideLists}><div className="arrow-down-list"></div>Lists<button className="add-list-button" onClick={this.openModal}>+</button></h2>
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
           <h2 className="new-list-header">Add a list</h2>
           <form ref="createNewList" className="new-list-form group" onSubmit={this.createList}>
@@ -72,7 +86,7 @@ var ListsIndex = React.createClass({
             <button onClick={this.closeModal} className="new-list-cancel-button">Cancel</button>
           </form>
         </Modal>
-        <ul className="sidebar-list-items">
+        <ul className="list-list-items">
           {listArray}
         </ul>
       </div>

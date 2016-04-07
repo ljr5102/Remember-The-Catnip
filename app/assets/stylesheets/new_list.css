@@ -1,15 +1,24 @@
 .add-list-button {
-  border: 2px solid black;
-  position: absolute;
-  left: 175px;
-  color: blue;
+  float: right;
+  color: #3c4248;
+  padding: 1px;
+  margin-right: 2px;
+  font-size: .6875rem;
+  font-weight: normal;
   border-radius: 3px;
-  border-color: blue;
-  padding-bottom: 1px;
-  padding-left: 1px;
-  top: 248px;
-  width: 10px;
-  font-weight: bold;
+  background: #c8dcf1;
+}
+
+.add-list-button:hover {
+  float: right;
+  color: #c8dcf1;
+  padding: 1px;
+  margin-right: 2px;
+  font-size: .6875rem;
+  font-weight: normal;
+  border-radius: 3px;
+  background: #3c4248;
+  cursor: pointer;
 }
 
 .edit-list-button {
@@ -27,25 +36,6 @@
   cursor: pointer;
   float: right;
 }
-
-
-.add-list-button:hover {
-  border: 2px solid black;
-  position: absolute;
-  left: 175px;
-  color: blue;
-  background: yellow;
-  border-radius: 3px;
-  border-color: blue;
-  padding-bottom: 1px;
-  padding-left: 1px;
-  top: 248px;
-  width: 10px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-
 
 .new-list-header {
   font-size: 1.125rem;

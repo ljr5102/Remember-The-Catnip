@@ -63,7 +63,7 @@ var ListsIndexItem = React.createClass({
     return (
       <div>
         <li className="group" onClick={this.showTasksForList}>
-          {this.props.list.name}
+          <div className="list-name-text">{this.props.list.name}</div>
           <strong className="badge">{this.props.list.task_count}</strong>
         </li>
         {taskStats}

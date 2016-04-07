@@ -13,7 +13,17 @@
 }
 
 .sidebar h2 {
-  padding: 0px 23px;
+  width: 182px;
+  padding-left: 0px;
+  margin-left: 8px;
+}
+
+.sidebar h2:hover {
+  width: 182px;
+  padding-left: 0px;
+  margin-left: 8px;
+  background: #bcd5ee;
+  cursor: pointer;
 }
 
 .sidebar ul {
@@ -23,16 +33,136 @@
 }
 
 .sidebar li {
+  width: 165px;
   padding: 4px 0px;
-  padding-left: 15px;
+  padding-left: 17px;
 }
 
-.sidebar-list-items > div > li:hover {
+.list-name-text {
+  white-space: nowrap;
+  float: left;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 145px;
+}
+
+.arrow-down-inbox {
+  float: left;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  margin-top: 6px;
+  margin-right: 5px;
+  margin-left: 2px;
+}
+
+.arrow-right-inbox {
+  float: left;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid black;
+  margin-top: 3px;
+  margin-right: 6px;
+  margin-left: 6px;
+}
+
+.arrow-right-inbox:hover {
+  float: left;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid black;
+  margin-top: 3px;
+  margin-right: 6px;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+.arrow-down-inbox:hover {
+  float: left;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  margin-top: 6px;
+  margin-right: 5px;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.arrow-down-list {
+  float: left;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  margin-top: 6px;
+  margin-right: 5px;
+  margin-left: 2px;
+}
+
+.arrow-right-list {
+  float: left;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid black;
+  margin-top: 3px;
+  margin-right: 6px;
+  margin-left: 6px;
+}
+
+.arrow-right-list:hover {
+  float: left;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid black;
+  margin-top: 3px;
+  margin-right: 6px;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+.arrow-down-list:hover {
+  float: left;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  margin-top: 6px;
+  margin-right: 5px;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.inbox-list-items-hidden > div > li {
+  display: none;
+}
+
+.inbox-list-items > div > li:hover {
   background: #bcd5ee;
   cursor: pointer;
 }
 
-.sidebar li:hover {
+.list-list-items-hidden > div > li {
+  display: none;
+}
+
+.list-list-items > div > li:hover {
+  background: #bcd5ee;
+  cursor: pointer;
 }
 
 .badge {
