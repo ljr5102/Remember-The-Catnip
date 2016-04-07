@@ -29,13 +29,13 @@ var checkForRemoval = function(task) {
       break;
     case "None":
       var currList = InboxStore.getCurrentList();
-      if (currList.length !== 0) {
+      if (!$.isEmptyObject(currList)) {
         if(!task.list_id || task.list_id !== currList.list_id) {
           removeTask(task);
         }
       }
       var currLocation = InboxStore.getCurrentLocation();
-      if (currLocation.length !== 0) {
+      if (!$.isEmptyObject(currLocation)) {
         if(!task.location_id || task.location_id !== currLocation.location_id) {
           removeTask(task);
         }
