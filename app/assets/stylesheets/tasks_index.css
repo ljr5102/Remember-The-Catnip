@@ -219,6 +219,22 @@
   padding: 5px;
 }
 
+#location-button-text {
+  position: absolute;
+  opacity: 0;
+}
+
+#location-button:hover~#location-button-text {
+  opacity: 1;
+  bottom: 0px;
+  left: 0px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px;
+}
+
 
 .add-task {
   padding: 10px 15px;
@@ -408,4 +424,10 @@
 
 .file-upload {
   width: 180px;
+}
+
+
+#map {
+  width: 200px;
+  height: 200px;
 }

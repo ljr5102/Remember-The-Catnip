@@ -1,6 +1,8 @@
 var React = require('react');
 var Modal = require('react-modal');
 var APIUtil = require('../../../utils/api_util');
+var LocationStore = require('../../../stores/location');
+var LocationsIndexItem = require('./LocationsIndexItem');
 
 var customStyles = {
   content: {
@@ -14,7 +16,7 @@ var customStyles = {
 
 var LocationsIndex = React.createClass({
   getInitialState: function() {
-    return {modalIsOpen: false}
+    return {locations: LocationStore.all(), modalIsOpen: false}
   },
 
   componentWillMount: function() {
@@ -24,7 +26,16 @@ var LocationsIndex = React.createClass({
 
   openModal: function(e) {
     e.stopPropagation();
-    this.setState({modalIsOpen: true});
+    this.setState({modalIsOpen: true}, this.setUpAutocomplete);
+  },
+
+  componentDidMount: function() {
+    this.listenerToken = LocationStore.addListener(this.updateLocations);
+    APIUtil.fetchAllLocations();
+  },
+
+  updateLocations: function() {
+    this.setState({locations: LocationStore.all()});
   },
 
   closeModal: function(e) {
@@ -34,10 +45,17 @@ var LocationsIndex = React.createClass({
     this.setState({modalIsOpen: false});
   },
 
+  setUpAutocomplete: function() {
+    var input = document.getElementById('location-address')
+    var autocomplete = new google.maps.places.Autocomplete(input, {});
+  },
+
   createLocation: function(e) {
     e.preventDefault();
-    var locationData = $(this.refs.createNewLocation).serialize()
-    APIUtil.createLocation(locationData);
+    var name = $("#location-name").val()
+    var address = $("#location-address").val();
+    var locationObject = {name: name, address: address}
+    APIUtil.fetchCoordsForLocation(address, locationObject)
     this.closeModal();
   },
 
@@ -56,6 +74,9 @@ var LocationsIndex = React.createClass({
   },
 
   render: function() {
+    var locationArray = this.state.locations.map(function(location, index) {
+      return <LocationsIndexItem key={index} location={location} /> ;
+    });
     return (
       <div className="locations-index">
         <h2 onClick={this.showHideLocations}>
@@ -66,10 +87,10 @@ var LocationsIndex = React.createClass({
             <h2 className="new-list-header">Add a location</h2>
             <form ref="createNewLocation" className="new-list-form group" onSubmit={this.createLocation}>
               <label>Name e.g. Home, Work
-                <input name="location[name]" type="text" />
+                <input id="location-name" name="location[name]" type="text" />
               </label>
               <label>Address e.g. 32 Cat Street, Catville
-                <input name="location[address]" type="text" />
+                <input id="location-address" name="location[address]" type="text" />
               </label>
               <button className="new-list-add-button">Add</button>
               <button onClick={this.closeModal} className="new-list-cancel-button">Cancel</button>
@@ -77,7 +98,7 @@ var LocationsIndex = React.createClass({
           </Modal>
         </h2>
         <ul className="location-location-items">
-          <li></li>
+          {locationArray}
         </ul>
       </div>
     )

@@ -16,6 +16,14 @@ var InboxActions = {
       list: list
     };
     AppDispatcher.dispatch(action);
+  },
+
+  receiveClickedLocation: function(location) {
+    var action = {
+      actionType: InboxConstants.RECEIVE_CLICKED_LOCATION,
+      location: location
+    };
+    AppDispatcher.dispatch(action);
   }
 };
 

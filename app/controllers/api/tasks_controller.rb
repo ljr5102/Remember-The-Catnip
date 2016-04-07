@@ -44,6 +44,12 @@ class Api::TasksController < ApplicationController
     render :index
   end
 
+  def location
+    @tasks = Task.where("tasks.location_id = ?", params[:id])
+      .where("tasks.completed = ?", false)
+    render :index
+  end
+
   def show
     @task = Task.find(params[:id])
     render :show
@@ -60,6 +66,7 @@ class Api::TasksController < ApplicationController
     @task = Task.find(params[:id])
     if task_params.keys[0] == "completed"
       @task.update(list_id: nil) if @task.list_id
+      @task.update(location_id: nil) if @task.location_id
     end
     @task.update_attributes(task_params)
     render :show
@@ -79,6 +86,7 @@ class Api::TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:name, :start_date, :due_date, :priority, :estimate, :completed, :list_id, :image)
+    params.require(:task).permit(:name, :start_date, :due_date,
+    :priority, :estimate, :completed, :list_id, :image, :location_id)
   end
 end

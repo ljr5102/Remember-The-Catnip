@@ -3,6 +3,7 @@ var TaskUtil = require('../../utils/task_util');
 var APIUtil = require('../../utils/api_util');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ListStore = require('../../stores/list');
+var LocationStore = require('../../stores/location');
 
 var TaskNewForm = React.createClass({
   mixins: [LinkedStateMixin],
@@ -14,6 +15,7 @@ var TaskNewForm = React.createClass({
     priority: "",
     estimate: "",
     list_id: "",
+    location_id: "",
     imageFile: "",
     imageUrl: ""
   },
@@ -63,7 +65,6 @@ var TaskNewForm = React.createClass({
       $(".show-button").removeClass("show-button").addClass("hidden-button");
       $(".task-form-show").removeClass("task-form-show").addClass("task-form-hidden")
       $(".task-new-name-input").removeClass("task-new-name-input").addClass("task-new-name-no-input")
-      $("#start-date").val("");
     } else {
       $(".hidden-button").removeClass("hidden-button").addClass("show-button");
       $(".task-new-name-no-input").removeClass("task-new-name-no-input").addClass("task-new-name-input")
@@ -77,6 +78,7 @@ var TaskNewForm = React.createClass({
     $("#estimate").removeClass().addClass("task-form-hidden");
     $("#photo").removeClass().addClass("task-form-hidden");
     $("#list").removeClass().addClass("task-form-hidden");
+    $("#location").removeClass().addClass("task-form-hidden");
     $(".show-button").removeClass().addClass("hidden-button");
     $("#add-task-button").addClass("add-task");
     $("#photo").val("");
@@ -90,6 +92,8 @@ var TaskNewForm = React.createClass({
     var picture = <input id="photo" className="task-form-hidden file-upload" type="file" onChange={this.handleFileChange} />
     var listOptions = getListOptions();
     var list = <select id="list" className="task-form-hidden" valueLink={this.linkState("list_id")}>{listOptions}</select>;
+    var locationOptions = getLocationOptions();
+    var location = <select id="location" className="task-form-hidden" valueLink={this.linkState("location_id")}>{locationOptions}</select>;
     return (
       <form className="task-new group" onInput={this.toggleButtons} onSubmit={this.createTask}>
         <input id="add-task" className="task-new-name-no-input" placeholder="Add a task..." type="text" valueLink={this.linkState("name")} />
@@ -125,9 +129,15 @@ var TaskNewForm = React.createClass({
         </div>
 
         <div className="task-new-input-grouping group">
-          <button id="list-button" className="hidden-button" onClick={this.toggleClass}>List</button>
+          <button id="list-button" className="hidden-button" onClick={this.toggleClass}>List 📓</button>
           <div id="list-button-text">Add a List</div>
           {list}
+        </div>
+
+        <div className="task-new-input-grouping group">
+          <button id="location-button" className="hidden-button" onClick={this.toggleClass}>Location 📍</button>
+          <div id="location-button-text">Add a Location</div>
+          {location}
         </div>
 
 
@@ -142,6 +152,15 @@ function getListOptions() {
   lists.unshift({list_id: "", name: ""})
   var options = lists.map(function(list) {
     return <option key={list.list_id} value={list.list_id}>{list.name}</option>
+  });
+  return options;
+};
+
+function getLocationOptions() {
+  var locations = LocationStore.all();
+  locations.unshift({location_id: "", name: ""})
+  var options = locations.map(function(location) {
+    return <option key={location.location_id} value={location.location_id}>{location.name}</option>
   });
   return options;
 };

@@ -12,6 +12,7 @@ var TaskActions = require('../../actions/task_actions');
 var SearchResultsStore = require('../../stores/search_results');
 var ListsIndex = require('./list/ListsIndex');
 var LocationsIndex = require('./location/LocationsIndex');
+var InboxStore = require('../../stores/inbox');
 
 var TasksIndex = React.createClass({
   contextTypes: {
@@ -39,7 +40,23 @@ var TasksIndex = React.createClass({
   },
 
   handleChange: function() {
-    this.setState({ tasks: TaskStore.all() });
+    this.setState({ tasks: TaskStore.all() }, this.checkForMap);
+  },
+
+  checkForMap: function() {
+    if(document.getElementById('map')) {
+      var lat = InboxStore.getCurrentLocation().lat;
+      var lng = InboxStore.getCurrentLocation().lng;
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: lat, lng: lng},
+        zoom: 15
+      });
+      var marker = new google.maps.Marker({
+        position: {lat: lat, lng: lng},
+        map: map,
+        title: "hello!"
+      });
+    }
   },
 
   sendToCompleted: function(e) {

@@ -62,6 +62,10 @@ var addTask = function(task) {
       if(task.list_id === currList.list_id) {
         _tasks.push(task);
       }
+      var currLocation = InboxStore.getCurrentLocation();
+      if(task.location_id === currLocation.location_id) {
+        _tasks.push(task);
+      }
       break;
   }
 };
@@ -85,8 +89,16 @@ var checkForRemoval = function(task) {
       break;
     case "None":
       var currList = InboxStore.getCurrentList();
-      if(!task.list_id || task.list_id !== currList.list_id) {
-        removeTask(task);
+      if (currList.length !== 0) {
+        if(!task.list_id || task.list_id !== currList.list_id) {
+          removeTask(task);
+        }
+      }
+      var currLocation = InboxStore.getCurrentLocation();
+      if (currLocation.length !== 0) {
+        if(!task.location_id || task.location_id !== currLocation.location_id) {
+          removeTask(task);
+        }
       }
       break;
     }

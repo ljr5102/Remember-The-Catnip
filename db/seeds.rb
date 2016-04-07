@@ -53,3 +53,5 @@ list1 = List.create!(name: "All Things Sleep Related", creator_id: user_id)
 list1.tasks = [task1, task6, task9, task18, task19, task22, task24]
 list2 = List.create!(name: "Annoy The Humans", creator_id: user_id)
 list2.tasks = [task7, task15, task16, task20]
+
+Location.destroy_all

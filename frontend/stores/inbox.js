@@ -5,6 +5,7 @@ var InboxStore = new Store(AppDispatcher);
 
 var _currentInbox = "";
 var _currentList = {};
+var _currentLocation = {};
 
 var setCurrentInbox = function(inbox) {
   _currentInbox = inbox;
@@ -12,6 +13,10 @@ var setCurrentInbox = function(inbox) {
 
 var setCurrentList = function(list) {
   _currentList = list;
+};
+
+var setCurrentLocation = function(location) {
+  _currentLocation = location;
 };
 
 InboxStore.getCurrentInbox = function() {
@@ -23,15 +28,27 @@ InboxStore.getCurrentList = function() {
   return list;
 };
 
+InboxStore.getCurrentLocation = function() {
+  var location = $.extend(true, {}, _currentLocation);
+  return location;
+};
+
 InboxStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case "RECEIVE_CLICKED_INBOX":
       setCurrentList({});
+      setCurrentLocation({});
       setCurrentInbox(payload.inbox);
       break;
     case "RECEIVE_CLICKED_LIST":
       setCurrentInbox("None");
+      setCurrentLocation({});
       setCurrentList(payload.list);
+      break;
+    case "RECEIVE_CLICKED_LOCATION":
+      setCurrentInbox("None");
+      setCurrentList({});
+      setCurrentLocation(payload.location);
       break;
   }
 };
