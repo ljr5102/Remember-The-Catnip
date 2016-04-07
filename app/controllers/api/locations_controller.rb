@@ -12,6 +12,7 @@ class Api::LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
+    @location.creator_id = current_user.id
     @location.save!
     render :show
   end

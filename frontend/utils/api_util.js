@@ -3,6 +3,7 @@ var InboxActions = require('../actions/inbox_actions');
 var SessionActions = require('../actions/session_actions');
 var SearchResultActions = require('../actions/search_result_actions');
 var ListActions = require('../actions/list_actions');
+var LocationActions = require('../actions/location_actions');
 
 var APIUtil = {
   login: function(credentials) {
@@ -317,6 +318,21 @@ var APIUtil = {
       },
       error: function() {
         console.log("Something went wrong in deleteList");
+      }
+    });
+  },
+
+  createLocation: function(location) {
+    $.ajax({
+      method: "POST",
+      url: "/api/locations",
+      dataType: "json",
+      data: location,
+      success: function(createdLocation) {
+        LocationActions.receiveNewLocation(createdLocation);
+      },
+      error: function() {
+        console.log("Something went wrong in createLocation");
       }
     });
   }

@@ -2,7 +2,7 @@ var Store = require('flux/utils').Store;
 var AppDispatcher = require('../dispatcher/dispatcher');
 var ListStore = new Store(AppDispatcher);
 
-_lists = [];
+var _lists = [];
 
 var resetLists = function(lists) {
   _lists = lists;
