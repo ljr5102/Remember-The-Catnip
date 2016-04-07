@@ -24,7 +24,6 @@
   position: relative;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-
   float: left;
   display: block;
   width: 548px;
@@ -256,7 +255,6 @@
 .task-detail ul {
   font-size: 14px;
   margin-left: 45px;
-  margin-bottom: 75px;
 }
 
 .task-detail > ul > li {
@@ -272,10 +270,11 @@
 }
 
 .image-container {
-  margin: 0 auto;
   display: block;
   width: 300px;
-  position: relative;
+  position: absolute;
+  left: 25%;
+  bottom: 20%;
 }
 
 .image-container:hover .image-options {

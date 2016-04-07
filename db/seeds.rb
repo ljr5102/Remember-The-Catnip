@@ -25,8 +25,6 @@ task6_img = File.open('app/assets/images/seeds/image(6).jpeg')
 task6 = Task.create!(owner_id: user_id, name: "Catch up on sleep", start_date: Date.today - 10, due_date: Date.today + 65, priority: 1, estimate: "7 hours", image: task6_img)
 task7_img = File.open('app/assets/images/seeds/image(7).jpeg')
 task7 = Task.create!(owner_id: user_id, name: "Hang out in humans water dispenser", start_date: Date.today, due_date: Date.today, priority: 3, estimate: "8 minutes", image: task7_img)
-task8_img = File.open('app/assets/images/seeds/image(8).jpeg')
-task8 = Task.create!(owner_id: user_id, name: "Zzzzz", start_date: Date.today, due_date: Date.today, priority: 1, estimate: "8 Hours", image: task8_img)
 task9_img = File.open('app/assets/images/seeds/image(9).jpeg')
 task9 = Task.create!(owner_id: user_id, name: "Mid-afternoon nap", image: task9_img)
 task10 = Task.create!(owner_id: user_id, name: "Call Sennacy", due_date: Date.today + 1, priority: 1, estimate: "10 minutes")
@@ -52,6 +50,6 @@ task25 = Task.create!(owner_id: user_id, name: "Bathe self", image: task25_img)
 
 List.destroy_all
 list1 = List.create!(name: "All Things Sleep Related", creator_id: user_id)
-list1.tasks = [task1, task6, task8, task9, task18, task19, task22, task24]
+list1.tasks = [task1, task6, task9, task18, task19, task22, task24]
 list2 = List.create!(name: "Annoy The Humans", creator_id: user_id)
 list2.tasks = [task7, task15, task16, task20]
