@@ -19,4 +19,6 @@ Rails.application.routes.draw do
     get '/lists/:id/tasks', to: 'tasks#list'
     get '/locations/:id/tasks', to: 'tasks#location'
   end
+
+  get "auth/facebook/callback", to: "omniauth#facebook"
 end

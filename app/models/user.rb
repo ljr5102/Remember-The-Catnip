@@ -30,6 +30,21 @@ class User < ActiveRecord::Base
     return nil
   end
 
+  def self.find_or_create_by_auth_hash(auth_hash)
+    provider = auth_hash[:provider]
+    uid = auth_hash[:uid]
+    email_address = auth_hash[:extra][:raw_info][:email]
+
+    user = User.find_by(provider: provider, uid: uid)
+    return user if user
+
+    user = User.new(provider: provider, uid: uid, email_address: email_address)
+    user.username = SecureRandom::urlsafe_base64(16)
+    user.password = SecureRandom::urlsafe_base64(16)
+    user.save!
+    return user
+  end
+
   def password=(password)
     if password.present?
       @password = password

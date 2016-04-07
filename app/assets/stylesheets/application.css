@@ -196,6 +196,16 @@
  padding: 10px;
 }
 
+.sign-in-form a {
+ font-size: 20px;
+ margin: auto;
+ margin-top: 12px;
+ width: 380px;
+ display: block;
+ padding: 10px;
+ border: 1px solid black;
+}
+
 .sign-in-button {
  color: #ffffff;
  background: #009dff;
