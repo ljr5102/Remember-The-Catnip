@@ -1,0 +1,22 @@
+.add-location-button {
+  float: right;
+  color: #3c4248;
+  padding: 1px;
+  margin-right: 2px;
+  font-size: .6875rem;
+  font-weight: normal;
+  border-radius: 3px;
+  background: #c8dcf1;
+}
+
+.add-location-button:hover {
+  float: right;
+  color: #c8dcf1;
+  padding: 1px;
+  margin-right: 2px;
+  font-size: .6875rem;
+  font-weight: normal;
+  border-radius: 3px;
+  background: #3c4248;
+  cursor: pointer;
+}

@@ -11,11 +11,11 @@ This app was built using Ruby on Rails and React.js.
 Remember The Catnip allows users to:
 
 
-- [ ] Sign up for an account
-- [ ] Log in and log out of their accounts
-- [ ] Create, read, update, and delete tasks
-- [ ] Create, read, update, and delete lists
-- [ ] Store tasks in a list
+- [x] Sign up for an account
+- [x] Log in and log out of their accounts
+- [x] Create, read, update, and delete tasks
+- [x] Create, read, update, and delete lists
+- [x] Store tasks in a list
 - [ ] Create, read, update, and delete tags
 - [ ] Add multiple tags to tasks
 - [ ] Create, read, update, and delete notes
@@ -40,57 +40,57 @@ Remember The Catnip allows users to:
 
 **Objective:** Users can sign up and login
 
-- [ x ] Create `User` model
-- [ x ] Set up users and sessions controllers
-- [ x ] Create user and session views
-- [ x ] Set up authentication
-- [ x ] Direct users to blank root page upon signing in
-- [ x ] Light CSS styling of login/sign up page
+- [x] Create `User` model
+- [x] Set up users and sessions controllers
+- [x] Create user and session views
+- [x] Set up authentication
+- [x] Direct users to blank root page upon signing in
+- [x] Light CSS styling of login/sign up page
 
 ### [Phase 2][phase-two]: Task creation and editing (1 day)
 
 **Objective:** Tasks can be created and edited
 
-- [ x ] Create Task model and controller
-- [ x ] Create Task API for index, create, show, destroy, update
-- [ x ] Create Flux Task Store
-- [ x ] Create all Task Store actions
-- [ x ] Create the associated functions within the Task Store to handle the created actions
-- [ x ] Create React components TasksIndex, TasksIndexItem, TaskDetail
-- [ ] Set up Task seed data
+- [x] Create Task model and controller
+- [x] Create Task API for index, create, show, destroy, update
+- [x] Create Flux Task Store
+- [x] Create all Task Store actions
+- [x] Create the associated functions within the Task Store to handle the created actions
+- [x] Create React components TasksIndex, TasksIndexItem, TaskDetail
+- [x] Set up Task seed data
 
 ### [Phase 3][phase-three]: Overall navigational setup (0.5 days)
 
 **Objective:** Side navigational bar and header appear on screen
-- [ ] Create React components Header, AllIndex
-- [ ] Very light CSS styling to make Header and AllIndex navigational bars
+- [x] Create React components Header, AllIndex
+- [x] Very light CSS styling to make Header and AllIndex navigational bars
 
 ### [Phase 4][phase-four]: Inbox and Tasks Stats (1 day)
 
 **Objective:** Users can access tasks through their inbox.  TasksStats component displays when a task is not selected.
 
-- [ ] Create React components Inbox, AllTasks, Today, Tomorrow, ThisWeek, Trash
-- [ ] Add Task Store Listeners to AllTasks, Today, Tomorrow, ThisWeek, and Trash
-- [ ] Test the functionality of the Listeners
-- [ ] Create React component TaskStats
-- [ ] Update components so TaskStats displays when TaskDetail is NOT displayed
-- [ ] Touch up CSS where needed to give page nice flow
+- [x] Create React components Inbox, AllTasks, Today, Tomorrow, ThisWeek, Trash
+- [x] Add Task Store Listeners to AllTasks, Today, Tomorrow, ThisWeek, and Trash
+- [x] Test the functionality of the Listeners
+- [x] Create React component TaskStats
+- [x] Update components so TaskStats displays when TaskDetail is NOT displayed
+- [x] Touch up CSS where needed to give page nice flow
 
 
 ### [Phase 5][phase-five]: Lists (1 day)
 
 **Objective:** Lists can be created, edited, and destroyed.  Users can add tasks to a list.
 
-- [ ] Create List model and controller
-- [ ] Create List API for create, update, destroy, index
-- [ ] Create Flux List Store
-- [ ] Create List Store actions for receiveAllLists
-- [ ] Create Task Store action for receiveAllTasksforList
-- [ ] Create React components ListsIndex, ListsIndexItem, ListNewForm, ListEditForm
-- [ ] Add Task Store Listeners to ListsIndexItem
-- [ ] Add List Store Listeners to ListIndex
-- [ ] Add additional seed data for Lists
-- [ ] Touch up CSS to accommodate Lists
+- [x] Create List model and controller
+- [x] Create List API for create, update, destroy, index
+- [x] Create Flux List Store
+- [x] Create List Store actions for receiveAllLists
+- [x] Create Task Store action for receiveAllTasksforList
+- [x] Create React components ListsIndex, ListsIndexItem, ListNewForm, ListEditForm
+- [x] Add Task Store Listeners to ListsIndexItem
+- [x] Add List Store Listeners to ListIndex
+- [x] Add additional seed data for Lists
+- [x] Touch up CSS to accommodate Lists
 
 
 ### [Phase 6][phase-six]: Tags (1.5 days)

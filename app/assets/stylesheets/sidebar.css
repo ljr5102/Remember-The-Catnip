@@ -59,6 +59,19 @@
   margin-left: 2px;
 }
 
+.arrow-down-inbox:hover {
+  float: left;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  margin-top: 6px;
+  margin-right: 5px;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
 .arrow-right-inbox {
   float: left;
   width: 0;
@@ -84,18 +97,6 @@
   cursor: pointer;
 }
 
-.arrow-down-inbox:hover {
-  float: left;
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid black;
-  margin-top: 6px;
-  margin-right: 5px;
-  margin-left: 2px;
-  cursor: pointer;
-}
 
 .arrow-down-list {
   float: left;
@@ -107,6 +108,19 @@
   margin-top: 6px;
   margin-right: 5px;
   margin-left: 2px;
+}
+
+.arrow-down-list:hover {
+  float: left;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  margin-top: 6px;
+  margin-right: 5px;
+  margin-left: 2px;
+  cursor: pointer;
 }
 
 .arrow-right-list {
@@ -134,7 +148,7 @@
   cursor: pointer;
 }
 
-.arrow-down-list:hover {
+.arrow-down-location {
   float: left;
   width: 0;
   height: 0;
@@ -144,6 +158,43 @@
   margin-top: 6px;
   margin-right: 5px;
   margin-left: 2px;
+}
+
+.arrow-down-location:hover {
+  float: left;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  margin-top: 6px;
+  margin-right: 5px;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.arrow-right-location {
+  float: left;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid black;
+  margin-top: 3px;
+  margin-right: 6px;
+  margin-left: 6px;
+}
+
+.arrow-right-location:hover {
+  float: left;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid black;
+  margin-top: 3px;
+  margin-right: 6px;
+  margin-left: 6px;
   cursor: pointer;
 }
 
@@ -165,6 +216,15 @@
   cursor: pointer;
 }
 
+.location-location-items-hidden > div > li {
+  display: none;
+}
+
+.location-location-items > div > li:hover {
+  background: #bcd5ee;
+  cursor: pointer;
+}
+
 .badge {
   float: right;
   color: #3c4248;
@@ -182,5 +242,9 @@
 }
 
 .lists-index {
+  padding: 15px 0px 0px 0px;
+}
+
+.locations-index {
   padding: 15px 0px 0px 0px;
 }
