@@ -1,33 +1,22 @@
 ## Component Hierarchy
 
 * `App`
-  * `Header`
-    * `AllIndex`
-     * `Inbox`
-      * `AllTasks`
-      * `Today`
-      * `Tomorrow`
-      * `ThisWeek`
-      * `Trash`
-     * `ListsIndex`
+  * `Login`
+  * `UserNew`
+  * `Search`
+  * `TasksIndex`
+    * `AllTasks`
+    * `Today`
+    * `Tomorrow`
+    * `Week`
+    * `ListsIndex`
       * `ListsIndexItem`
-        * `ListEditForm`
-      * `ListNewForm`
-     * `TagsIndex`
-      * `TagsIndexItem`
-        * `TagEditForm`
-      * `TagNewForm`
-     * `LocationsIndex`
+    * `LocationsIndex`
       * `LocationsIndexItem`
-        * `LocationEditForm`
-      * `LocationNewForm`
-     * `TasksIndex`
-      * `TasksIndexItem`
-        * `TaskDetail`
-          * `TaskEditForm`
-          * `NotesIndex`
-            * `NotesIndexItem`
-              * `NoteEditForm`
-            * `NoteNewForm`
-      * `TaskNewForm`
-      * `TasksStats`
+    * `TaskNewForm`
+    * `TasksIndexItem`
+    * `TaskDetail`
+      * `TaskEditForm`
+    * `CompletedTasks`
+      * `TaskDetail`
+        * `TaskEditForm`

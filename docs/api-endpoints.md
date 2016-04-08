@@ -6,33 +6,41 @@
 
 - `GET /` - loads React web app
 
-### Users
-
-- `GET /users/new`
-- `POST /users`
-- `PATCH /users`
-
-### Session
-
-- `GET /session/new`
-- `POST /session`
-- `DELETE /session`
 
 ## JSON API
 
+### Users
+
+- `GET /api/users/:id`
+- `POST /api/users`
+
+### Session
+
+- `GET /api/session`
+- `POST /api/session`
+- `DELETE /api/session`
+
 ### Tasks
 
+- `GET /api/tasks/today`
+- `GET /api/tasks/tomorrow`
+- `GET /api/tasks/week`
+- `GET /api/tasks/completed`
 - `GET /api/tasks`
 - `POST /api/tasks`
 - `GET /api/tasks/:id`
 - `PATCH /api/tasks/:id`
+- `PUT /api/tasks/:id`
 - `DELETE /api/tasks/:id`
+- `PATCH /api/tasks/:id/images`
 
 ### Lists
 
 - `GET /api/lists`
 - `POST /api/lists`
+- `GET /api/lists/:id`
 - `PATCH /api/lists/:id`
+- `PUT /api/lists/:id`
 - `DELETE /api/lists/:id`
 - `GET /api/lists/:id/tasks`
 
@@ -50,9 +58,11 @@
 
 - `GET /api/locations`
 - `POST /api/locations`
-- `PATCH /api/locations/:location_id`
-- `DELETE /api/locations/:location_id`
-- `GET /api/locations/:location_id/tasks`
+- `GET /api/locations/:id`
+- `PATCH /api/locations/:id`
+- `PUT /api/locations/:id`
+- `DELETE /api/locations/:id`
+- `GET /api/locations/:id/tasks`
 
 ### Notes
 
@@ -60,3 +70,7 @@
 - `POST /api/tasks/:task_id/notes`
 - `PATCH /api/notes/:note_id`
 - `DELETE /api/notes/:note_id`
+
+### Omniauth
+
+- `GET /auth/facebook/callback`
