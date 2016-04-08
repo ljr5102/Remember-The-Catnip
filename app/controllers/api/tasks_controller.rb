@@ -39,13 +39,13 @@ class Api::TasksController < ApplicationController
   end
 
   def list
-    @tasks = Task.where("tasks.list_id = ?", params[:id])
+    @tasks = Task.includes(:user).where("tasks.list_id = ?", params[:id])
       .where("tasks.completed = ?", false)
     render :index
   end
 
   def location
-    @tasks = Task.where("tasks.location_id = ?", params[:id])
+    @tasks = Task.includes(:user).where("tasks.location_id = ?", params[:id])
       .where("tasks.completed = ?", false)
     render :index
   end

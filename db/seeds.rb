@@ -55,3 +55,5 @@ list2 = List.create!(name: "Annoy The Humans", creator_id: user_id)
 list2.tasks = [task7, task15, task16, task20]
 
 Location.destroy_all
+location1 = Location.create!(name: "Cat Cafe", creator_id: user_id, address: "Meow Parlour, Hester Street, New York, NY, United States", lng: -73.9944555, lat: 40.7169698)
+location1.tasks = [task9, task14]
