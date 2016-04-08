@@ -2,7 +2,7 @@
 
 [Live Application Here][heroku]
 
-[heroku]: http://remember-the-catnip.herokuapp.com
+[heroku]: http://www.rememberthecatnip.com
 
 ## Minimum Viable Product
 
@@ -129,17 +129,17 @@ Remember The Catnip allows users to:
 
 **Objective:** Locations can be created, updated, destroyed.  Tasks can be given a location.
 
-- [ ] Create Location model and controller
-- [ ] Create Location API for index, create, update, destroy
-- [ ] Incorporate Google Maps API to allow for address validation
-- [ ] Create Flux Location Store
-- [ ] Create Task Store action for receiveAllTasksforLocation
-- [ ] Create Location Store action for receiveAllLocations
-- [ ] Create React components for LocationsIndex, LocationsIndexItem, LocationNewForm, LocationEditForm
-- [ ] Add Location Store Listeners to LocationsIndex
-- [ ] Add Task Store Listeners to LocationsIndexItem
-- [ ] Add additional seed data for Locations
-- [ ] Touch up CSS to accommodate Locations
+- [x] Create Location model and controller
+- [x] Create Location API for index, create, update, destroy
+- [x] Incorporate Google Maps API to allow for address validation
+- [x] Create Flux Location Store
+- [x] Create Task Store action for receiveAllTasksforLocation
+- [x] Create Location Store action for receiveAllLocations
+- [x] Create React components for LocationsIndex, LocationsIndexItem, LocationNewForm, LocationEditForm
+- [x] Add Location Store Listeners to LocationsIndex
+- [x] Add Task Store Listeners to LocationsIndexItem
+- [x] Add additional seed data for Locations
+- [x] Touch up CSS to accommodate Locations
 
 ### [Phase 9][phase-nine]: Final Touches and Testing (0.5 days)
 
