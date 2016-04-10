@@ -84,14 +84,16 @@ var TaskDetail = React.createClass({
     };
     if (this.state.task.image_url !== "/missing.png") {
       image = <div onMouseLeave={this.unshowImageOptions} className="image-container">
-                <img className="task-images" src={this.state.task.image_url} />
-                <button onMouseEnter={this.showImageOptions} className="image-options">
-                  ⚙
-                </button>
-                <button className="image-options-blank"
-                  onClick={this.removeImage}>
-                  Remove Image
-                </button>
+                <div className="image-inner-container">
+                  <img className="task-images" src={this.state.task.image_url} />
+                  <button onMouseEnter={this.showImageOptions} className="image-options">
+                    ⚙
+                  </button>
+                  <button className="image-options-blank"
+                    onClick={this.removeImage}>
+                    Remove Image
+                  </button>
+                </div>
               </div>
     } else {
       image = <div></div>

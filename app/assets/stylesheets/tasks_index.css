@@ -286,11 +286,15 @@
 }
 
 .image-container {
+  position: relative;
+}
+
+.image-inner-container {
   display: block;
-  width: 300px;
+  width: 250px;
   position: absolute;
-  left: 25%;
-  bottom: 20%;
+  left: 133px;
+  top: 150px;
 }
 
 .image-container:hover .image-options {
