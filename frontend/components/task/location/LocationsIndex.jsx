@@ -34,6 +34,10 @@ var LocationsIndex = React.createClass({
     APIUtil.fetchAllLocations();
   },
 
+  componentWillUnmount: function() {
+    this.listenerToken.remove();
+  },
+
   updateLocations: function() {
     this.setState({locations: LocationStore.all()});
   },

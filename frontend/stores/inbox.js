@@ -33,6 +33,12 @@ InboxStore.getCurrentLocation = function() {
   return location;
 };
 
+InboxStore.resetAll = function() {
+  _currentInbox = "";
+  _currentList = {};
+  _currentLocation = {};
+};
+
 InboxStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case "RECEIVE_CLICKED_INBOX":

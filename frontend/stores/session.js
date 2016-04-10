@@ -1,6 +1,7 @@
 var Store = require('flux/utils').Store;
 var SessionConstants = require('../constants/session_constants');
 var AppDispatcher = require('../dispatcher/dispatcher');
+var InboxStore = require('./inbox');
 
 var SessionStore = new Store(AppDispatcher);
 
@@ -31,6 +32,7 @@ SessionStore.__onDispatch = function(payload) {
       break;
     case SessionConstants.LOGOUT:
       _currentUser = null;
+      InboxStore.resetAll();
       SessionStore.__emitChange();
       break;
   }
