@@ -5,9 +5,10 @@
 * Task
 
 ### Controllers
-* TasksController (index, create, new, show, edit, update, destroy)
+* TasksController (index, completed, list, location, create, show, update, destroy, remove_image)
 
 ### Views
+* JSON: index, show
 
 ## Flux
 ### Views (React Components)
@@ -16,22 +17,30 @@
    - TaskDetail
     - TaskEditForm
   - TaskNewForm
+  - CompletedTasks
 
 ### Stores
 * Task
+* TaskDetail
 
 ### Actions
 * TaskActions.receiveAllTasks
+* TaskActions.receiveAllCompletedTasks
 * TaskActions.receiveSingleTask
+* TaskActions.receiveIncompleteTasks
 * TaskActions.addTask
 * TaskActions.removeTask
 * TaskActions.updateTask
+* TaskActions.completeTask
+* TaskActions.setStore
 
 ### ApiUtil
 * ApiUtil.fetchAllTasks
 * ApiUtil.fetchSingleTask
 * ApiUtil.createTask
-* ApiUtil.editTask
+* ApiUtil.updateTask
+* ApiUtil.removeImage
+* ApiUtil.completeTask
 * ApiUtil.destroyTask
 
 ## Gems/Libraries

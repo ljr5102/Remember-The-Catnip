@@ -53,29 +53,6 @@ Holds all persisted list data.
 - `ListsIndex`
 
 
-### TagStore
-
-Holds all persisted tag data.
-
-##### Actions:
-- `receiveAllTags`
-- `receiveAllTagsforTask`
-
-##### Listeners:
-- `TagsIndex`
-
-
-### Note Store
-
-Holds all persisted note data.
-
-##### Actions:
-- `receiveAllNotesforTask`
-
-##### Listeners:
-- `Notes`
-
-
 ### LocationStore
 
 Holds all persisted location data.

@@ -25,20 +25,6 @@ id          | integer   | not null, primary key
 creator_id  | integer   | not null, foreign key (references users), indexed, unique
 name        | string    | not null, indexed, unique [creator_id]
 
-## tags
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-creator_id  | integer   | not null, foreign key (references users), indexed
-name        | string    | not null, indexed, unique [creator_id]
-
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-tag_id      | integer   | not null, foreign key (references tags), indexed, unique [task_id]
-task_id     | integer   | not null, foreign key (references tasks), indexed
-
 ## locations
 column name | data type | details
 ------------|-----------|-----------------------
@@ -48,14 +34,6 @@ name        | string    | not null, indexed, unique [creator_id]
 address     | string    | not null
 lng         | float     |
 lat         | float     |
-
-## notes
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-task_id     | integer   | not null, foreign key (references tasks), indexed
-body        | text      | not null
-
 
 ## users
 column name     | data type | details

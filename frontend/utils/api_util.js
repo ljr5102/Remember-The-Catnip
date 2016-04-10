@@ -372,22 +372,10 @@ var APIUtil = {
       dataType: "json",
       data: {address: location, key: "AIzaSyBYgMq-B0GqfPPCHjQ9zPh0jyCSJFmWYBo"},
       success: function(result) {
-        // var northEast = result.results[0].geometry.bounds.northeast;
-        // var southWest = result.results[0].geometry.bounds.southwest;
         var coords = result.results[0].geometry.location;
         locationObject['lng'] = coords.lng;
         locationObject['lat'] = coords.lat;
         APIUtil.createLocation(locationObject);
-        // var map = new google.maps.Map(document.getElementById('map'), {
-        //   center: {lat: coords.lat, lng: coords.lng},
-        //   zoom: 15
-        // });
-        // var marker = new google.maps.Marker({
-        //   position: {lat: coords.lat, lng: coords.lng},
-        //   map: map,
-        //   title: "hello!"
-        // });
-
       },
       error: function() {
         console.log("Something went wrong");

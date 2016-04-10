@@ -5,16 +5,15 @@
 * List
 
 ### Controllers
-* ListsController (index, create, new, edit, update, destroy)
+* ListsController (index, create, show, update, destroy)
 
 ### Views
+* JSON: index, show
 
 ## Flux
 ### Views (React Components)
 * ListsIndex
  - ListsIndexItem
-  - ListEditForm
- - ListNewForm
 
 ### Stores
 * List
@@ -23,9 +22,9 @@
 * ListActions.receiveAllLists
 
 ### ApiUtil
-* ApiUtil.fetchAllLists
-* ApiUtil.createList
-* ApiUtil.editList
-* ApiUtil.destroyList
+* ApiUtil.receiveAllLists
+* ApiUtil.receiveNewList
+* ApiUtil.receiveUpdatedList
+* ApiUtil.removeList
 
 ## Gems/Libraries

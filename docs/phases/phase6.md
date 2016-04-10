@@ -1,36 +1,31 @@
-# Phase 6: Tags (1.5 days)
+# Phase 6: Locations (1 day)
 
 ## Rails
 ### Models
-* Tag
-* Tagging
+* Location
 
 ### Controllers
-* TagsController (index, create, new, edit, update, destroy)
+* LocationsController (index, create, show, update, destroy)
 
 ### Views
+* JSON: index, show
 
 ## Flux
 ### Views (React Components)
-* TagsIndex
- - TagsIndexItem
-  - TagEditForm
- - TagNewForm
+* LocationsIndex
+ - LocationsIndexItem
 
 ### Stores
-* Tag
+* Location
 
 ### Actions
-* TagActions.receiveAllTags
-* TagActions.receiveAllTagsforTask
+* LocationActions.receiveAllLocations
+* LocationActions.receiveNewLocation
 
 ### ApiUtil
-* ApiUtil.fetchAllTags
-* ApiUtil.createTag
-* ApiUtil.editTag
-* ApiUtil.destroyTag
-* ApiUtil.fetchTagsforTask
-* ApiUtil.fetchTasksforTag
-* ApiUtil.destroyTagfromTask
+* ApiUtil.fetchAllLocations
+* ApiUtil.createLocation
+* ApiUtil.fetchCoordsForLocation
 
 ## Gems/Libraries
+* Google maps

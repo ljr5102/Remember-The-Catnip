@@ -9,8 +9,7 @@
 
 ## Flux
 ### Views (React Components)
-* Header
-  - AllIndex
+* App
 
 ### Stores
 

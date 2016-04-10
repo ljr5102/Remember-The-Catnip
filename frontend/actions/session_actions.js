@@ -7,7 +7,6 @@ var SessionActions = {
       actionType: SessionConstants.CURRENT_USER_RECEIVED,
       currentUser: currentUser
     });
-    // maybe want currentUser.user...
   },
 
   currentUserFetched: function() {

@@ -5,23 +5,31 @@
 * User
 
 ### Controllers
-* UsersController (create, new)
-* SessionsController (create, new, destroy)
+* UsersController (create, show)
+* SessionsController (create, show, destroy)
 * StaticPagesController (root)
 
 ### Views
-* users/new.html.erb
-* session/new.html.erb
 * static_pages/root.html.erb
 
 ## Flux
 ### Views (React Components)
+* Login
+* UserNew
 
 ### Stores
+* Session
 
 ### Actions
+* SessionActions.currentUserReceived
+* SessionActions.currentUserFetched
+* SessionActions.logout
 
 ### ApiUtil
+* ApiUtil.login
+* ApiUtil.logout
+* ApiUtil.fetchCurrentUser
+* ApiUtil.createUser
 
 ## Gems/Libraries
 * BCrypt (Gem)
