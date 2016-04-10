@@ -82,6 +82,7 @@ var TaskNewForm = React.createClass({
     $(".show-button").removeClass().addClass("hidden-button");
     $("#add-task-button").addClass("add-task");
     $("#photo").val("");
+    $(".task-new-name-input").removeClass("task-new-name-input").addClass("task-new-name-no-input")
   },
 
   render: function() {
