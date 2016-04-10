@@ -92,7 +92,7 @@ var TaskEditForm = React.createClass({
 
         <div className="task-edit-input-grouping">
           <label className="edit-label group">List
-            <select id="list" defaultValue={this.state.list_id} valueLink={this.linkState("list_id")}>{listOptions}</select>;
+            <select id="list" defaultValue={this.state.list_id} valueLink={this.linkState("list_id")}>{listOptions}</select>
           </label>
         </div>
 

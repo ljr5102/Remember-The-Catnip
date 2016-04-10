@@ -16,6 +16,14 @@ var resetTasks = function(tasks) {
   });
 };
 
+var updateTask = function(updatedTask) {
+  _tasks.forEach(function(task, index) {
+    if (updatedTask.task_id === task.task_id) {
+      _tasks[index] = updatedTask;
+    }
+  });
+};
+
 var resetCompletedTasks = function(tasks) {
   _completedTasks = [];
   tasks.forEach(function(task) {
@@ -135,6 +143,7 @@ TaskStore.__onDispatch = function(payload) {
       TaskStore.__emitChange();
       break;
     case "UPDATE_TASK":
+      updateTask(payload.task);
       checkForRemoval(payload.task);
       TaskStore.__emitChange();
       break;
