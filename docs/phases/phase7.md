@@ -4,6 +4,7 @@
 ### Models
 
 ### Controllers
+* OmniauthController (facebook)
 
 ### Views
 
@@ -17,3 +18,4 @@
 ### ApiUtil
 
 ## Gems/Libraries
+* omniauth-facebook (Gem)

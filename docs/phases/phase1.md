@@ -11,6 +11,8 @@
 
 ### Views
 * static_pages/root.html.erb
+* JSON: Users - show
+* JSON: Sessions - show
 
 ## Flux
 ### Views (React Components)

@@ -50,10 +50,10 @@ Remember The Catnip allows users to:
 
 **Objective:** Tasks can be created and edited
 
-- [x] Create Task model and controller
+- [x] Create `Task` model and controller
 - [x] Create Task API for index, create, show, destroy, update
 - [x] Create Flux Task Store
-- [x] Create all Task Store actions
+- [x] Create all Task actions
 - [x] Create the associated functions within the Task Store to handle the created actions
 - [x] Create React components TasksIndex, TasksIndexItem, TaskDetail, TaskNewForm, TaskEditForm
 - [x] Set up Task seed data
@@ -64,22 +64,27 @@ Remember The Catnip allows users to:
 - [x] Create React component App
 - [x] Very light CSS styling to make header and side navigational bars
 
-### [Phase 4][phase-four]: Inbox and Tasks Stats (2.5 days)
+### [Phase 4][phase-four]: Inbox, Tasks Stats, Search, and Completed Tasks (2.5 days)
 
-**Objective:** Users can access tasks through their inbox.  Task stats display when a task is not selected.
+**Objective:** Users can access tasks through their inbox.  Task stats display when a task is not selected.  Users can search for tasks.  Users can mark tasks as complete.
 
-- [x] Create React components AllTasks, Today, Tomorrow, Week
-- [x] Add Task Store Listeners to AllTasks, Today, Tomorrow, ThisWeek, and Trash
+- [x] Create React components AllTasks, Today, Tomorrow, Week, Search, CompletedTasks
+- [x] Add Task Store Listeners to AllTasks, Today, Tomorrow, Week, CompletedTasks
 - [x] Test the functionality of the Listeners
+- [x] Create all necessary Inbox actions
 - [x] Set up task stats to display within the created components
 - [x] Update components so task stats display when TaskDetail is NOT displayed
+- [x] Implement Search component to allow for searching of tasks
+- [x] Create Flux SearchResults Store
+- [x] Create all necessary Search Result actions
+- [x] Add SearchResults Store Listeners to TasksIndex
 - [x] Touch up CSS where needed to give page nice flow
 
 ### [Phase 5][phase-five]: Lists (1 day)
 
 **Objective:** Lists can be created, edited, and destroyed.  Users can add tasks to a list.
 
-- [x] Create List model and controller
+- [x] Create `List` model and controller
 - [x] Create List API for create, update, destroy, index
 - [x] Create Flux List Store
 - [x] Create all necessary List Store actions
@@ -93,7 +98,7 @@ Remember The Catnip allows users to:
 
 **Objective:** Locations can be created, updated, destroyed.  Tasks can be given a location.
 
-- [x] Create Location model and controller
+- [x] Create `Location` model and controller
 - [x] Create Location API for index, create, update, destroy
 - [x] Incorporate Google Maps API to allow for address validation
 - [x] Create Flux Location Store
@@ -109,6 +114,7 @@ Remember The Catnip allows users to:
 **Objective:** Application has a clean professional look and operates smoothly.
 
 - [x] Add CSS styling to clean up visually
+- [x] Add login through Facebook feature
 - [x] Perform end-to-end testing to ensure usability
 - [x] Obtain feedback from other users
 
