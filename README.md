@@ -4,6 +4,8 @@
 
 Explore and Get Organized at [rememberthecatnip.com](http://www.rememberthecatnip.com)
 
+---
+
 ## Log-In
 ![log-in]
 
