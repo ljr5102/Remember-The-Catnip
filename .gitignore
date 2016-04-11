@@ -11,6 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+.DS_Store
+.byebug_history
 
 node_modules
 bundle.js
