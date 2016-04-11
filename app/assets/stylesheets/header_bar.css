@@ -11,6 +11,7 @@
   background: #ffffff;
   padding: 5px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .user-section {

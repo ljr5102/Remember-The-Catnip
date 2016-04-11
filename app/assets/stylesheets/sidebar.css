@@ -18,13 +18,21 @@
   margin-left: 8px;
 }
 
-.sidebar h2:hover {
+.sidebar-headers h2:hover {
   width: 182px;
   padding-left: 0px;
   margin-left: 8px;
   background: #bcd5ee;
   cursor: pointer;
 }
+
+/*.sidebar h2:hover {
+  width: 182px;
+  padding-left: 0px;
+  margin-left: 8px;
+  background: #bcd5ee;
+  cursor: pointer;
+}*/
 
 .sidebar ul {
   width: 180px;

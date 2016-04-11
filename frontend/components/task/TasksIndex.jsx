@@ -62,18 +62,18 @@ var TasksIndex = React.createClass({
     if (!$(e.currentTarget).hasClass("selected-tab")) {
       $(".selected-tab").removeClass("selected-tab").addClass("unselected-tab");
       $(e.currentTarget).removeClass("unselected-tab").addClass("selected-tab");
+      TaskActions.receiveIncompleteTasks(this.state.tasks);
+      this.context.router.push("tasks/completed");
     }
-    TaskActions.receiveIncompleteTasks(this.state.tasks);
-    this.context.router.push("tasks/completed");
   },
 
   sendToIndex: function(e) {
     if (!$(e.currentTarget).hasClass("selected-tab")) {
       $(".selected-tab").removeClass("selected-tab").addClass("unselected-tab")
       $(e.currentTarget).removeClass("unselected-tab").addClass("selected-tab")
+      this.context.router.push("tasks");
+      TaskActions.setStore(TaskStore.getIncompleteTasks());
     }
-    this.context.router.push("tasks");
-    TaskActions.setStore(TaskStore.getIncompleteTasks());
   },
 
   showHideInbox: function(e) {
@@ -100,7 +100,9 @@ var TasksIndex = React.createClass({
       <div className="wrapper">
         <div className="sidebar group">
           <div className="side-bar-logo"></div>
-          <h2 onClick={this.showHideInbox}><div className="arrow-down-inbox"></div>Inbox</h2>
+          <div className="sidebar-headers">
+            <h2 onClick={this.showHideInbox}><div className="arrow-down-inbox"></div>Inbox</h2>
+          </div>
           <ul className="inbox-list-items">
             <AllTasks />
             <Today />

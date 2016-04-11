@@ -75,7 +75,9 @@ var ListsIndex = React.createClass({
     })
     return (
       <div className="lists-index">
-        <h2 onClick={this.showHideLists}><div className="arrow-down-list"></div>Lists<button className="add-list-button" onClick={this.openModal}>+</button></h2>
+        <div className="sidebar-headers">
+          <h2 onClick={this.showHideLists}><div className="arrow-down-list"></div>Lists<button className="add-list-button" onClick={this.openModal}>+</button></h2>
+        </div>
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
           <h2 className="new-list-header">Add a list</h2>
           <form ref="createNewList" className="new-list-form group" onSubmit={this.createList}>

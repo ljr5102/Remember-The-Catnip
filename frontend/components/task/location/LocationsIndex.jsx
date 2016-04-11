@@ -83,10 +83,13 @@ var LocationsIndex = React.createClass({
     });
     return (
       <div className="locations-index">
-        <h2 onClick={this.showHideLocations}>
-          <div className="arrow-down-location"></div>
-          Locations
-          <button className="add-location-button" onClick={this.openModal}>+</button>
+        <div className="sidebar-headers">
+          <h2 onClick={this.showHideLocations}>
+            <div className="arrow-down-location"></div>
+            Locations
+            <button className="add-location-button" onClick={this.openModal}>+</button>
+          </h2>
+        </div>
           <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
             <h2 className="new-list-header">Add a location</h2>
             <form ref="createNewLocation" className="new-list-form group" onSubmit={this.createLocation}>
@@ -100,7 +103,6 @@ var LocationsIndex = React.createClass({
               <button onClick={this.closeModal} className="new-list-cancel-button">Cancel</button>
             </form>
           </Modal>
-        </h2>
         <ul className="location-location-items">
           {locationArray}
         </ul>
