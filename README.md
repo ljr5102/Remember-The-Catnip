@@ -30,6 +30,7 @@ Explore and Get Organized at [rememberthecatnip.com](http://www.rememberthecatni
 
 ---
 ## Todo
+ - [ ] Implement light error handling on the front end
  - [ ] Add Tags for Tasks
  - [ ] Add Notes for Tasks
  - [ ] Add Notifications for Users
