@@ -64,14 +64,16 @@ var Search = React.createClass({
     // <ul>
     //   { this.resultLis() }
     // </ul>
-    // Displaying page { meta.page } of { meta.total_pages }
-    // <button onClick={ this.nextPage }>NEXT PAGE</button>
 
     var meta = SearchResultsStore.meta();
     return (
       <article>
         <input className="search-box" type="text" placeholder="Search tasks" onChange={ this.handleInputChange } />
         <button className="search-button" onClick={ this.search }><i id="magnifying" className="fa fa-search"></i></button>
+        <div className="search-results-page">
+          <div>Displaying page { meta.page } of { meta.total_pages }</div>
+          <button onClick={ this.nextPage }>NEXT PAGE</button>
+        </div>
       </article>
     );
   }

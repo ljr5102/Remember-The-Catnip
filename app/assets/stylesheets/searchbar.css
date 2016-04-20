@@ -32,3 +32,16 @@
   font-size: 16px;
   margin-top: 7px;
 }
+
+.search-results-page {
+  position: absolute;
+  background: orange;
+}
+
+.search-results-page > div {
+  color: black;
+}
+
+.search-results-page > button {
+  color: black;
+}
