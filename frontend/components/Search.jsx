@@ -1,6 +1,8 @@
 var React = require('react');
 var SearchResultsStore = require('../stores/search_results');
 var ApiUtil = require('../utils/api_util');
+var TaskActions = require('../actions/task_actions');
+var TaskStore = require('../stores/task');
 
 var Search = React.createClass({
 
@@ -23,17 +25,22 @@ var Search = React.createClass({
   },
 
   handleInputChange: function (e) {
+    var query;
     if ($(e.currentTarget).val() === "") {
       $(e.currentTarget).removeClass("search-box-with-input")
+      query = e.currentTarget.value;
+      this.setState({ query: query}, TaskActions.setStore(TaskStore.all()));
     } else {
       $(e.currentTarget).addClass("search-box-with-input")
+      query = e.currentTarget.value;
+      this.setState({ query: query }, this.search);
     }
-    var query = e.currentTarget.value;
-    this.setState({ query: query }, this.search);
   },
 
   search: function (e) {
-    ApiUtil.search(this.state.query, 1);
+    if (this.state.query) {
+      ApiUtil.search(this.state.query, 1);
+    }
   },
 
   nextPage: function () {
