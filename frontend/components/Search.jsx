@@ -29,7 +29,7 @@ var Search = React.createClass({
       $(e.currentTarget).addClass("search-box-with-input")
     }
     var query = e.currentTarget.value;
-    this.setState({ query: query })
+    this.setState({ query: query }, this.search);
   },
 
   search: function (e) {
