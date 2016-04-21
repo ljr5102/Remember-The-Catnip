@@ -7,33 +7,38 @@ var TaskStore = require('../stores/task');
 var Search = React.createClass({
 
   getInitialState: function () {
-    return { query: "" };
+    return { query: "" , showingResults: false};
   },
 
   componentDidMount: function () {
-    this.storeListener = SearchResultsStore.addListener(
-      this._onChange
-    );
+    this.storeListener = SearchResultsStore.addListener(this._onChange);
+    this.taskStoreListener = TaskStore.addListener(this.removeResults);
   },
 
   componentWillUnmount: function () {
     this.storeListener.remove();
+    this.taskStoreListener.remove();
   },
 
   _onChange: function () {
-    this.setState({results: SearchResultsStore.all()});
+    this.setState({results: SearchResultsStore.all(), showingResults: true});
+  },
+
+  removeResults: function() {
+    this.setState({showingResults: false});
   },
 
   handleInputChange: function (e) {
     var query;
     if ($(e.currentTarget).val() === "") {
+      debugger
       $(e.currentTarget).removeClass("search-box-with-input")
       query = e.currentTarget.value;
-      this.setState({ query: query}, TaskActions.setStore(TaskStore.all()));
+      this.setState({ query: query, showingResults: true}, TaskActions.setStore(TaskStore.all()));
     } else {
       $(e.currentTarget).addClass("search-box-with-input")
       query = e.currentTarget.value;
-      this.setState({ query: query }, this.search);
+      this.setState({ query: query, showingResults: true }, this.search);
     }
   },
 
@@ -50,22 +55,10 @@ var Search = React.createClass({
     }
   },
 
-  resultLis: function () {
-    return SearchResultsStore.all().map(function (result) {
-      if (result._type === "Task") {
-        return (
-          <li key={ result.task_id }>
-            Task #{ result.task_id }: { result.name }
-          </li>
-        );
-      }
-    });
-  },
-
   render: function () {
     var search_res;
     var meta = SearchResultsStore.meta();
-    if(this.state.query) {
+    if(this.state.query && this.state.showingResults) {
       if (meta.total_pages > 0) {
         search_res = <div className="search-results-page group">
                        <div>Page { meta.page }/{ meta.total_pages } results</div>
