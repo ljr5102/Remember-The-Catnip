@@ -45,7 +45,9 @@ var Search = React.createClass({
 
   nextPage: function () {
     var meta = SearchResultsStore.meta();
-    ApiUtil.search(meta.query, meta.page + 1);
+    if(meta.page < meta.total_pages) {
+      ApiUtil.search(meta.query, meta.page + 1);
+    }
   },
 
   resultLis: function () {
@@ -61,19 +63,26 @@ var Search = React.createClass({
   },
 
   render: function () {
-    // <ul>
-    //   { this.resultLis() }
-    // </ul>
-
+    var search_res;
     var meta = SearchResultsStore.meta();
+    if(this.state.query) {
+      if (meta.total_pages > 0) {
+        search_res = <div className="search-results-page group">
+                       <div>Page { meta.page }/{ meta.total_pages } results</div>
+                       <button onClick={ this.nextPage }>➜</button>
+                     </div>
+      } else {
+        search_res = <div className="search-results-page group">
+                       <div>No results.</div>
+                     </div>
+      }
+    }
+
     return (
       <article>
         <input className="search-box" type="text" placeholder="Search tasks" onChange={ this.handleInputChange } />
         <button className="search-button" onClick={ this.search }><i id="magnifying" className="fa fa-search"></i></button>
-        <div className="search-results-page">
-          <div>Displaying page { meta.page } of { meta.total_pages }</div>
-          <button onClick={ this.nextPage }>NEXT PAGE</button>
-        </div>
+        {search_res}
       </article>
     );
   }

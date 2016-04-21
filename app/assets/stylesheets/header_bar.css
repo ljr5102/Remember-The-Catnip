@@ -22,11 +22,3 @@
 .user-section li {
   float: left;
 }
-
-.header-bar div {
-  margin-top: 7px;
-  margin-right: 3px;
-  color: #ffffff;
-  font-weight: bold;
-  text-transform: capitalize;
-}

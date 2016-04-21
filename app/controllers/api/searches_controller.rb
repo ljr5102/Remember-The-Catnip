@@ -4,7 +4,7 @@ class Api::SearchesController < ApplicationController
     @search_results = PgSearch
       .multisearch(params[:query])
       .page(params[:page])
-      .per(2)
+      .per(10)
 
     render :index
   end

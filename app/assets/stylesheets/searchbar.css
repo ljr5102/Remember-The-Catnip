@@ -35,13 +35,28 @@
 
 .search-results-page {
   position: absolute;
-  background: orange;
+  display: block;
+  margin-top: 5px;
+  top: 500px;
+  left: 620px;
 }
 
 .search-results-page > div {
   color: black;
+  font-weight: normal;
+  float: left;
+  display: block;
+  margin-top: 4px;
+  margin-right: 4px;
 }
 
 .search-results-page > button {
   color: black;
+  font-weight: normal;
+  border: 1px solid black;
+  float: left;
+  display: block;
+  line-height: 1.5;
+  border-radius: 3px;
+  cursor: pointer;
 }
