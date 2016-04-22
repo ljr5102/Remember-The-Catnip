@@ -5,6 +5,9 @@ var TaskActions = require('../actions/task_actions');
 var TaskStore = require('../stores/task');
 
 var Search = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
 
   getInitialState: function () {
     return { query: "" , showingResults: false};
@@ -31,7 +34,7 @@ var Search = React.createClass({
   handleInputChange: function (e) {
     var query;
     if ($(e.currentTarget).val() === "") {
-      debugger
+      this.context.router.push("tasks");
       $(e.currentTarget).removeClass("search-box-with-input")
       query = e.currentTarget.value;
       this.setState({ query: query, showingResults: true}, TaskActions.setStore(TaskStore.all()));

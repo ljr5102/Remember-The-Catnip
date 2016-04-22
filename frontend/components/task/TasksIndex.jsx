@@ -60,23 +60,19 @@ var TasksIndex = React.createClass({
 
   sendToCompleted: function(e) {
     if (!$(e.currentTarget).hasClass("selected-tab")) {
-      $(".search-box").prop("disabled", true);
       $(".selected-tab").removeClass("selected-tab").addClass("unselected-tab");
       $(e.currentTarget).removeClass("unselected-tab").addClass("selected-tab");
       var currIncompleteTasks = TaskStore.all();
       TaskActions.receiveIncompleteTasks(currIncompleteTasks);
-      debugger
       this.context.router.push("tasks/completed");
     }
   },
 
   sendToIndex: function(e) {
     if (!$(e.currentTarget).hasClass("selected-tab")) {
-      $(".search-box").prop("disabled", false);
       $(".selected-tab").removeClass("selected-tab").addClass("unselected-tab")
       $(e.currentTarget).removeClass("unselected-tab").addClass("selected-tab")
       this.context.router.push("tasks");
-      debugger
       TaskActions.setStore(TaskStore.getIncompleteTasks());
     }
   },
