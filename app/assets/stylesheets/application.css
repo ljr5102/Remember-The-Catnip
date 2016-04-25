@@ -63,6 +63,7 @@
 .promo {
   background: #0060bf;
   height: 100vh;
+  min-height: 680px;
   width: 50%;
   float: left;
 }
@@ -112,6 +113,7 @@
   width: 380px;
   display: block;
   padding: 10px;
+  border-radius: 3px;
 }
 
 .sign-up-button {
@@ -119,6 +121,7 @@
   background: #009dff;
   text-align: center;
   cursor: pointer;
+  border-radius: 3px;
 }
 
 .sign-in-link {
@@ -142,6 +145,7 @@
 
 .sign-in-promo {
  background: #0060bf;
+ min-height: 680px;
  height: 100vh;
  width: 50%;
  float: left;
@@ -178,6 +182,16 @@
  margin-top: 200px;
 }
 
+.error-alert {
+  background-color: rgba(234, 82, 0, 0.15);
+  font-size: 16px;
+  width: 302px;
+  margin: 0 auto;
+  padding: 10px 50px;
+  position: relative;
+  border-radius: 3px;
+}
+
 .sign-in-form h1 {
  font-size: 20px;
  font-weight: bold;
@@ -194,6 +208,7 @@
  width: 380px;
  display: block;
  padding: 10px;
+ border-radius: 3px;
 }
 
 .sign-in-form a {
@@ -211,6 +226,7 @@
  background: #009dff;
  text-align: center;
  cursor: pointer;
+ border-radius: 3px;
 }
 
 .sign-up-link {

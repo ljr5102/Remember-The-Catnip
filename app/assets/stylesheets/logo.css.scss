@@ -22,3 +22,14 @@
   margin-bottom: 15px;
   background-image: asset_url("side-bar-logo.jpg")
 }
+
+.error-alert-img {
+  background-image: asset_url("exclamation.png");
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+  display: block;
+  position: absolute;
+  left: 12px;
+  top: 6px;
+}

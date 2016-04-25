@@ -2,14 +2,36 @@ var React = require('react');
 var APIUtil = require('../../utils/api_util');
 
 var UserNew = React.createClass({
+  getInitialState: function() {
+    return {errors: []};
+  },
 
   handleSubmit: function(e) {
     e.preventDefault();
     var formData = $(this.refs.newUserForm).serialize()
-    APIUtil.createUser(formData);
+    APIUtil.createUser(formData, this.displayErrors);
+  },
+
+  displayErrors: function(err_table) {
+    this.setState({errors: err_table})
   },
 
   render: function() {
+    var errors;
+    if (this.state.errors.length > 0) {
+      errors = <div className="error-alert">
+                <div className="error-alert-img"></div>
+                <ul>
+                  {this.state.errors.map(function(el) {
+                    if (el.split(" ").indexOf("digest") !== -1) {
+                      return <li>Password can't be blank</li>
+                    } else {
+                      return <li>{el}</li>
+                    }
+                  })}
+                </ul>
+               </div>
+    }
     return (
       <main className="new-user group">
 
@@ -27,6 +49,7 @@ var UserNew = React.createClass({
           <a className="sign-in-link" href="#/login">Log in</a>
           <section className="sign-up-form">
             <h1>Sign up for free.</h1>
+            {errors}
 
             <form ref="newUserForm" onSubmit={this.handleSubmit}>
                 <input type="text" name="user[username]" placeholder="Username" />

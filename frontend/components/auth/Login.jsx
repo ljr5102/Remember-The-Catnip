@@ -9,7 +9,8 @@ var LoginForm = React.createClass({
   getInitialState: function() {
     return {
       username: "",
-      password: ""
+      password: "",
+      error: ""
     };
   },
 
@@ -17,10 +18,17 @@ var LoginForm = React.createClass({
     e.preventDefault();
 
     var router = this.context.router;
+    if (this.state.username === "") {
+      this.setState({error: "Username cannot be blank."})
+    } else if (this.state.password === "") {
+      this.setState({error: "Password cannot be blank."})
+    } else {
+      APIUtil.login(this.state, this.displayError);
+    }
+  },
 
-    APIUtil.login(this.state, function() {
-      router.push("/tasks");
-    });
+  displayError: function() {
+    this.setState({username: "", password: "", error: "Invalid username or password."})
   },
 
   guestLogin: function(e) {
@@ -28,7 +36,7 @@ var LoginForm = React.createClass({
     var router = this.context.router;
     APIUtil.login({username: "mrSmalz", password: "password"}, function() {
       router.push("/tasks");
-    })
+    });
   },
 
   updateName: function(e) {
@@ -40,6 +48,13 @@ var LoginForm = React.createClass({
   },
 
   render: function() {
+    var errors;
+    if (this.state.error !== "") {
+      errors = <div className="error-alert">
+                <div className="error-alert-img"></div>
+                {this.state.error}
+               </div>
+    }
     return(
       <main className="new-session group">
 
@@ -57,10 +72,11 @@ var LoginForm = React.createClass({
           <a className="sign-up-link" href="#/users/new">Sign up for free</a>
           <section className="sign-in-form">
             <h1>Log In!</h1>
+            {errors}
 
             <form onSubmit={this.handleSubmit}>
 
-                <input onChange={this.updateName} type="text" placeholder="Username" value={this.state.name} />
+                <input onChange={this.updateName} type="text" placeholder="Username" value={this.state.username} />
 
                 <input onChange={this.updatePassword} type="password" placeholder="Password" value={this.state.password} />
 

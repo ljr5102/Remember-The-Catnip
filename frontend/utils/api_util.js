@@ -6,7 +6,7 @@ var ListActions = require('../actions/list_actions');
 var LocationActions = require('../actions/location_actions');
 
 var APIUtil = {
-  login: function(credentials) {
+  login: function(credentials, errorCB) {
     $.ajax({
       type: "POST",
       url: "/api/session",
@@ -14,6 +14,9 @@ var APIUtil = {
       data: {user: credentials},
       success: function(currentUser) {
         SessionActions.currentUserReceived(currentUser);
+      },
+      error: function() {
+        errorCB();
       }
     });
   },
@@ -44,7 +47,7 @@ var APIUtil = {
     });
   },
 
-  createUser: function(formData) {
+  createUser: function(formData, errorCB) {
     $.ajax({
       url: "/api/users" ,
       method: "POST",
@@ -53,8 +56,9 @@ var APIUtil = {
       success: function(newUser) {
         SessionActions.currentUserReceived(newUser);
       },
-      error: function() {
-        console.log("Something went wrong in createUser");
+      error: function(e) {
+        var err_table = JSON.parse(e.responseText).errors;
+        errorCB(err_table);
       }
     });
   },
