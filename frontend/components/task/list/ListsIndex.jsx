@@ -46,9 +46,13 @@ var ListsIndex = React.createClass({
 
   createList: function(e) {
     e.preventDefault();
-    var listData = $(this.refs.createNewList).serialize();
-    APIUtil.createList(listData);
-    this.setState({modalIsOpen: false});
+    if ($("#list-name").val()) {
+      var listData = $(this.refs.createNewList).serialize();
+      APIUtil.createList(listData);
+      this.setState({modalIsOpen: false});
+    } else {
+      $(".list-error-alert-hidden").removeClass("list-error-alert-hidden").addClass("list-error-alert")
+    }
   },
 
   updateLists: function() {
@@ -81,8 +85,12 @@ var ListsIndex = React.createClass({
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
           <h2 className="new-list-header">Add a list</h2>
           <form ref="createNewList" className="new-list-form group" onSubmit={this.createList}>
+            <div className="list-error-alert-hidden">
+              <div className="list-error-alert-img"></div>
+              Name cannot be blank
+            </div>
             <label>Please enter a new list name:
-              <input name="list[name]" type="text" />
+              <input id="list-name" name="list[name]" type="text" />
             </label>
             <button className="new-list-add-button">Add</button>
             <button onClick={this.closeModal} className="new-list-cancel-button">Cancel</button>

@@ -86,3 +86,20 @@
   background: #f4f4f4;
   cursor: pointer;
 }
+
+.list-error-alert {
+  background-color: rgba(234, 82, 0, 0.15);
+  font-size: 14px;
+  width: 170px;
+  padding: 5px 6px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 20px;
+  right: 5px;
+  border-radius: 3px;
+  text-align: right;
+}
+
+.list-error-alert-hidden {
+  display: none;
+}

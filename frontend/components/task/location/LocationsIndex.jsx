@@ -56,11 +56,15 @@ var LocationsIndex = React.createClass({
 
   createLocation: function(e) {
     e.preventDefault();
-    var name = $("#location-name").val()
-    var address = $("#location-address").val();
-    var locationObject = {name: name, address: address}
-    APIUtil.fetchCoordsForLocation(address, locationObject)
-    this.closeModal();
+    if ($("#location-name").val() && $("#location-address").val()) {
+      var name = $("#location-name").val()
+      var address = $("#location-address").val();
+      var locationObject = {name: name, address: address}
+      APIUtil.fetchCoordsForLocation(address, locationObject)
+      this.closeModal();
+    } else {
+      $(".location-error-alert-hidden").removeClass("location-error-alert-hidden").addClass("location-error-alert")
+    }
   },
 
   showHideLocations: function(e) {
@@ -93,6 +97,10 @@ var LocationsIndex = React.createClass({
           <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
             <h2 className="new-list-header">Add a location</h2>
             <form ref="createNewLocation" className="new-list-form group" onSubmit={this.createLocation}>
+              <div className="location-error-alert-hidden">
+                <div className="location-error-alert-img"></div>
+                Name/Address cannot be blank
+              </div>
               <label>Name e.g. Home, Work
                 <input id="location-name" name="location[name]" type="text" />
               </label>

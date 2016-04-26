@@ -39,9 +39,13 @@ var ListsIndexItem = React.createClass({
 
   updateList: function(e) {
     e.preventDefault();
-    var listData = $(this.refs.editList).serialize();
-    APIUtil.updateList(this.props.list.list_id, listData);
-    this.setState({modalIsOpen: false});
+    if ($("#list-name").val()) {
+      var listData = $(this.refs.editList).serialize();
+      APIUtil.updateList(this.props.list.list_id, listData);
+      this.setState({modalIsOpen: false});
+    } else {
+      $(".list-error-alert-hidden").removeClass("list-error-alert-hidden").addClass("list-error-alert")
+    }
   },
 
   deleteList: function(e) {
@@ -70,8 +74,12 @@ var ListsIndexItem = React.createClass({
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
           <h2 className="new-list-header">Edit list</h2>
           <form ref="editList" className="new-list-form group" onSubmit={this.updateList}>
+            <div className="list-error-alert-hidden">
+              <div className="list-error-alert-img"></div>
+              Name cannot be blank
+            </div>
             <label>List name:
-              <input name="list[name]" defaultValue={this.props.list.name} type="text" />
+              <input id="list-name" name="list[name]" defaultValue={this.props.list.name} type="text" />
             </label>
             <button className="new-list-add-button">Save</button>
             <button onClick={this.closeModal} className="new-list-cancel-button">Cancel</button>
