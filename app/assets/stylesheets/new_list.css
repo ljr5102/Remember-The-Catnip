@@ -1,3 +1,11 @@
+.list-modal {
+  width: 300px;
+  height: 175px;
+  padding: 35px;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
 .add-list-button {
   float: right;
   color: #3c4248;
@@ -48,12 +56,12 @@
 
 .new-list-form  input {
   display: block;
-  width: 300px;
+  width: 286px;
   padding: 5px 6px;
   border: 1px solid #d0d3d6;
   border-radius: 3px;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 
 .new-list-form > label {
@@ -94,8 +102,8 @@
   padding: 5px 6px;
   margin: 0 auto;
   position: absolute;
-  bottom: 20px;
-  right: 5px;
+  bottom: 70px;
+  right: 138px;
   border-radius: 3px;
   text-align: right;
 }

@@ -94,9 +94,9 @@ var LocationsIndex = React.createClass({
             <button className="add-location-button" onClick={this.openModal}>+</button>
           </h2>
         </div>
-          <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
-            <h2 className="new-list-header">Add a location</h2>
-            <form ref="createNewLocation" className="new-list-form group" onSubmit={this.createLocation}>
+          <Modal className="location-modal" isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} >
+            <h2 className="new-location-header">Add a location</h2>
+            <form ref="createNewLocation" className="new-location-form group" onSubmit={this.createLocation}>
               <div className="location-error-alert-hidden">
                 <div className="location-error-alert-img"></div>
                 Name/Address cannot be blank
@@ -107,8 +107,8 @@ var LocationsIndex = React.createClass({
               <label>Address e.g. 32 Cat Street, Catville
                 <input id="location-address" name="location[address]" type="text" />
               </label>
-              <button className="new-list-add-button">Add</button>
-              <button onClick={this.closeModal} className="new-list-cancel-button">Cancel</button>
+              <button className="new-location-add-button">Add</button>
+              <button onClick={this.closeModal} className="new-location-cancel-button">Cancel</button>
             </form>
           </Modal>
         <ul className="location-location-items">

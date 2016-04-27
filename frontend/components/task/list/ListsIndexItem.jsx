@@ -33,7 +33,9 @@ var ListsIndexItem = React.createClass({
   },
 
   closeModal: function(e) {
-    e.preventDefault();
+    if(e) {
+      e.preventDefault();
+    }
     this.setState({modalIsOpen: false});
   },
 
@@ -71,7 +73,7 @@ var ListsIndexItem = React.createClass({
           <strong className="badge">{this.props.list.task_count}</strong>
         </li>
         {taskStats}
-        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
+        <Modal className= "list-modal" isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
           <h2 className="new-list-header">Edit list</h2>
           <form ref="editList" className="new-list-form group" onSubmit={this.updateList}>
             <div className="list-error-alert-hidden">

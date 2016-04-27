@@ -6,11 +6,14 @@ var ListsIndexItem = require('./ListsIndexItem');
 
 var customStyles = {
   content : {
-    top : '235px',
-    left: '450px',
-    right: '450px',
-    bottom: '235px',
-    padding: '35px'
+    // top : '235px',
+    // left: '440px',
+    // right: '440px',
+    // bottom: '220px',
+    width: '300px',
+    height: '155px',
+    padding: '35px',
+    margin: '0 auto'
   }
 };
 
@@ -40,7 +43,9 @@ var ListsIndex = React.createClass({
   },
 
   closeModal: function(e) {
-    e.preventDefault();
+    if(e) {
+      e.preventDefault();
+    }
     this.setState({modalIsOpen: false});
   },
 
@@ -82,7 +87,7 @@ var ListsIndex = React.createClass({
         <div className="sidebar-headers">
           <h2 onClick={this.showHideLists}><div className="arrow-down-list"></div>Lists<button className="add-list-button" onClick={this.openModal}>+</button></h2>
         </div>
-        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
+        <Modal className="list-modal" isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} >
           <h2 className="new-list-header">Add a list</h2>
           <form ref="createNewList" className="new-list-form group" onSubmit={this.createList}>
             <div className="list-error-alert-hidden">
