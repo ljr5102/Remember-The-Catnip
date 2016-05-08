@@ -36,13 +36,13 @@
   top: 25px;
   left: 15px;
   font-size: 14px;
-  width: 300px;
+  width: 350px;
 }
 
 
 .task-edit-input-grouping {
   float: left;
-  width: 300px;
+  width: 350px;
   margin-top: 3px;
   margin-left: 3px;
 }
@@ -256,13 +256,15 @@
   height: 100vh;
   left: 760px;
   top: 36px;
-  width: 514px;
+  /*width: 514px;*/
+  width: 100%;
   border-left: 1px solid black;
   position: fixed;
   float: right;
 }
 
 .task-detail h2 {
+  width: 350px;
   margin-top: 40px;
   margin-bottom: 20px;
   margin-left: 25px;
@@ -363,7 +365,8 @@
   height: 100vh;
   left: 760px;
   top: 36px;
-  width: 514px;
+  /*width: 514px;*/
+  width: 100%;
   border-left: 1px solid black;
   position: fixed;
   float: right;
@@ -392,7 +395,8 @@
 }
 
 .update-task-button {
-  right: 10px;
+  /*right: 10px;*/
+  left: 425px;
   top: 20px;
   padding: 5px;
   border-radius: 3px;
@@ -403,7 +407,8 @@
 }
 
 .delete-task-button {
-  right: 10px;
+  /*right: 10px;*/
+  left: 420px;
   top: 60px;
   padding: 5px;
   border-radius: 3px;
@@ -414,7 +419,8 @@
 }
 
 .mark-complete-button {
-  right: 10px;
+  /*right: 10px;*/
+  left: 393px;
   top: 100px;
   padding: 5px;
   border-radius: 3px;
@@ -432,7 +438,7 @@
 
 
 #map {
-  margin: 0 auto;
+  margin: 10px 24px;
   width: 300px;
   height: 300px;
 }

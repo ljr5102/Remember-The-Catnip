@@ -1,7 +1,8 @@
 .header-bar {
   background: #0060bf;
   position: fixed;
-  width: 1275px;
+  /*width: 1275px;*/
+  width: 100%;
   z-index: 1;
 }
 

@@ -42,7 +42,27 @@
   margin-right: 3px;
   margin-bottom: 3px;
   cursor: pointer;
-  float: right;
+  position: absolute;
+  left: 400px;
+  top: 40px;
+}
+
+.delete-list-button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid;
+  border-color: #80bdfc;
+  background: #0060bf;
+  margin-top: 3px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  position: absolute;
+  left: 400px;
+  top: 80px;
 }
 
 .new-list-header {

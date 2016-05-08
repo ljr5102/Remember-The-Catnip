@@ -97,7 +97,7 @@ function gatherTaskStats(obj) {
     taskStats = <div className="task-statistics">
                   <h2>{obj.props.location.name}</h2>
                   <button className="edit-list-button" onClick={obj.openModal}>Edit location...</button>
-                  <button className="edit-list-button" onClick={obj.deleteLocation}>Delete</button>
+                  <button className="delete-list-button" onClick={obj.deleteLocation}>Delete</button>
                   <ul>
                     <li><div className="task-number">{obj.props.location.task_count}</div> tasks</li>
                   </ul>
