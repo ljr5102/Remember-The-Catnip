@@ -82,6 +82,13 @@ var TaskActions = {
       tasks: tasks
     };
     AppDispatcher.dispatch(action);
+  },
+
+  setTasksForCurrentInbox: function() {
+    var action = {
+      actionType: TaskConstants.SET_CURRENT_INBOX_TASKS,
+    };
+    AppDispatcher.dispatch(action);
   }
 };
 

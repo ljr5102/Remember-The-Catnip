@@ -12,6 +12,7 @@ var SearchResultsStore = require('../../stores/search_results');
 var ListsIndex = require('./list/ListsIndex');
 var LocationsIndex = require('./location/LocationsIndex');
 var InboxStore = require('../../stores/inbox');
+var InboxActions = require('../../actions/inbox_actions');
 
 var TasksIndex = React.createClass({
   contextTypes: {
@@ -62,8 +63,8 @@ var TasksIndex = React.createClass({
     if (!$(e.currentTarget).hasClass("selected-tab")) {
       $(".selected-tab").removeClass("selected-tab").addClass("unselected-tab");
       $(e.currentTarget).removeClass("unselected-tab").addClass("selected-tab");
-      var currIncompleteTasks = TaskStore.all();
-      TaskActions.receiveIncompleteTasks(currIncompleteTasks);
+      // var currIncompleteTasks = TaskStore.all();
+      // TaskActions.receiveIncompleteTasks(currIncompleteTasks);
       this.context.router.push("tasks/completed");
     }
   },
@@ -73,7 +74,8 @@ var TasksIndex = React.createClass({
       $(".selected-tab").removeClass("selected-tab").addClass("unselected-tab")
       $(e.currentTarget).removeClass("unselected-tab").addClass("selected-tab")
       this.context.router.push("tasks");
-      TaskActions.setStore(TaskStore.getIncompleteTasks());
+      TaskActions.setTasksForCurrentInbox();
+      // TaskActions.setStore(TaskStore.getIncompleteTasks());
     }
   },
 

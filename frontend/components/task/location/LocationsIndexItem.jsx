@@ -2,6 +2,7 @@ var React = require('react');
 var Modal = require('react-modal');
 var InboxStore = require('../../../stores/inbox');
 var InboxActions = require('../../../actions/inbox_actions');
+var TaskActions = require('../../../actions/task_actions');
 var APIUtil = require('../../../utils/api_util');
 
 var customStyles = {
@@ -51,7 +52,7 @@ var LocationsIndexItem = React.createClass({
   showTasksForLocation: function() {
     this.context.router.push("tasks")
     InboxActions.receiveClickedLocation(this.props.location)
-    APIUtil.fetchTasksForLocation(this.props.location.location_id);
+    TaskActions.setTasksForCurrentInbox();
   },
 
   updateLocation: function(e) {

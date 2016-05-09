@@ -1,6 +1,7 @@
 var React = require('react');
 var APIUtil = require('../../../utils/api_util');
 var InboxActions = require('../../../actions/inbox_actions');
+var TaskActions = require('../../../actions/task_actions');
 var InboxStore = require('../../../stores/inbox');
 var Modal = require('react-modal');
 
@@ -61,7 +62,8 @@ var ListsIndexItem = React.createClass({
   showTasksForList: function() {
     this.context.router.push("tasks")
     InboxActions.receiveClickedList(this.props.list);
-    APIUtil.fetchTasksForList(this.props.list.list_id);
+    TaskActions.setTasksForCurrentInbox();
+    // APIUtil.fetchTasksForList(this.props.list.list_id);
   },
 
   render: function() {

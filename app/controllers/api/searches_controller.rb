@@ -5,6 +5,8 @@ class Api::SearchesController < ApplicationController
       .multisearch(params[:query])
       .page(params[:page])
       .per(10)
+      .joins("JOIN tasks ON tasks.id = pg_search_documents.searchable_id")
+      .where("tasks.owner_id = ?", current_user.id)
 
     render :index
   end

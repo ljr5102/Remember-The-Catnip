@@ -238,20 +238,73 @@ var storeAllTasks = function(tasks) {
   _allTasks = tasks;
 };
 
+var setCurrentInboxTasks = function() {
+  _tasks = [];
+  switch (InboxStore.getCurrentInbox()) {
+    case "Today":
+      setTodayTasks();
+      break;
+    case "Tomorrow":
+      setTomorrowTasks();
+      break;
+    case "Week":
+      setWeekTasks();
+      break;
+    case "AllTasks":
+      setAllTasks();
+      break;
+    case "None":
+      var currList = InboxStore.getCurrentList();
+      if (!$.isEmptyObject(currList)) {
+        _allTasks.forEach(function(task) {
+          if (task.list_id === currList.list_id) {
+            _tasks.push(task);
+          }
+        });
+      }
+      var currLocation = InboxStore.getCurrentLocation();
+      if (!$.isEmptyObject(currLocation)) {
+        _allTasks.forEach(function(task) {
+          if (task.location_id === currLocation.location_id) {
+            _tasks.push(task);
+          }
+        });
+      }
+      break;
+  }
+
+};
+
 TaskStore.getAllTasks = function() {
   return _allTasks.slice();
+};
+
+var setAllTasks = function() {
+  _tasks = _allTasks.slice();
 };
 
 TaskStore.getTodayTasks = function() {
   return _todayTasks.slice();
 };
 
+var setTodayTasks = function() {
+  _tasks = _todayTasks.slice();
+};
+
 TaskStore.getTomorrowTasks = function() {
   return _tomorrowTasks.slice();
 };
 
+var setTomorrowTasks = function() {
+  _tasks = _tomorrowTasks.slice();
+};
+
 TaskStore.getWeekTasks = function() {
   return _weekTasks.slice();
+};
+
+var setWeekTasks = function() {
+  _tasks = _weekTasks.slice();
 };
 
 TaskStore.all = function() {
@@ -306,6 +359,10 @@ TaskStore.__onDispatch = function(payload) {
       break;
     case "HOLD_ALL_TASKS":
       storeAllTasks(payload.tasks);
+      break;
+    case "SET_CURRENT_INBOX_TASKS":
+      setCurrentInboxTasks();
+      TaskStore.__emitChange();
       break;
   }
 };

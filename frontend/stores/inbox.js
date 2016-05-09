@@ -3,7 +3,7 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 
 var InboxStore = new Store(AppDispatcher);
 
-var _currentInbox = "";
+var _currentInbox = "AllTasks";
 var _currentList = {};
 var _currentLocation = {};
 

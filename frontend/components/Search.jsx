@@ -37,7 +37,7 @@ var Search = React.createClass({
       this.context.router.push("tasks");
       $(e.currentTarget).removeClass("search-box-with-input")
       query = e.currentTarget.value;
-      this.setState({ query: query, showingResults: true}, TaskActions.setStore(TaskStore.all()));
+      this.setState({ query: query, showingResults: true}, TaskActions.setTasksForCurrentInbox());
     } else {
       $(e.currentTarget).addClass("search-box-with-input")
       query = e.currentTarget.value;
