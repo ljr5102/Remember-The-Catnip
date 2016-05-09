@@ -16,8 +16,9 @@ var AllTasks = React.createClass({
   },
 
   componentDidMount: function() {
-    this.listenerToken = TaskStore.addListener(this.getAllNewTasks);
-    APIUtil.getAllTasks(this.updateState);
+    this.listenerToken = TaskStore.addListener(this.updateState);
+    // APIUtil.getAllTasks(this.updateState);
+
   },
 
   componentWillUnmount: function() {
@@ -25,11 +26,12 @@ var AllTasks = React.createClass({
   },
 
   getAllNewTasks: function() {
-    APIUtil.getAllTasks(this.updateState);
+    // APIUtil.getAllTasks(this.updateState);
+    TaskStore.getAllTasks();
   },
 
-  updateState: function(tasks) {
-    this.setState({allTasks: tasks});
+  updateState: function() {
+    this.setState({allTasks: TaskStore.getAllTasks()});
   },
 
   updateStore: function() {

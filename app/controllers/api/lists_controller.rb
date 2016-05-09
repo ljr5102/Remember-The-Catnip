@@ -1,7 +1,7 @@
 class Api::ListsController < ApplicationController
 
   def index
-    @lists = List.where("lists.creator_id = ?", current_user.id)
+    @lists = List.includes(:tasks).where("lists.creator_id = ?", current_user.id)
     render :index
   end
 
@@ -13,7 +13,7 @@ class Api::ListsController < ApplicationController
   end
 
   def show
-    @list = List.find(params[:id])
+    @list = List.includes(:tasks).find(params[:id])
     render :show
   end
 

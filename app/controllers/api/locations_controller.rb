@@ -1,12 +1,12 @@
 class Api::LocationsController < ApplicationController
 
   def index
-    @locations = Location.all.where("locations.creator_id = ?", current_user.id)
+    @locations = Location.includes(:tasks).where("locations.creator_id = ?", current_user.id)
     render :index
   end
 
   def show
-    @location = Location.find(params[:id])
+    @location = Location.includes(:tasks).find(params[:id])
     render :show
   end
 

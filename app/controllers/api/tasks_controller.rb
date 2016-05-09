@@ -2,7 +2,6 @@ class Api::TasksController < ApplicationController
 
   def index
     @tasks = Task.includes(:user)
-      .where("tasks.completed = ?", false)
       .where("tasks.owner_id = ?", current_user.id)
       .order(:id)
     render :index

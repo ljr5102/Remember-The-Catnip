@@ -74,6 +74,14 @@ var TaskActions = {
       tasks: tasks
     };
     AppDispatcher.dispatch(action);
+  },
+
+  holdAllTasks: function(tasks) {
+    var action = {
+      actionType: TaskConstants.HOLD_ALL_TASKS,
+      tasks: tasks
+    };
+    AppDispatcher.dispatch(action);
   }
 };
 

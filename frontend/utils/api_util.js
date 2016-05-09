@@ -175,7 +175,7 @@ var APIUtil = {
       url: "api/tasks",
       dataType: "json",
       success: function(tasks) {
-        callback(tasks);
+        TaskActions.holdAllTasks(tasks);
       },
       error: function() {
         console.log("Something went wrong in getAllTasks");

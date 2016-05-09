@@ -16,8 +16,8 @@ var Week = React.createClass({
   },
 
   componentDidMount: function() {
-    this.listenerToken = TaskStore.addListener(this.getNewWeekTasks);
-    APIUtil.getWeekTasks(this.updateState);
+    this.listenerToken = TaskStore.addListener(this.updateState);
+    // APIUtil.getWeekTasks(this.updateState);
   },
 
   componentWillUnmount: function() {
@@ -28,8 +28,8 @@ var Week = React.createClass({
     APIUtil.getWeekTasks(this.updateState);
   },
 
-  updateState: function(tasks) {
-    this.setState({weekTasks: tasks});
+  updateState: function() {
+    this.setState({weekTasks: TaskStore.getWeekTasks()});
   },
 
   updateStore: function() {

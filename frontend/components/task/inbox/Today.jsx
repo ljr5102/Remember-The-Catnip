@@ -16,8 +16,8 @@ var Today = React.createClass({
   },
 
   componentDidMount: function() {
-    this.listenerToken = TaskStore.addListener(this.getNewTodayTasks);
-    APIUtil.getTodayTasks(this.updateState);
+    this.listenerToken = TaskStore.addListener(this.updateState);
+    // APIUtil.getTodayTasks(this.updateState);
   },
 
   componentWillUnmount: function() {
@@ -28,8 +28,8 @@ var Today = React.createClass({
     APIUtil.getTodayTasks(this.updateState);
   },
 
-  updateState: function(tasks) {
-    this.setState({todayTasks: tasks});
+  updateState: function() {
+    this.setState({todayTasks: TaskStore.getTodayTasks()});
   },
 
   updateStore: function() {

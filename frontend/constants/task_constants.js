@@ -7,7 +7,8 @@ var TaskConstants = {
   REMOVE_TASK: "REMOVE_TASK",
   UPDATE_TASK: "UPDATE_TASK",
   COMPLETE_TASK: "COMPLETE_TASK",
-  SET_STORE: "SET_STORE"
+  SET_STORE: "SET_STORE",
+  HOLD_ALL_TASKS: "HOLD_ALL_TASKS"
 };
 
 module.exports = TaskConstants;

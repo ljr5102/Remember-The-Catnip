@@ -9,19 +9,97 @@ var _completedTasks = [];
 // only use for navigating from complete to incomplete
 var _incompleteTasks = [];
 
+var _allTasks = [];
+var _todayTasks = [];
+var _tomorrowTasks = [];
+var _weekTasks = [];
+
 var resetTasks = function(tasks) {
+  _tasks = [];
+  _allTasks = [];
+  _todayTasks = [];
+  _tomorrowTasks = [];
+  _weekTasks = [];
+  tasks.forEach(function(task) {
+    if (task.completed) {
+      _completedTasks.push(task);
+    } else {
+      _tasks.push(task);
+      _allTasks.push(task);
+      if (task.today) {
+        _todayTasks.push(task);
+      }
+      if (task.tomorrow) {
+        _tomorrowTasks.push(task);
+      }
+      if (task.week) {
+        _weekTasks.push(task);
+      }
+    }
+  });
+};
+
+var setStore = function(tasks) {
   _tasks = [];
   tasks.forEach(function(task) {
     _tasks.push(task);
   });
 };
 
-var updateTask = function(updatedTask) {
-  _tasks.forEach(function(task, index) {
+var tableHas = function(table, task) {
+  return table.some(function(obj) {
+    return obj.task_id === task.task_id;
+  });
+};
+
+var massUpdate = function(updatedTask) {
+  _allTasks.forEach(function(task, index) {
     if (updatedTask.task_id === task.task_id) {
-      _tasks[index] = updatedTask;
+      _allTasks[index] = updatedTask;
     }
   });
+
+  if (updatedTask.today && !tableHas(_todayTasks, updatedTask)) {
+    _todayTasks.push(updatedTask);
+  } else {
+    _todayTasks.forEach(function(task, index) {
+      if (updatedTask.task_id === task.task_id) {
+        if (updatedTask.today) {
+          _todayTasks[index] = updatedTask;
+        } else {
+          _todayTasks.splice(index, 1);
+        }
+      }
+    });
+  }
+
+  if (updatedTask.tomorrow && !tableHas(_tomorrowTasks, updatedTask)) {
+    _tomorrowTasks.push(updatedTask);
+  } else {
+    _tomorrowTasks.forEach(function(task, index) {
+      if (updatedTask.task_id === task.task_id) {
+        if (updatedTask.tomorrow) {
+          _tomorrowTasks[index] = updatedTask;
+        } else {
+          _tomorrowTasks.splice(index, 1);
+        }
+      }
+    });
+  }
+
+  if (updatedTask.week && !tableHas(_weekTasks, updatedTask)) {
+    _weekTasks.push(updatedTask);
+  } else {
+    _weekTasks.forEach(function(task, index) {
+      if (updatedTask.task_id === task.task_id) {
+        if (updatedTask.week) {
+          _weekTasks[index] = updatedTask;
+        } else {
+          _weekTasks.splice(index, 1);
+        }
+      }
+    });
+  }
 };
 
 var resetCompletedTasks = function(tasks) {
@@ -40,6 +118,42 @@ var resetIncompleteTasks = function(tasks) {
 
 var addCompletedTask = function(task) {
   _completedTasks.push(task);
+};
+
+var placeTask = function(task) {
+  _allTasks.push(task);
+  if (task.today) {
+    _todayTasks.push(task);
+  }
+  if (task.tomorrow) {
+    _tomorrowTasks.push(task);
+  }
+  if (task.week) {
+    _weekTasks.push(task);
+  }
+};
+
+var displaceTask = function(updatedTask) {
+  _allTasks.forEach(function(task, index) {
+    if (updatedTask.task_id === task.task_id) {
+      _allTasks.splice(index, 1);
+    }
+  });
+  _todayTasks.forEach(function(task, index) {
+    if (updatedTask.task_id === task.task_id) {
+      _todayTasks.splice(index, 1);
+    }
+  });
+  _tomorrowTasks.forEach(function(task, index) {
+    if (updatedTask.task_id === task.task_id) {
+      _tomorrowTasks.splice(index, 1);
+    }
+  });
+  _weekTasks.forEach(function(task, index) {
+    if (updatedTask.task_id === task.task_id) {
+      _weekTasks.splice(index, 1);
+    }
+  });
 };
 
 var addTask = function(task) {
@@ -120,6 +234,26 @@ var removeTask = function(deleteTask) {
   });
 };
 
+var storeAllTasks = function(tasks) {
+  _allTasks = tasks;
+};
+
+TaskStore.getAllTasks = function() {
+  return _allTasks.slice();
+};
+
+TaskStore.getTodayTasks = function() {
+  return _todayTasks.slice();
+};
+
+TaskStore.getTomorrowTasks = function() {
+  return _tomorrowTasks.slice();
+};
+
+TaskStore.getWeekTasks = function() {
+  return _weekTasks.slice();
+};
+
 TaskStore.all = function() {
   return _tasks.slice();
 };
@@ -139,25 +273,28 @@ TaskStore.__onDispatch = function(payload) {
       TaskStore.__emitChange();
       break;
     case "ADD_TASK":
+      placeTask(payload.task);
       addTask(payload.task);
       TaskStore.__emitChange();
       break;
     case "UPDATE_TASK":
-      updateTask(payload.task);
+      massUpdate(payload.task);
       checkForRemoval(payload.task);
       TaskStore.__emitChange();
       break;
     case "COMPLETE_TASK":
+      displaceTask(payload.task);
       removeTask(payload.task);
       addCompletedTask(payload.task);
       TaskStore.__emitChange();
       break;
     case "REMOVE_TASK":
+      displaceTask(payload.task);
       removeTask(payload.task);
       TaskStore.__emitChange();
       break;
     case "SET_STORE":
-      resetTasks(payload.tasks);
+      setStore(payload.tasks);
       TaskStore.__emitChange();
       break;
     case "GET_ALL_COMPLETED_TASKS":
@@ -166,6 +303,9 @@ TaskStore.__onDispatch = function(payload) {
       break;
     case "GET_INCOMPLETE_TASKS":
       resetIncompleteTasks(payload.tasks);
+      break;
+    case "HOLD_ALL_TASKS":
+      storeAllTasks(payload.tasks);
       break;
   }
 };
