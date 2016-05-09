@@ -20,6 +20,7 @@ var resetTasks = function(tasks) {
   _todayTasks = [];
   _tomorrowTasks = [];
   _weekTasks = [];
+  _completedTasks = [];
   tasks.forEach(function(task) {
     if (task.completed) {
       _completedTasks.push(task);
