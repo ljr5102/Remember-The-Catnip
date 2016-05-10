@@ -44,7 +44,7 @@ InboxStore.getCurrentLocation = function() {
 };
 
 InboxStore.resetAll = function() {
-  _currentInbox = "";
+  _currentInbox = "AllTasks";
   _currentList = {};
   _currentLocation = {};
 };
