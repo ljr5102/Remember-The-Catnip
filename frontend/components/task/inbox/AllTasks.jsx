@@ -47,7 +47,6 @@ var AllTasks = React.createClass({
         <li className="group" onClick={this.updateStore}>
           All Tasks <strong className="badge">{this.state.allTasks.length}</strong>
         </li>
-        {taskStats}
       </div>
     );
   }

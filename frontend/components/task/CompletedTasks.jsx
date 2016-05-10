@@ -11,7 +11,7 @@ var CompletedTasks = React.createClass({
 
   componentDidMount: function() {
     this.disableNewTaskForm();
-    TaskActions.setStore([]);
+    // TaskActions.setStore([]);
     this.setState({tasks: TaskStore.allCompleted()});
     this.listenerToken = TaskStore.addListener(this.updateCompleted);
     // APIUtil.fetchCompletedTasks();

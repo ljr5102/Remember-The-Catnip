@@ -19,6 +19,16 @@ var setCurrentLocation = function(location) {
   _currentLocation = location;
 };
 
+InboxStore.getCurrentItem = function() {
+  if (_currentInbox && _currentInbox !== "None") {
+    return InboxStore.getCurrentInbox();
+  } else if (!$.isEmptyObject(_currentList)) {
+    return InboxStore.getCurrentList();
+  } else if (!$.isEmptyObject(_currentLocation)) {
+    return InboxStore.getCurrentLocation();
+  }
+};
+
 InboxStore.getCurrentInbox = function() {
   return _currentInbox.slice();
 };
@@ -45,16 +55,19 @@ InboxStore.__onDispatch = function(payload) {
       setCurrentList({});
       setCurrentLocation({});
       setCurrentInbox(payload.inbox);
+      InboxStore.__emitChange();
       break;
     case "RECEIVE_CLICKED_LIST":
       setCurrentInbox("None");
       setCurrentLocation({});
       setCurrentList(payload.list);
+      InboxStore.__emitChange();
       break;
     case "RECEIVE_CLICKED_LOCATION":
       setCurrentInbox("None");
       setCurrentList({});
       setCurrentLocation(payload.location);
+      InboxStore.__emitChange();
       break;
   }
 };

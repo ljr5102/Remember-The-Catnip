@@ -13,6 +13,7 @@ var ListsIndex = require('./list/ListsIndex');
 var LocationsIndex = require('./location/LocationsIndex');
 var InboxStore = require('../../stores/inbox');
 var InboxActions = require('../../actions/inbox_actions');
+var TaskStats = require('./task_stats/TaskStats');
 
 var TasksIndex = React.createClass({
   contextTypes: {
@@ -20,7 +21,7 @@ var TasksIndex = React.createClass({
   },
 
   getInitialState: function() {
-    return { tasks: TaskStore.all()}
+    return { tasks: TaskStore.all(), showCompleted: false}
   },
 
   componentDidMount: function() {
@@ -36,7 +37,7 @@ var TasksIndex = React.createClass({
 
   showSearchResults: function() {
     this.context.router.push("tasks")
-    this.setState({ tasks: SearchResultsStore.all()});
+    this.setState({ tasks: SearchResultsStore.all(), showCompleted: false});
   },
 
   handleChange: function() {
@@ -65,6 +66,7 @@ var TasksIndex = React.createClass({
       $(e.currentTarget).removeClass("unselected-tab").addClass("selected-tab");
       // var currIncompleteTasks = TaskStore.all();
       // TaskActions.receiveIncompleteTasks(currIncompleteTasks);
+      this.setState({ showCompleted: true })
       this.context.router.push("tasks/completed");
     }
   },
@@ -73,6 +75,7 @@ var TasksIndex = React.createClass({
     if (!$(e.currentTarget).hasClass("selected-tab")) {
       $(".selected-tab").removeClass("selected-tab").addClass("unselected-tab")
       $(e.currentTarget).removeClass("unselected-tab").addClass("selected-tab")
+      this.setState({ showCompleted: false})
       this.context.router.push("tasks");
       TaskActions.setTasksForCurrentInbox();
       // TaskActions.setStore(TaskStore.getIncompleteTasks());
@@ -94,11 +97,12 @@ var TasksIndex = React.createClass({
   },
 
   render: function() {
-    var taskStats;
-    var pathsForDetail = ["/tasks", "tasks/completed"]
-    var taskArray = this.state.tasks.map(function(task, index) {
-      return <TasksIndexItem key={index} task={task} /> ;
-    });
+    var taskArray;
+    if (!this.state.showCompleted) {
+      taskArray = this.state.tasks.map(function(task, index) {
+        return <TasksIndexItem key={index} task={task} /> ;
+      });
+    }
     return (
       <div className="wrapper">
         <div className="sidebar group">
@@ -116,6 +120,7 @@ var TasksIndex = React.createClass({
           <ListsIndex />
           <div className="divider"></div>
           <LocationsIndex />
+          <TaskStats />
         </div>
         <div className="task-index group">
           <ul className="index-tabs group">

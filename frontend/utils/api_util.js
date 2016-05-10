@@ -319,6 +319,7 @@ var APIUtil = {
       data: listData,
       success: function(updatedList) {
         ListActions.receiveUpdatedList(updatedList);
+        InboxActions.receiveClickedList(updatedList);
       },
       error: function() {
         console.log("Something went wrong in createList");

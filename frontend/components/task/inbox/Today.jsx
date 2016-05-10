@@ -45,7 +45,6 @@ var Today = React.createClass({
         <li className="group" onClick={this.updateStore}>
           Today <strong className="badge">{this.state.todayTasks.length}</strong>
         </li>
-        {taskStats}
       </div>
     );
   }
