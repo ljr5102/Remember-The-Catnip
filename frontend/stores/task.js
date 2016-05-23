@@ -309,11 +309,11 @@ var setWeekTasks = function() {
 };
 
 TaskStore.all = function() {
-  return _tasks.slice();
+  return _tasks.slice().reverse();
 };
 
 TaskStore.allCompleted = function() {
-  return _completedTasks.slice();
+  return _completedTasks.slice().reverse();
 };
 
 TaskStore.getIncompleteTasks = function() {

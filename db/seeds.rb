@@ -12,14 +12,6 @@ user1 = User.create!(username: "mrSmalz", email_address: "mrSmalz@gmail.com", pa
 user_id = User.first.id
 Task.destroy_all
 
-task26 = Task.create!(owner_id: user_id, name: "Hello human!  Thanks for checking out the site!")
-task27 = Task.create!(owner_id: user_id, name: "I am a task.  Click on me for more info!", start_date: Date.today, due_date: Date.today + 3, priority: 2, estimate: "25 seconds")
-task28 = Task.create!(owner_id: user_id, name: "See the text field above?  Start typing in it!")
-task29 = Task.create!(owner_id: user_id, name: "Pretty cool huh?  Now go add a few tasks of your own!")
-task30 = Task.create!(owner_id: user_id, name: "Want to store them in a list?  Create one by clicking the '+' next to Lists")
-task31 = Task.create!(owner_id: user_id, name: "Now do the same thing for locations.")
-task32 = Task.create!(owner_id: user_id, name: "Click on that location to see it show up on a map!")
-task33 = Task.create!(owner_id: user_id, name: "Enjoy the rest of the site!")
 task1_img = File.open('app/assets/images/seeds/image(2).jpeg')
 task1 = Task.create!(owner_id: user_id, name: "Sleep", start_date: Date.today, due_date: Date.today, priority: 1, estimate: "5 hours", image: task1_img)
 task2_img = File.open('app/assets/images/seeds/image(1).jpeg')
@@ -56,6 +48,15 @@ task24_img = File.open('app/assets/images/seeds/image(12).jpeg')
 task24 = Task.create!(owner_id: user_id, name: "Late evening nap", image: task24_img)
 task25_img = File.open('app/assets/images/seeds/image(13).jpeg')
 task25 = Task.create!(owner_id: user_id, name: "Bathe self", image: task25_img)
+task33 = Task.create!(owner_id: user_id, name: "Enjoy the rest of the site!")
+task32 = Task.create!(owner_id: user_id, name: "Click on that location to see it show up on a map!")
+task31 = Task.create!(owner_id: user_id, name: "Now do the same thing for locations.")
+task30 = Task.create!(owner_id: user_id, name: "Want to store them in a list?  Create one by clicking the '+' next to Lists")
+task29 = Task.create!(owner_id: user_id, name: "Pretty cool huh?  Now go add a few tasks of your own!")
+task28 = Task.create!(owner_id: user_id, name: "See the text field above?  Start typing in it!")
+task27 = Task.create!(owner_id: user_id, name: "I am a task.  Click on me for more info!", start_date: Date.today, due_date: Date.today + 3, priority: 2, estimate: "25 seconds")
+task26 = Task.create!(owner_id: user_id, name: "Hello human!  Thanks for checking out the site!")
+
 
 
 List.destroy_all
