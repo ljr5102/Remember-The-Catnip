@@ -1,7 +1,8 @@
 .completed-tasks-text {
   position: relative;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px dotted darkgray;
+  border-bottom: 1px dotted darkgray;
+  padding: 16px 0px 16px 0px;
   float: left;
   display: block;
   width: 548px;

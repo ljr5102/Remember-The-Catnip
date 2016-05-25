@@ -120,19 +120,21 @@ var TaskDetail = React.createClass({
       updateButton = <div></div>
       completeButton = <div></div>
     } else {
-      deleteButton =  <button className="delete-task-button" onClick={this.deleteTask}>Delete Task</button>;
-      updateButton = <button className="update-task-button" onClick={this.editTask}>Edit Task...</button>;
-      completeButton = <button className="mark-complete-button" onClick={this.completeTask}>Mark Complete</button>;
+      deleteButton =  <button className="delete-task-button" onClick={this.deleteTask}><div className="trashcan"></div></button>;
+      updateButton = <button className="update-task-button" onClick={this.editTask}><div className="pencil"></div></button>;
+      completeButton = <button className="mark-complete-button" onClick={this.completeTask}><div className="checkmark"></div></button>;
     }
     return (
       <div className="task-detail group">
-        <h2>{this.state.task.name}</h2>
+        <div className="task-detail-heading group">
+          <h2>{this.state.task.name}</h2>
+          {deleteButton}
+          {updateButton}
+          {completeButton}
+        </div>
         <ul>
           {taskArray}
         </ul>
-        {deleteButton}
-        {updateButton}
-        {completeButton}
         {removeImageButton}
         {editForm}
         {image}

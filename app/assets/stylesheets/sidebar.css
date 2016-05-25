@@ -3,6 +3,7 @@
 }
 
 .sidebar {
+  font-family: 'Happy Monkey', cursive;
   margin-top: 36px;
   position: fixed;
   height: 100vh;

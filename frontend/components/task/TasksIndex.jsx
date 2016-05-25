@@ -41,7 +41,7 @@ var TasksIndex = React.createClass({
   },
 
   handleChange: function() {
-    this.setState({ tasks: TaskStore.all() }, this.checkForMap);
+    this.setState({ tasks: TaskStore.all(), showCompleted: false }, this.checkForMap);
   },
 
   checkForMap: function() {
@@ -120,7 +120,7 @@ var TasksIndex = React.createClass({
           <ListsIndex />
           <div className="divider"></div>
           <LocationsIndex />
-          <TaskStats />
+
         </div>
         <div className="task-index group">
           <ul className="index-tabs group">
@@ -132,6 +132,7 @@ var TasksIndex = React.createClass({
             {taskArray}
           </ul>
         </div>
+        <TaskStats />
         {this.props.children}
       </div>
     );
