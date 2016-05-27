@@ -8,16 +8,21 @@
 }
 
 .logout-button {
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: 4px;
   background: #ffffff;
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
 }
 
+.logout-button:hover {
+  background: black;
+  color: white;
+}
+
 .user-section {
   width: 65px;
+  margin-right: 5px;
   float: right;
 }
 

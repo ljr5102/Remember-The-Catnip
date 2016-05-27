@@ -33,6 +33,12 @@
   margin-top: 7px;
 }
 
+.search-button:hover {
+  color: #0060bf;
+  background: white;
+  border: 1px solid black;
+}
+
 .search-results-page {
   position: absolute;
   display: block;

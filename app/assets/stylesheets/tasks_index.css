@@ -31,6 +31,59 @@
   background: #FFFFCC
 }
 
+.task-index-item-title {
+  width: 425px;
+  float: left;
+  display: block;
+}
+
+.task-index-item-title-overdue {
+  width: 425px;
+  float: left;
+  display: block;
+  font-weight: bold;
+}
+
+.task-index-date-today {
+  width: 70px;
+  display: block;
+  float: right;
+  color: #0060bf;
+  text-align: right;
+}
+
+.task-index-date-yesterday {
+  width: 70px;
+  display: block;
+  float: right;
+  color: #ea5200;
+  text-align: right;
+}
+
+.task-index-date-tomorrow {
+  width: 70px;
+  display: block;
+  float: right;
+  color: ##6e6e6e;
+  text-align: right;
+}
+
+.task-index-date-overdue {
+  width: 70px;
+  display: block;
+  float: right;
+  color: #ea5200;
+  text-align: right;
+}
+
+.task-index-date-due {
+  width: 70px;
+  display: block;
+  float: right;
+  color: #b1b1b1;
+  text-align: right;
+}
+
 .task-new {
   position: relative;
   border-top: 1px dotted darkgray;
@@ -361,6 +414,10 @@
   color: #0060bf;
 }
 
+.unselected-tab:hover {
+  color: #004b90;
+}
+
 .index-tabs > li {
   padding: 5px 15px;
   float: left;
@@ -393,6 +450,7 @@
 }
 
 .task-statistics > h2 {
+  font-family: 'Happy Monkey', cursive;
   margin-top: 20px;
   margin-left: 15px;
   font-size: 16px;
