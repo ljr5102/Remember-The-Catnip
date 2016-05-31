@@ -235,6 +235,14 @@ var removeTask = function(deleteTask) {
   });
 };
 
+var updateIndexItemTask = function(updatedTask) {
+  _tasks.forEach(function(task, index) {
+    if (task.task_id === updatedTask.task_id) {
+      _tasks[index] = updatedTask;
+    }
+  });
+};
+
 var storeAllTasks = function(tasks) {
   _allTasks = tasks;
 };
@@ -334,6 +342,7 @@ TaskStore.__onDispatch = function(payload) {
     case "UPDATE_TASK":
       massUpdate(payload.task);
       checkForRemoval(payload.task);
+      updateIndexItemTask(payload.task);
       TaskStore.__emitChange();
       break;
     case "COMPLETE_TASK":
