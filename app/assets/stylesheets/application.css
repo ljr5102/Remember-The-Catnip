@@ -124,6 +124,10 @@
   border-radius: 3px;
 }
 
+.sign-up-button:hover {
+  background: #007ecc;
+}
+
 .sign-in-link {
   float: right;
   display: block;
@@ -212,6 +216,7 @@
 }
 
 .sign-in-form a {
+ background: #3b579d;
  font-size: 20px;
  margin: auto;
  margin-top: 12px;
@@ -221,12 +226,20 @@
  border: 1px solid black;
 }
 
+.sign-in-form a:hover {
+  background: #2d4278;
+}
+
 .sign-in-button {
  color: #ffffff;
  background: #009dff;
  text-align: center;
  cursor: pointer;
  border-radius: 3px;
+}
+
+.sign-in-button:hover {
+  background: #007ecc;
 }
 
 .sign-up-link {
