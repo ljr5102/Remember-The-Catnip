@@ -44,6 +44,18 @@
   font-weight: bold;
 }
 
+.task-index-item-title-completed > span {
+  color: #7e7e7e;
+}
+
+.task-index-item-title-completed > span:first-child {
+  width: 425px;
+  float: left;
+  display: block;
+  text-decoration: line-through;
+  font-weight: normal;
+}
+
 .task-index-date-today {
   width: 70px;
   display: block;

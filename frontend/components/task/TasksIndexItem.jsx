@@ -16,7 +16,7 @@ var TasksIndexItem = React.createClass({
   },
 
   render: function() {
-    var taskDate, taskTitle, dateText;
+    var taskDate, taskTitle, dateText, complete;
     if (this.props.task.due_date) {
       dateText = TaskIndexItemUtil.getDateText(this.props.task.due_date);
       taskDate = <span className={dateText.klass}>{dateText.date}</span>
@@ -26,9 +26,15 @@ var TasksIndexItem = React.createClass({
     } else {
       taskTitle = <span className="task-index-item-title">{this.props.task.name}</span>
     }
+
+    if (this.props.task.completed) {
+      complete = "task-index-item-title-completed";
+    } else {
+      complete ="";
+    }
     return (
       <div className="group">
-        <li className="task-index-item group" onClick={this.showDetail}>
+        <li className={"task-index-item group " + complete} onClick={this.showDetail}>
           {taskTitle}
           {taskDate}
         </li>
