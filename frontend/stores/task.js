@@ -342,7 +342,8 @@ TaskStore.__onDispatch = function(payload) {
     case "UPDATE_TASK":
       massUpdate(payload.task);
       checkForRemoval(payload.task);
-      updateIndexItemTask(payload.task);
+      setCurrentInboxTasks(); //put this here so task index updates appropriately
+      // updateIndexItemTask(payload.task);
       TaskStore.__emitChange();
       break;
     case "COMPLETE_TASK":
