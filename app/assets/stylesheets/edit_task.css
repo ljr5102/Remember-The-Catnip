@@ -1,0 +1,84 @@
+.task-modal {
+  width: 300px;
+  height: 175px;
+  padding: 35px;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+.edit-task-header {
+  font-size: 1.125rem;
+  margin-bottom: 20px;
+}
+
+.edit-task-form {
+
+}
+
+.edit-task-form  input {
+  display: block;
+  width: 286px;
+  padding: 5px 6px;
+  border: 1px solid #d0d3d6;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-bottom: 35px;
+}
+
+.edit-task-form select {
+  display: block;
+  width: 286px;
+  padding: 5px 6px;
+  border: 1px solid #d0d3d6;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-bottom: 35px;
+}
+
+.edit-task-form > label {
+  font-size: .8125rem;
+}
+
+.edit-task-form > button {
+  float: left;
+}
+
+.edit-task-add-button {
+  margin-right: 10px;
+  border-radius: 3px;
+  display: block;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 13px;
+  background: #3f95ec;
+  cursor: pointer;
+}
+
+.edit-task-cancel-button {
+  border-radius: 3px;
+  display: block;
+  padding: 10px 15px;
+  color: black;
+  font-weight: bold;
+  font-size: 13px;
+  background: #f4f4f4;
+  cursor: pointer;
+}
+
+.task-error-alert {
+  background-color: rgba(234, 82, 0, 0.15);
+  font-size: 14px;
+  width: 170px;
+  padding: 5px 6px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 69px;
+  right: 138px;
+  border-radius: 3px;
+  text-align: right;
+}
+
+.task-error-alert-hidden {
+  display: none;
+}

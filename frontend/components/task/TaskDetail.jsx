@@ -99,13 +99,13 @@ var TaskDetail = React.createClass({
       image = <div></div>
     }
 
-    var task = this.state.task;
+    var currTask = this.state.task;
     var taskArray = []
     var i = 0;
-    for (var key in task) {
-      if (task.hasOwnProperty(key)) {
-        if (this.displayableProperties[key] && task[key] !== null && task[key] !== "") {
-          taskArray.push(<li key={i}><p className="detail-label">{this.displayableProperties[key]}</p> {task[key]}</li>);
+    for (var key in currTask) {
+      if (currTask.hasOwnProperty(key)) {
+        if (this.displayableProperties[key] && currTask[key] !== null && currTask[key] !== "") {
+          taskArray.push(<li key={i}><p className="detail-label">{this.displayableProperties[key]}</p> {currTask[key]}</li>);
         }
       }
       i += 1;
@@ -115,13 +115,11 @@ var TaskDetail = React.createClass({
     var updateButton;
     var completeButton;
     var removeImageButton;
-    if (!task.name || task.completed) {
+    if (!currTask.name || currTask.completed) {
       deleteButton = <div></div>
-      updateButton = <div></div>
       completeButton = <div></div>
     } else {
       deleteButton =  <button className="delete-task-button" onClick={this.deleteTask}><div className="trashcan"></div></button>;
-      updateButton = <button className="update-task-button" onClick={this.editTask}><div className="pencil"></div></button>;
       completeButton = <button className="mark-complete-button" onClick={this.completeTask}><div className="checkmark"></div></button>;
     }
     return (
@@ -136,11 +134,12 @@ var TaskDetail = React.createClass({
           {taskArray}
         </ul>
         {removeImageButton}
-        {editForm}
+        <TaskEditForm task={this.state.task} hideEdit={this.hideEditForm}/>
         {image}
       </div>
     );
   }
 });
+// {editForm}
 
 module.exports = TaskDetail;
