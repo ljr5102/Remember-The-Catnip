@@ -6,12 +6,14 @@ var Modal = require('react-modal');
 
 var customStyles = {
   content : {
-    top : '-107px',
-    left: '15px',
-    right: '-550px',
-    bottom: '235px',
-    padding: '35px',
-    position: 'absolute'
+    top : '100px',
+    left: '450px',
+    right: '450px',
+    bottom: '0px',
+    padding: '35px'
+  },
+  overlay: {
+    zIndex: '2'
   }
 };
 
@@ -19,6 +21,10 @@ var customStyles = {
 var TaskEditForm = React.createClass({
 
   mixins: [LinkedStateMixin],
+
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
 
   getInitialState: function() {
     return {
@@ -44,7 +50,6 @@ var TaskEditForm = React.createClass({
   },
 
   closeModal: function(e) {
-    debugger
     if(e) {
       e.preventDefault();
     }
@@ -67,6 +72,19 @@ var TaskEditForm = React.createClass({
     this.setState({modalIsOpen: false});
   },
 
+  deleteTask: function(e) {
+    e.preventDefault();
+    APIUtil.destroyTask(this.props.task);
+    this.context.router.push("tasks");
+  },
+
+  completeTask: function(e) {
+    e.preventDefault();
+    var task = {completed: true};
+    APIUtil.completeTask(this.props.task, task)
+    this.context.router.push("tasks");
+  },
+
   handleFileChange: function(e) {
     var file = e.currentTarget.files[0]
     var reader = new FileReader();
@@ -81,14 +99,19 @@ var TaskEditForm = React.createClass({
 
 
   render: function() {
-    var updateButton;
+    var updateButton, completeButton, deleteButton;
+
     if (!this.props.task.completed) {
       updateButton = <button className="update-task-button" onClick={this.openModal}><div className="pencil"></div></button>;
+      deleteButton =  <button className="delete-task-button" onClick={this.deleteTask}><div className="trashcan"></div></button>;
+      completeButton = <button className="mark-complete-button" onClick={this.completeTask}><div className="checkmark"></div></button>;
     }
     var listOptions = getListOptions(this.props.task);
     return(
       <div>
         {updateButton}
+        {deleteButton}
+        {completeButton}
         <Modal style={customStyles} className="task-modal" isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
           <h2 className="edit-task-header">Edit Task</h2>
           <form ref="editTask" className="edit-task-form group" onSubmit={this.updateTask}>

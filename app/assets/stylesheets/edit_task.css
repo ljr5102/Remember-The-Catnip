@@ -1,9 +1,12 @@
+.task-edit-container {
+  position: relative;
+}
+
 .task-modal {
   width: 300px;
-  height: 175px;
+  height: 480px;
   padding: 35px;
   margin: 0 auto;
-  margin-top: 200px;
 }
 
 .edit-task-header {
@@ -21,18 +24,16 @@
   padding: 5px 6px;
   border: 1px solid #d0d3d6;
   border-radius: 3px;
-  margin-top: 10px;
-  margin-bottom: 35px;
+  margin-bottom: 10px;
 }
 
 .edit-task-form select {
   display: block;
-  width: 286px;
-  padding: 5px 6px;
+  width: 300px;
+  height: 30px;
   border: 1px solid #d0d3d6;
   border-radius: 3px;
-  margin-top: 10px;
-  margin-bottom: 35px;
+  margin-bottom: 10px;
 }
 
 .edit-task-form > label {

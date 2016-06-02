@@ -40,12 +40,6 @@ var TaskDetail = React.createClass({
     this.setState({showEdit: true});
   },
 
-  deleteTask: function(e) {
-    e.preventDefault();
-    APIUtil.destroyTask(this.state.task);
-    this.context.router.push("tasks");
-  },
-
   hideEditForm: function(e) {
     e.preventDefault();
     this.setState({showEdit: false})
@@ -55,13 +49,6 @@ var TaskDetail = React.createClass({
     e.preventDefault();
     APIUtil.removeImage(this.state.task);
 
-  },
-
-  completeTask: function(e) {
-    e.preventDefault();
-    var task = {completed: true};
-    APIUtil.completeTask(this.state.task, task)
-    this.context.router.push("tasks");
   },
 
   showImageOptions: function(e) {
@@ -111,24 +98,11 @@ var TaskDetail = React.createClass({
       i += 1;
     };
 
-    var deleteButton;
-    var updateButton;
-    var completeButton;
     var removeImageButton;
-    if (!currTask.name || currTask.completed) {
-      deleteButton = <div></div>
-      completeButton = <div></div>
-    } else {
-      deleteButton =  <button className="delete-task-button" onClick={this.deleteTask}><div className="trashcan"></div></button>;
-      completeButton = <button className="mark-complete-button" onClick={this.completeTask}><div className="checkmark"></div></button>;
-    }
     return (
       <div className="task-detail group">
         <div className="task-detail-heading group">
           <h2>{this.state.task.name}</h2>
-          {deleteButton}
-          {updateButton}
-          {completeButton}
         </div>
         <ul>
           {taskArray}
