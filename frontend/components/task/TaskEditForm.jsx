@@ -60,7 +60,7 @@ var TaskEditForm = React.createClass({
     e.preventDefault();
     var formData = new FormData();
     Object.keys(this.state).forEach(function(key) {
-      if (this.state[key] && (key !== "imageFile" || key !== "imageUrl")) {
+      if (this.state[key] !== undefined && (key !== "imageFile" || key !== "imageUrl")) {
         var label = "task" + "[" + key + "]"
         formData.append(label, this.state[key]);
       }
