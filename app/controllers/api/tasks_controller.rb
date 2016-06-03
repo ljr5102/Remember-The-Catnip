@@ -63,7 +63,6 @@ class Api::TasksController < ApplicationController
   end
 
   def update
-    debugger
     @task = Task.find(params[:id])
     if task_params.keys[0] == "completed"
       @task.update(list_id: nil) if @task.list_id
