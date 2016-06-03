@@ -20,23 +20,13 @@ var customStyles = {
 
 var TaskEditForm = React.createClass({
 
-  mixins: [LinkedStateMixin],
-
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
 
   getInitialState: function() {
     return {
-      modalIsOpen: false,
-      name: this.props.task.name,
-      due_date: this.props.task.due_date,
-      start_date: this.props.task.start_date,
-      priority: this.props.task.priority,
-      estimate: this.props.task.estimate,
-      list_id: this.props.task.list_id,
-      imageFile: "",
-      imageUrl: ""
+      modalIsOpen: false
     }
   },
 
@@ -56,6 +46,12 @@ var TaskEditForm = React.createClass({
     this.setState({modalIsOpen: false});
   },
 
+  updateState: function(e) {
+    var setting = {};
+    setting[e.currentTarget.id] = e.currentTarget.value;
+    this.setState(setting);
+  },
+
   updateTask: function(e) {
     e.preventDefault();
     var formData = new FormData();
@@ -65,7 +61,7 @@ var TaskEditForm = React.createClass({
         formData.append(label, this.state[key]);
       }
     }.bind(this));
-    if (this.state.imageFile !== "") {
+    if (this.state.imageFile) {
       formData.append("task[image]", this.state.imageFile);
     }
     APIUtil.updateTask(this.props.task, formData);
@@ -120,25 +116,25 @@ var TaskEditForm = React.createClass({
               Name cannot be blank
             </div>
             <label>Name
-              <input type="text" defaultValue={this.props.task.name} valueLink={this.linkState("name")} />
+              <input id="name" type="text" defaultValue={this.props.task.name} onChange={this.updateState} />
             </label>
             <label>Start Date
-              <input type="date" defaultValue={this.props.task.start_date} valueLink={this.linkState("start_date")} />
+              <input id="start_date"type="date" defaultValue={this.props.task.start_date} onChange={this.updateState} />
             </label>
             <label>Due Date
-              <input type="date" defaultValue={this.props.task.due_date} valueLink={this.linkState("due_date")} />
+              <input id="due_date" type="date" defaultValue={this.props.task.due_date} onChange={this.updateState} />
             </label>
             <label>Priority
-              <input type="number" defaultValue={this.props.task.priority} valueLink={this.linkState("priority")} min="1" max="3" />
+              <input id="priority" type="number" defaultValue={this.props.task.priority} onChange={this.updateState} min="1" max="3" />
             </label>
             <label>Estimate
-              <input type="text" defaultValue={this.props.task.estimate} valueLink={this.linkState("estimate")} />
+              <input id="estimate" type="text" defaultValue={this.props.task.estimate} onChange={this.updateState} />
             </label>
             <label>Picture
               <input className="file-upload" type="file" onChange={this.handleFileChange} />
             </label>
             <label>List
-              <select id="list" defaultValue={this.props.task.list_id} valueLink={this.linkState("list_id")}>{listOptions}</select>
+              <select id="list_id" defaultValue={this.props.task.list_id} onChange={this.updateState}>{listOptions}</select>
             </label>
             <button className="edit-task-add-button">Save</button>
             <button onClick={this.closeModal} className="edit-task-cancel-button">Cancel</button>
@@ -148,6 +144,8 @@ var TaskEditForm = React.createClass({
     )
   }
 });
+
+// valueLink={this.linkState("name")
 
 // <form className="task-edit-form group" onSubmit={this.updateTask}>
 //   <div className="task-edit-input-grouping">
