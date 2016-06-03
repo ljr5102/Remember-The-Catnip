@@ -6,7 +6,7 @@ var Modal = require('react-modal');
 
 var customStyles = {
   content : {
-    top : '100px',
+    top : '45px',
     left: '450px',
     right: '450px',
     bottom: '0px',
