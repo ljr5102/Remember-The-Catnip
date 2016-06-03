@@ -65,10 +65,8 @@ var InboxStats = React.createClass({
     this.listenerToken = TaskStore.addListener(this.updateCount);
     google.charts.setOnLoadCallback(this.drawChart);
     !function(d,s,id){
-      debugger
       var js, fjs=d.getElementsByTagName(s)[0], p=/^http:/.test(d.location)?'http':'https';
       // if(!d.getElementById(id)){
-        debugger
         js=d.createElement(s);js.id=id;
         js.src=p+"://platform.twitter.com/widgets.js";
         fjs.parentNode.insertBefore(js,fjs);
@@ -83,10 +81,8 @@ var InboxStats = React.createClass({
   renderGraphics: function() {
     google.charts.setOnLoadCallback(this.drawChart);
     !function(d,s,id){
-      debugger
       var js, fjs=d.getElementsByTagName(s)[0], p=/^http:/.test(d.location)?'http':'https';
       // if(!d.getElementById(id)){
-        debugger
         js=d.createElement(s);js.id=id;
         js.src=p+"://platform.twitter.com/widgets.js";
         fjs.parentNode.insertBefore(js,fjs);
