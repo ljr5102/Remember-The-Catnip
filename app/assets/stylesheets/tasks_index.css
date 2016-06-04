@@ -563,6 +563,22 @@
   display: block;
 }
 
+@media screen and (max-width: 1273px) {
+  .twitter-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1055px) {
+  #chart_div {
+    display: none;
+  }
+  
+  .chart-title {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 820px) {
 
   .task-statistics {
