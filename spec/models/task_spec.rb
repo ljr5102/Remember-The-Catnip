@@ -16,4 +16,11 @@ RSpec.describe Task, type: :model do
     it { should belong_to(:location).class_name('Location').with_primary_key('id').with_foreign_key('location_id')}
   end
 
+  describe "default tasks as incomplete" do
+    it "should default completed column to false when task initially created" do
+      task = FactoryGirl.build(:task)
+      expect(task.completed).to be false
+    end
+  end
+
 end
