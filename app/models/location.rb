@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
 
-  validates :name, :creator_id, presence: true
+  validates :name, :creator_id, :address, presence: true
   validates :name, uniqueness: { scope: :creator_id, message: "user already has location of this name"}
 
   belongs_to(:user,

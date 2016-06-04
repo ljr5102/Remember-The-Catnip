@@ -18,7 +18,7 @@ RSpec.describe Task, type: :model do
 
   describe "default tasks as incomplete" do
     it "should default completed column to false when task initially created" do
-      task = FactoryGirl.build(:task)
+      task = FactoryGirl.create(:task)
       expect(task.completed).to be false
     end
   end

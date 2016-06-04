@@ -2,7 +2,7 @@ class List < ActiveRecord::Base
 
   before_destroy do |list|
     Task.where(list_id: list.id).each do |task|
-      task.update_attributes(list_id: nil)
+      task.update_attribute(:list_id, nil)
     end
   end
 

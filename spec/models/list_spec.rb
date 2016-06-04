@@ -21,18 +21,22 @@ RSpec.describe List, type: :model do
 
   describe "list deletion" do
     it "sets task list id's to nil when a list is deleted" do
-      list_to_delete = FactoryGirl.build(:list)
-      list_not_being_deleted = FactoryGirl.build(:list, name: "Dog Stuff")
-      task1 = FactoryGirl.build(:task, list_id: list_to_delete.id)
-      task2 = FactoryGirl.build(:task, list_id: list_to_delete.id)
-      task3 = FactoryGirl.build(:task, list_id: list_to_delete.id)
-      task4 = FactoryGirl.build(:task, list_id: list_not_being_deleted.id)
+      list_to_delete = FactoryGirl.create(:list)
+      list_not_being_deleted = FactoryGirl.create(:list, name: "Dog Stuff")
+      task1 = FactoryGirl.create(:task, list_id: list_to_delete.id)
+      task2 = FactoryGirl.create(:task, list_id: list_to_delete.id)
+      task3 = FactoryGirl.create(:task, list_id: list_to_delete.id)
+      task4 = FactoryGirl.create(:task, list_id: list_not_being_deleted.id)
       list_to_delete.destroy
+      updated_task1 = Task.find(task1.id)
+      updated_task2 = Task.find(task2.id)
+      updated_task3 = Task.find(task3.id)
+      updated_task4 = Task.find(task4.id)
 
-      expect(task1.list_id).to be_nil
-      expect(task2.list_id).to be_nil
-      expect(task3.list_id).to be_nil
-      expect(task4.list_id).to eq(list_not_being_deleted.id)
+      expect(updated_task1.list_id).to be_nil
+      expect(updated_task2.list_id).to be_nil
+      expect(updated_task3.list_id).to be_nil
+      expect(updated_task4.list_id).to eq(list_not_being_deleted.id)
     end
   end
 end
