@@ -49,6 +49,7 @@ var InboxStats = React.createClass({
         'legend':{alignment: 'center'},
         'chartArea':{left: 150, top: 10, height: 160},
         'titleTextStyle': {fontSize: "16", bold: "false"},
+        'pieSliceTextStyle': {color: "black"},
         'width':400,
         'height':200,
         'backgroundColor':'#e4eef8',
