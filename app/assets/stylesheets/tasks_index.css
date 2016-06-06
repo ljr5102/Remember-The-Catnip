@@ -348,12 +348,13 @@
   float: left;
   width: 350px;
   font-weight: bold;
-  margin-bottom: 20px;
   margin-right: 5px;
   margin-left: 25px;
 }
 
 .task-detail ul {
+  margin-top: 5px;
+  margin-bottom: 10px;
   font-size: 14px;
   margin-left: 45px;
 }
@@ -377,9 +378,11 @@
 .image-inner-container {
   display: block;
   width: 250px;
+  border: 4px solid lightgray;
+  border-radius: 3px;
   position: absolute;
-  left: 133px;
-  top: 180px;
+  left: 40px;
+  top: 10px;
 }
 
 .image-container:hover .image-options {
@@ -487,17 +490,18 @@
   color: #0060bf;
 }
 
+.task-modification > button {
+  margin-right: 10px;
+}
+
 .update-task-button {
-  /*right: 10px;*/
-  left: 393px;
+  margin-left: 92px;
   background: lightgray;
-  top: 4px;
   padding: 5px;
   border-radius: 3px;
   font-size: 14px;
   border: 1px solid gray;
   cursor: pointer;
-  /*position: absolute;*/
 }
 
 .update-task-button:hover {
@@ -505,16 +509,12 @@
 }
 
 .delete-task-button {
-  /*right: 10px;*/
-  left: 393px;
   background: lightgray;
-  top: 52px;
   padding: 5px;
   border-radius: 3px;
   font-size: 14px;
   border: 1px solid gray;
   cursor: pointer;
-  /*position: absolute;*/
 }
 
 .delete-task-button:hover {
@@ -522,17 +522,13 @@
 }
 
 .mark-complete-button {
-  /*right: 10px;*/
-  left: 393px;
   background: lightgray;
-  top: 100px;
   padding: 5px;
   border-radius: 3px;
   font-size: 14px;
   font-weight: bold;
   border: 1px solid gray;
   cursor: pointer;
-  /*position: absolute;*/
 }
 
 .mark-complete-button:hover {
@@ -573,7 +569,7 @@
   #chart_div {
     display: none;
   }
-  
+
   .chart-title {
     display: none;
   }

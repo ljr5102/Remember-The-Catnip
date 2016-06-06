@@ -104,7 +104,7 @@ var TaskEditForm = React.createClass({
     }
     var listOptions = getListOptions(this.props.task);
     return(
-      <div>
+      <div className="task-modification">
         {updateButton}
         {deleteButton}
         {completeButton}
