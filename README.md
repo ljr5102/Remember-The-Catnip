@@ -7,16 +7,16 @@ Explore and Get Organized at [rememberthecatnip.com](http://www.rememberthecatni
 ---
 
 ## Log-In
-![log-in]
+![login](/docs/screenshots/login.png)
 
 ## Sign-Up
-![sign-up]
+![sign-up](/docs/screenshots/signup.png)
 
 ## Tasks Index
-![index]
+![index](/docs/screenshots/tasksindex.png)
 
 ## Task Detail
-![detail]
+![detail](/docs/screenshots/taskdetail.png)
 
 ---
 ## Features
@@ -69,8 +69,4 @@ Explore and Get Organized at [rememberthecatnip.com](http://www.rememberthecatni
  - [ ] Allow for Recurring Tasks
 
 ---
-[Initial Documentation](./docs/README.md)
-[log-in]: ./docs/screenshots/login.png
-[sign-up]: ./docs/screenshots/signup.png
-[index]: ./docs/screenshots/tasksindex.png
-[detail]: ./docs/screenshots/taskdetail.png
+[Initial Documentation](/docs/README.md)
