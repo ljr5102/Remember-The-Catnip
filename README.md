@@ -2,7 +2,7 @@
 
 **Remember The Catnip** is a single-page web-application, inspired by **Remember The Milk**, for the organization and recording of tasks/reminders. Remember The Catnip was built using **Ruby on Rails** on the back-end, and uses **React.js** with **Flux** for the front-end.
 
-Explore and Get Organized at [rememberthecatnip.com](http://www.rememberthecatnip.com)
+Explore and Get Organized [here](http://remember-the-catnip.herokuapp.com)
 
 ---
 
